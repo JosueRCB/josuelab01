@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label *ngIf="props.name">{{props.name}}</label>
+    <p *ngIf="props.description">{{props.description}}</p>
+    <div class="radio" *ngFor="let button of props.buttons; let i = index">
+        <label>
+            <input type="radio" name={{props.id}} value="{{button.Id}}" [checked]="button.Id==props.selected.Reference" (change)="updateRadiobutton(i, $event)" />
+            {{button.Name}}
+        </label>
+    </div>
+    <span *ngIf="props.explanation" class="help-block">{{props.explanation}}</span>
+</div>

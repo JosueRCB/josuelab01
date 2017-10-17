@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "edit": "tripetto ./src/assets/form.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,17 +22,21 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "@tripetto/forms-collector": "^0.3.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
+    "superagent": "^3.6.3",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "1.4.7",
     "@angular/compiler-cli": "^4.2.4",
     "@angular/language-service": "^4.2.4",
+    "@tripetto/forms-editor": "^0.1.4",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "@types/superagent": "^3.5.6",
     "codelyzer": "~3.2.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
@@ -42,8 +47,33 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "tripetto-forms-checkbox": "^1.0.3",
+    "tripetto-forms-checkboxes": "^1.0.3",
+    "tripetto-forms-dropdown": "^1.0.3",
+    "tripetto-forms-email": "^1.0.3",
+    "tripetto-forms-number": "^1.0.3",
+    "tripetto-forms-password": "^1.0.3",
+    "tripetto-forms-radiobuttons": "^1.0.3",
+    "tripetto-forms-text": "^1.0.3",
+    "tripetto-forms-textarea": "^1.0.3",
+    "tripetto-forms-url": "^1.0.3",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.3.3"
+  },
+  "tripetto": {
+    "providers": [
+      "tripetto-forms-checkbox",
+      "tripetto-forms-checkboxes",
+      "tripetto-forms-dropdown",
+      "tripetto-forms-email",
+      "tripetto-forms-number",
+      "tripetto-forms-password",
+      "tripetto-forms-radiobuttons",
+      "tripetto-forms-text",
+      "tripetto-forms-textarea",
+      "tripetto-forms-url"
+    ],
+    "noFurtherLoading": true
   }
 }

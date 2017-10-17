@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label *ngIf="props.name">{{props.name}}
+        <span *ngIf="props.selected.Slot.Required" style="color: red;">*</span>
+    </label>
+    <p *ngIf="props.description">{{props.description}}</p>
+    <select class="form-control" [(ngModel)]="option">
+        <option *ngIf="props.placeholder" value="">{{props.placeholder}}</option>
+        <option *ngFor="let option of props.options" value="{{option.Id}}">{{option.Name}}</option>
+    </select>
+    <span *ngIf="props.explanation" class="help-block">{{props.explanation}}</span>
+</div>

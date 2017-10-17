@@ -1,0 +1,14 @@
+<section *ngIf="collector" class="container">
+  <h1 *ngIf="collector.Ontology">{{collector.Ontology.Name}}</h1>
+  <app-collector-wrapper *ngFor="let node of collector.Nodes" [node]="node"></app-collector-wrapper>
+  <button type="button" class="btn btn-default" [disabled]="!collector.Instance.Steps" (click)="clickPrevious()">
+    Back
+  </button>
+  <button *ngIf="!collector.Instance.IsAtEnd" type="button" class="btn btn-primary" [disabled]="collector.IsValidationFailed" (click)="clickNext()">
+     Next
+  </button>
+  <button *ngIf="collector.Instance.IsAtEnd" type="button" class="btn btn-success" [disabled]="collector.IsValidationFailed" (click)="clickNext()">
+    Complete
+  </button>
+  <span class="text-info" style="margin-left: 20px;">{{collector.ProgressPercentage}}%</span>
+</section>

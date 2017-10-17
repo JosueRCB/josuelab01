@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label *ngIf="props.name">{{props.name}}
+        <span *ngIf="props.data.Slot.Required" style="color: red;">*</span>
+    </label>
+    <p *ngIf="props.description">{{props.description}}</p>
+    <textarea #textarea class="form-control" rows="3" [(ngModel)]="props.data.Value" (focus)="textarea.value=props.data.Value" (blur)="textarea.value=props.data.String" placeholder="{{props.placeholder}}">
+    </textarea>
+    <span *ngIf="props.explanation" class="help-block">{{props.explanation}}</span>
+</div>

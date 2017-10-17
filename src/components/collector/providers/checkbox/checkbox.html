@@ -1,0 +1,8 @@
+<div class="form-group">
+    <label>
+        <input type="checkbox" [(ngModel)]="props.checked.Value" />
+        {{props.name}}
+        <span *ngIf="props.checked.Slot.Required" style="color: red;">*</span>
+    </label>
+    <span *ngIf="props.explanation" class="help-block">{{props.explanation}}</span>
+</div>
