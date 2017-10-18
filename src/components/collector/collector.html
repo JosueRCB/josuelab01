@@ -1,6 +1,19 @@
 <section *ngIf="collector" class="container">
+  <!-- Title -->
   <h1 *ngIf="collector.Ontology">{{collector.Ontology.Name}}</h1>
+
+  <!-- Form -->
   <app-collector-wrapper *ngFor="let node of collector.Nodes" [node]="node"></app-collector-wrapper>
+
+  <!-- Progress bar -->
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="collector.ProgressPercentage" aria-valuemin="0" aria-valuemax="100"
+      [ngStyle]="{ 'width': collector.ProgressPercentage + '%', 'min-width': '2em' }">
+      {{collector.ProgressPercentage}}%
+    </div>
+  </div>
+
+  <!-- Buttons -->
   <button type="button" class="btn btn-default" [disabled]="!collector.Instance.Steps" (click)="clickPrevious()">
     Back
   </button>
@@ -10,5 +23,4 @@
   <button *ngIf="collector.Instance.IsAtEnd" type="button" class="btn btn-success" [disabled]="collector.IsValidationFailed" (click)="clickNext()">
     Complete
   </button>
-  <span class="text-info" style="margin-left: 20px;">{{collector.ProgressPercentage}}%</span>
 </section>

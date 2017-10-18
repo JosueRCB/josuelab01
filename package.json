@@ -1,17 +1,32 @@
 {
-  "name": "angular",
+  "name": "tripetto-forms-examples-angular",
+  "title": "Tripetto Forms Collector example (Angular)",
   "version": "0.0.0",
+  "description": "Demo for implementing the Tripetto Forms collector using Angular.",
   "license": "MIT",
+  "private": true,
+  "homepage": "https://gitlab.com/tripetto/forms/examples/angular",
+  "author": {
+    "name": "Mark van den Brink",
+    "email": "mark@vandenbr.ink",
+    "url": "http://mark.vandenbr.ink"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/tripetto/forms/examples/angular.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/tripetto/forms/examples/angular/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "edit": "tripetto ./src/assets/form.json",
+    "tripetto": "tripetto ./src/assets/form.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
