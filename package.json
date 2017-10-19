@@ -23,6 +23,7 @@
     "start": "ng serve",
     "tripetto": "tripetto ./src/assets/form.json",
     "build": "ng build",
+    "make": "ng build -prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

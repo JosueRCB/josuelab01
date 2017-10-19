@@ -10,3 +10,4 @@ export const DECLARATIONS = [
 
 // Add the providers to the list of declarations
 Tripetto.NodeProviders.All.forEach((pProvider: Tripetto.TNodeProvider) => DECLARATIONS.push(pProvider.Component));
+

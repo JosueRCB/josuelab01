@@ -1,0 +1,13 @@
+image: node:alpine
+
+before_script:
+    - node --version
+    - npm --version
+    - npm install
+
+test:
+    script:
+        - npm run make --silent
+    artifacts:
+        paths:
+            - dist/

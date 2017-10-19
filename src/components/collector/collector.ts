@@ -8,7 +8,7 @@ import * as Tripetto from '@tripetto/forms-collector';
   styleUrls: ['./collector.css']
 })
 export class CollectorComponent implements OnInit {
-  private collector: Tripetto.Collector<{}>;
+  collector: Tripetto.Collector<{}>;
 
   constructor(private _http: HttpClient) {}
 
