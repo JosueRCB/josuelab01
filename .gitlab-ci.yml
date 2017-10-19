@@ -5,7 +5,7 @@ before_script:
     - npm --version
     - npm install
 
-test:
+make:
     script:
         - npm run make --silent
     artifacts:
