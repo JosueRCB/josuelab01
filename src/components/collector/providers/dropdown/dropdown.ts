@@ -6,52 +6,51 @@ import './condition';
 const SELECTOR = 'tripetto-forms-dropdown';
 
 interface IProps {
-    name: string;
-    description: string;
-    explanation: string;
-    placeholder: string;
-    options: IDropdownOption[];
-    selected: Tripetto.Data<string>;
+  name: string;
+  description: string;
+  explanation: string;
+  placeholder: string;
+  options: IDropdownOption[];
+  selected: Tripetto.Data<string>;
 }
 
 @Component({
-    selector: SELECTOR,
-    templateUrl: './dropdown.html',
-    styleUrls: ['./dropdown.css']
+  selector: SELECTOR,
+  templateUrl: './dropdown.html',
+  styleUrls: ['./dropdown.css']
 })
 class DropdownComponent {
-    @Input() props: IProps;
+  @Input() props: IProps;
 
-    get option(): string {
-        return this.props.selected.Reference;
-    }
+  get option(): string {
+    return this.props.selected.Reference;
+  }
 
-    set option(id: string | undefined) {
-        const value = Tripetto.F.FindFirst(this.props.options, (option: IDropdownOption) => option.Id === id);
+  set option(id: string | undefined) {
+    const value = Tripetto.F.FindFirst(this.props.options, (option: IDropdownOption) => option.Id === id);
 
-        this.props.selected.Set(value ? value.Value || value.Name : undefined, id);
-    }
+    this.props.selected.Set(value ? value.Value || value.Name : undefined, id);
+  }
 }
 
 @Tripetto.node(SELECTOR)
 export class DropdownProvider extends Tripetto.NodeProvider<IProps, IDropdown> {
-    static Component = DropdownComponent;
+  static Component = DropdownComponent;
 
-    public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {
-        return {
-            name: this.Node.Props.NameVisible && this.Node.Props.Name,
-            description: this.Node.Props.Description,
-            explanation: this.Node.Props.Explanation,
-            placeholder: this.Node.Props.Placeholder,
-            options: this.Props.Options,
-            selected: this.DataAssert<string>(instance, 'option')
-        };
-    }
+  public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {
+    return {
+      name: this.Node.Props.NameVisible && this.Node.Props.Name,
+      description: this.Node.Props.Description,
+      explanation: this.Node.Props.Explanation,
+      placeholder: this.Node.Props.Placeholder,
+      options: this.Props.Options,
+      selected: this.DataAssert<string>(instance, 'option')
+    };
+  }
 
-    public OnValidate(instance: Tripetto.Instance): boolean {
-        const dropdown = this.DataAssert<string>(instance, 'option');
+  public OnValidate(instance: Tripetto.Instance): boolean {
+    const dropdown = this.DataAssert<string>(instance, 'option');
 
-        return !dropdown.Slot.Required || dropdown.Reference !== '';
-    }
+    return !dropdown.Slot.Required || dropdown.Reference !== '';
+  }
 }
-

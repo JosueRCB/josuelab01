@@ -21,7 +21,7 @@
   "scripts": {
     "ng": "ng",
     "start": "tripetto ./src/assets/form.json",
-    "format": "prettier --tab-width 2 --print-width 140 --write \"src/**/*.ts\" \"src/**/*.html\"",
+    "format": "prettier --tab-width 2 --single-quote --print-width 140 --write \"src/**/*.ts\"",
     "build": "ng build",
     "make": "npm run format && npm run lint && ng build -prod",
     "test": "ng serve",
@@ -51,6 +51,7 @@
     "@tripetto/forms-editor": "^0.1.4",
     "@types/node": "~6.0.60",
     "@types/superagent": "^3.5.6",
+    "codelyzer": "^3.2.1",
     "tripetto-forms-checkbox": "^1.0.3",
     "tripetto-forms-checkboxes": "^1.0.3",
     "tripetto-forms-dropdown": "^1.0.3",

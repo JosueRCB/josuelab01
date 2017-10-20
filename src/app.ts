@@ -8,5 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(CollectorModule)
+platformBrowserDynamic()
+  .bootstrapModule(CollectorModule)
   .catch(err => console.log(err));

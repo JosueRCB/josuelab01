@@ -8,14 +8,8 @@ import { DECLARATIONS } from './declarations';
 
 @NgModule({
   declarations: DECLARATIONS,
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [
-    CollectorComponent
-  ]
+  bootstrap: [CollectorComponent]
 })
-export class CollectorModule { }
+export class CollectorModule {}

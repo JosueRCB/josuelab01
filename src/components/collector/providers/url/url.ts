@@ -7,48 +7,47 @@ const IS_URL = /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\
 const SELECTOR = 'tripetto-forms-url';
 
 interface IProps {
-    name: string;
-    description: string;
-    explanation: string;
-    placeholder: string;
-    data: Tripetto.Data<string>;
+  name: string;
+  description: string;
+  explanation: string;
+  placeholder: string;
+  data: Tripetto.Data<string>;
 }
 
 @Component({
-    selector: SELECTOR,
-    templateUrl: './url.html',
-    styleUrls: ['./url.css']
+  selector: SELECTOR,
+  templateUrl: './url.html',
+  styleUrls: ['./url.css']
 })
 class URLComponent {
-    @Input() props: IProps;
+  @Input() props: IProps;
 }
 
 @Tripetto.node(SELECTOR)
 export class URLProvider extends Tripetto.NodeProvider<IProps, IURL> {
-    static Component = URLComponent;
+  static Component = URLComponent;
 
-    public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {
-        return {
-            name: this.Node.Props.NameVisible && this.Node.Props.Name,
-            description: this.Node.Props.Description,
-            explanation: this.Node.Props.Explanation,
-            placeholder: this.Node.Props.Placeholder,
-            data: this.DataAssert<string>(instance, 'url')
-        };
+  public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {
+    return {
+      name: this.Node.Props.NameVisible && this.Node.Props.Name,
+      description: this.Node.Props.Description,
+      explanation: this.Node.Props.Explanation,
+      placeholder: this.Node.Props.Placeholder,
+      data: this.DataAssert<string>(instance, 'url')
+    };
+  }
+
+  public OnValidate(instance: Tripetto.Instance): boolean {
+    const url = this.DataAssert<string>(instance, 'url');
+
+    if (url.Slot.Required && url.Value === '') {
+      return false;
     }
 
-    public OnValidate(instance: Tripetto.Instance): boolean {
-        const url = this.DataAssert<string>(instance, 'url');
-
-        if (url.Slot.Required && url.Value === '') {
-            return false;
-        }
-
-        if (url.Value !== '' && !IS_URL.test(url.Value)) {
-            return false;
-        }
-
-        return true;
+    if (url.Value !== '' && !IS_URL.test(url.Value)) {
+      return false;
     }
+
+    return true;
+  }
 }
-

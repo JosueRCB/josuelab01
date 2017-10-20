@@ -7,48 +7,47 @@ const IS_EMAIL = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0
 const SELECTOR = 'tripetto-forms-email';
 
 interface IProps {
-    name: string;
-    description: string;
-    explanation: string;
-    placeholder: string;
-    data: Tripetto.Data<string>;
+  name: string;
+  description: string;
+  explanation: string;
+  placeholder: string;
+  data: Tripetto.Data<string>;
 }
 
 @Component({
-    selector: SELECTOR,
-    templateUrl: './email.html',
-    styleUrls: ['./email.css']
+  selector: SELECTOR,
+  templateUrl: './email.html',
+  styleUrls: ['./email.css']
 })
 class EmailComponent {
-    @Input() props: IProps;
+  @Input() props: IProps;
 }
 
 @Tripetto.node(SELECTOR)
 export class EmailProvider extends Tripetto.NodeProvider<IProps, IEmail> {
-    static Component = EmailComponent;
+  static Component = EmailComponent;
 
-    public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {
-        return {
-            name: this.Node.Props.NameVisible && this.Node.Props.Name,
-            description: this.Node.Props.Description,
-            explanation: this.Node.Props.Explanation,
-            placeholder: this.Node.Props.Placeholder,
-            data: this.DataAssert<string>(instance, 'email')
-        };
+  public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {
+    return {
+      name: this.Node.Props.NameVisible && this.Node.Props.Name,
+      description: this.Node.Props.Description,
+      explanation: this.Node.Props.Explanation,
+      placeholder: this.Node.Props.Placeholder,
+      data: this.DataAssert<string>(instance, 'email')
+    };
+  }
+
+  public OnValidate(instance: Tripetto.Instance): boolean {
+    const email = this.DataAssert<string>(instance, 'email');
+
+    if (email.Slot.Required && email.Value === '') {
+      return false;
     }
 
-    public OnValidate(instance: Tripetto.Instance): boolean {
-        const email = this.DataAssert<string>(instance, 'email');
-
-        if (email.Slot.Required && email.Value === '') {
-            return false;
-        }
-
-        if (email.Value !== '' && !IS_EMAIL.test(email.Value)) {
-            return false;
-        }
-
-        return true;
+    if (email.Value !== '' && !IS_EMAIL.test(email.Value)) {
+      return false;
     }
+
+    return true;
+  }
 }
-
