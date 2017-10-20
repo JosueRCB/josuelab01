@@ -1,4 +1,5 @@
 [![pipeline status](https://gitlab.com/tripetto/forms/examples/angular/badges/master/pipeline.svg)](https://gitlab.com/tripetto/forms/examples/angular/commits/master)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)]
 [![docs](https://img.shields.io/badge/docs-website-blue.svg)](https://forms.tripetto.community/collector)
 [![chat](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/tripetto/forms)
 
@@ -23,12 +24,12 @@ $ npm install
 
 3. Start the dev server by running the command below. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 ```bash
-$ npm start
+$ npm test
 ```
 
 4. Open another terminal/command prompt and start the editor (this will open an example definition file located at `./src/assets/form.json`):
 ```bash
-$ npm run tripetto
+$ npm start
 ```
 
 This last command will probably automatically open your default browser with the URL http://localhost:3333. If not, open the browser of your choice and navigate to this URL.
