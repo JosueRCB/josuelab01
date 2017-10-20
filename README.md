@@ -1,5 +1,5 @@
 [![pipeline status](https://gitlab.com/tripetto/forms/examples/angular/badges/master/pipeline.svg)](https://gitlab.com/tripetto/forms/examples/angular/commits/master)
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)]
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![docs](https://img.shields.io/badge/docs-website-blue.svg)](https://forms.tripetto.community/collector)
 [![chat](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/tripetto/forms)
 
