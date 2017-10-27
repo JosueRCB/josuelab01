@@ -3,7 +3,7 @@
     <p *ngIf="props.description">{{props.description}}</p>
     <div class="radio" *ngFor="let button of props.buttons; let i = index">
         <label>
-            <input type="radio" name={{props.id}} value="{{button.Id}}" [checked]="button.Id==props.selected.Reference" (change)="updateRadiobutton(i, $event)" />
+            <input type="radio" name="{{props.id}}" value="{{button.Id}}" [checked]="button.Id==props.selected.Reference" (change)="updateRadiobutton(i, $event)" />
             {{button.Name}}
         </label>
     </div>

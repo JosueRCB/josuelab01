@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="progress" style="margin-top: 20px">
-          <div class="progress-bar" role="progressbar" aria-valuenow="collector.ProgressPercentage" aria-valuemin="0" aria-valuemax="100"
+          <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="collector.ProgressPercentage" aria-valuemin="0" aria-valuemax="100"
             [ngStyle]="{ 'width': collector.ProgressPercentage + '%', 'min-width': '2em' }">
             {{collector.ProgressPercentage}}%
           </div>
