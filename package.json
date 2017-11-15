@@ -37,9 +37,9 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
-    "@tripetto/forms-collector": "^0.3.4",
+    "@tripetto/forms-collector": "^0.3.8",
     "core-js": "^2.4.1",
-    "prettier": "^1.7.4",
+    "prettier": "^1.8.2",
     "rxjs": "^5.4.2",
     "superagent": "^3.6.3",
     "zone.js": "^0.8.14"
@@ -62,8 +62,8 @@
     "tripetto-forms-text": "^1.0.5",
     "tripetto-forms-textarea": "^1.0.5",
     "tripetto-forms-url": "^1.0.5",
-    "ts-node": "~3.2.0",
-    "tslint": "~5.7.0",
+    "ts-node": "~3.3.0",
+    "tslint": "~5.8.0",
     "typescript": "~2.3.3"
   },
   "tripetto": {
