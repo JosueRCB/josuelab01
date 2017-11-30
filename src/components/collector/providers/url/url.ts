@@ -11,6 +11,7 @@ interface IProps {
   description: string;
   explanation: string;
   placeholder: string;
+  slot: Tripetto.Slot;
   data: Tripetto.Data<string>;
 }
 
@@ -33,14 +34,16 @@ export class URLProvider extends Tripetto.NodeProvider<IProps, IURL> {
       description: this.Node.Props.Description,
       explanation: this.Node.Props.Explanation,
       placeholder: this.Node.Props.Placeholder,
+      slot: this.SlotAssert('url'),
       data: this.DataAssert<string>(instance, 'url')
     };
   }
 
   public OnValidate(instance: Tripetto.Instance): boolean {
-    const url = this.DataAssert<string>(instance, 'url');
+    const slot = this.SlotAssert('url');
+    const url = this.DataAssert<string>(instance, slot);
 
-    if (url.Slot.Required && url.Value === '') {
+    if (slot.Required && url.Value === '') {
       return false;
     }
 

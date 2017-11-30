@@ -7,6 +7,7 @@ const SELECTOR = 'tripetto-forms-checkbox';
 interface IProps {
   name: string;
   explanation: string;
+  slot: Tripetto.Slot;
   checked: Tripetto.Data<boolean>;
 }
 
@@ -27,13 +28,15 @@ export class CheckboxProvider extends Tripetto.NodeProvider<IProps, ICheckbox> {
     return {
       name: this.Node.Props.Name,
       explanation: this.Node.Props.Explanation,
+      slot: this.SlotAssert('checked'),
       checked: this.DataAssert<boolean>(instance, 'checked')
     };
   }
 
   public OnValidate(instance: Tripetto.Instance): boolean {
-    const checkbox = this.DataAssert<boolean>(instance, 'checked');
+    const slot = this.SlotAssert('checked');
+    const checkbox = this.DataAssert<boolean>(instance, slot);
 
-    return !checkbox.Slot.Required || checkbox.Value;
+    return !slot.Required || checkbox.Value;
   }
 }

@@ -10,6 +10,7 @@ interface IProps {
   description: string;
   explanation: string;
   placeholder: string;
+  slot: Tripetto.Slot;
   data: Tripetto.Data<string>;
 }
 
@@ -32,13 +33,15 @@ export class TextProvider extends Tripetto.NodeProvider<IProps, IText> {
       description: this.Node.Props.Description,
       explanation: this.Node.Props.Explanation,
       placeholder: this.Node.Props.Placeholder,
+      slot: this.SlotAssert('value'),
       data: this.DataAssert<string>(instance, 'value')
     };
   }
 
   public OnValidate(instance: Tripetto.Instance): boolean {
-    const text = this.DataAssert<string>(instance, 'value');
+    const slot = this.SlotAssert('value');
+    const text = this.DataAssert<string>(instance, slot);
 
-    return !text.Slot.Required || text.Value !== '';
+    return !slot.Required || text.Value !== '';
   }
 }

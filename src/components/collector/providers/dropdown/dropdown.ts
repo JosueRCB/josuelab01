@@ -11,6 +11,7 @@ interface IProps {
   explanation: string;
   placeholder: string;
   options: IDropdownOption[];
+  slot: Tripetto.Slot;
   selected: Tripetto.Data<string>;
 }
 
@@ -44,13 +45,15 @@ export class DropdownProvider extends Tripetto.NodeProvider<IProps, IDropdown> {
       explanation: this.Node.Props.Explanation,
       placeholder: this.Node.Props.Placeholder,
       options: this.Props.Options,
+      slot: this.SlotAssert('option'),
       selected: this.DataAssert<string>(instance, 'option')
     };
   }
 
   public OnValidate(instance: Tripetto.Instance): boolean {
-    const dropdown = this.DataAssert<string>(instance, 'option');
+    const slot = this.SlotAssert('option');
+    const dropdown = this.DataAssert<string>(instance, slot);
 
-    return !dropdown.Slot.Required || dropdown.Reference !== '';
+    return !slot.Required || dropdown.Reference !== '';
   }
 }

@@ -11,6 +11,7 @@ interface IProps {
   description: string;
   explanation: string;
   placeholder: string;
+  slot: Tripetto.Slot;
   data: Tripetto.Data<string>;
 }
 
@@ -33,14 +34,16 @@ export class EmailProvider extends Tripetto.NodeProvider<IProps, IEmail> {
       description: this.Node.Props.Description,
       explanation: this.Node.Props.Explanation,
       placeholder: this.Node.Props.Placeholder,
+      slot: this.SlotAssert('email'),
       data: this.DataAssert<string>(instance, 'email')
     };
   }
 
   public OnValidate(instance: Tripetto.Instance): boolean {
-    const email = this.DataAssert<string>(instance, 'email');
+    const slot = this.SlotAssert('email');
+    const email = this.DataAssert<string>(instance, slot);
 
-    if (email.Slot.Required && email.Value === '') {
+    if (slot.Required && email.Value === '') {
       return false;
     }
 
