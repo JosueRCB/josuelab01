@@ -90,7 +90,7 @@
           "Id":
             "e66708029319222bf03104a0c8b28b86ceb07fafdd3e424be72db8264fad6bb8",
           "Explanation": "",
-          "Name": "Have you tried Tripetto Forms?",
+          "Name": "Have you already tried Tripetto?",
           "NameVisible": true,
           "Placeholder": "Please make a choice...",
           "Description": "",
@@ -121,7 +121,7 @@
               "Reference": "option",
               "Sequence": 0,
               "Name": "",
-              "Placeholder": "Have you tried Tripetto Forms?",
+              "Placeholder": "Have you already tried Tripetto?",
               "Alias": "",
               "Required": true
             }
@@ -303,5 +303,5 @@
       ]
     }
   ],
-  "Editor": { "Name": "tripetto", "Version": "0.4.2" }
+  "Editor": { "Name": "tripetto", "Version": "0.4.5" }
 }
