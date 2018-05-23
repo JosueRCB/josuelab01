@@ -2,7 +2,7 @@
   "name": "tripetto-example-angular",
   "title": "Tripetto collector example (Angular)",
   "version": "0.0.0",
-  "description": "Demo for implementing the Tripetto collector using Angular with Material-UI including pause/resume functionality.",
+  "description": "Demo for implementing the Tripetto collector using Angular including pause/resume functionality.",
   "license": "MIT",
   "private": true,
   "homepage": "https://gitlab.com/tripetto/examples/angular",
