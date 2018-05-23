@@ -1,4 +1,4 @@
-/** Import providers */
+/** Import blocks */
 import './checkbox/checkbox';
 import './checkboxes/checkboxes';
 import './dropdown/dropdown';

@@ -1,9 +1,9 @@
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
-import { IText } from 'tripetto-forms-text';
+import { IText } from 'tripetto-block-text';
 import './condition';
 
-const SELECTOR = 'tripetto-forms-text';
+const SELECTOR = 'tripetto-block-text';
 
 interface IProps {
   name: string;
@@ -24,7 +24,7 @@ class TextComponent {
 }
 
 @Tripetto.node(SELECTOR)
-export class TextProvider extends Tripetto.NodeProvider<IProps, IText> {
+export class TextBlock extends Tripetto.NodeBlock<IProps, IText> {
   static Component = TextComponent;
 
   public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {

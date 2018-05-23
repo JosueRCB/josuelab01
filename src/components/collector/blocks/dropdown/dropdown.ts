@@ -1,9 +1,9 @@
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
-import { IDropdown, IDropdownOption } from 'tripetto-forms-dropdown';
+import { IDropdown, IDropdownOption } from 'tripetto-block-dropdown';
 import './condition';
 
-const SELECTOR = 'tripetto-forms-dropdown';
+const SELECTOR = 'tripetto-block-dropdown';
 
 interface IProps {
   name: string;
@@ -35,7 +35,7 @@ class DropdownComponent {
 }
 
 @Tripetto.node(SELECTOR)
-export class DropdownProvider extends Tripetto.NodeProvider<IProps, IDropdown> {
+export class DropdownBlock extends Tripetto.NodeBlock<IProps, IDropdown> {
   static Component = DropdownComponent;
 
   public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {

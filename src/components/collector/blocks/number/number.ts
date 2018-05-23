@@ -1,8 +1,8 @@
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
-import { ITextarea } from 'tripetto-forms-textarea';
+import { INumber } from 'tripetto-block-number';
 
-const SELECTOR = 'tripetto-forms-textarea';
+const SELECTOR = 'tripetto-block-number';
 
 interface IProps {
   name: string;
@@ -10,21 +10,21 @@ interface IProps {
   explanation: string;
   placeholder: string;
   slot: Tripetto.Slot;
-  data: Tripetto.Data<string>;
+  data: Tripetto.Data<number>;
 }
 
 @Component({
   selector: SELECTOR,
-  templateUrl: './textarea.html',
-  styleUrls: ['./textarea.css']
+  templateUrl: './number.html',
+  styleUrls: ['./number.css']
 })
-class TextareaComponent {
+class NumberComponent {
   @Input() props: IProps;
 }
 
 @Tripetto.node(SELECTOR)
-export class TextareaProvider extends Tripetto.NodeProvider<IProps, ITextarea> {
-  static Component = TextareaComponent;
+export class NumberBlock extends Tripetto.NodeBlock<IProps, INumber> {
+  static Component = NumberComponent;
 
   public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {
     return {
@@ -32,15 +32,15 @@ export class TextareaProvider extends Tripetto.NodeProvider<IProps, ITextarea> {
       description: this.Node.Props.Description,
       explanation: this.Node.Props.Explanation,
       placeholder: this.Node.Props.Placeholder,
-      slot: this.SlotAssert('value'),
-      data: this.DataAssert<string>(instance, 'value')
+      slot: this.SlotAssert('number'),
+      data: this.DataAssert<number>(instance, 'number')
     };
   }
 
   public OnValidate(instance: Tripetto.Instance): boolean {
-    const slot = this.SlotAssert('value');
-    const value = this.DataAssert<string>(instance, slot);
+    const slot = this.SlotAssert('number');
+    const value = this.DataAssert<number>(instance, slot);
 
-    return !slot.Required || value.Value !== '';
+    return !slot.Required || value.String !== '';
   }
 }

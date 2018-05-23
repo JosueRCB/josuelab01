@@ -1,0 +1,307 @@
+{
+  "Id": "bc721dde21b835829a3923de59a2615c3671ec30cd693983378cc01e94d331b9",
+  "Name": "Demo survey",
+  "Clusters": [
+    {
+      "Id": "729d967db0145f63daec2f59e694548d118ece6e4c5c027a84c8b5c8c5799505",
+      "Name": "Customer satisfaction",
+      "Nodes": [
+        {
+          "Id":
+            "0455f698eda11649d0862acae9363ebfb4da3bb24b7e679a92ecd5710cbb664a",
+          "Explanation": "",
+          "Name": "We like to hear from you!",
+          "NameVisible": true,
+          "Placeholder": "",
+          "Description":
+            "Please let us know what you think of Tripetto. We really like to hear how and where we can improve."
+        },
+        {
+          "Id":
+            "1d14df3eab492f8cfb99e0ce8630efadf670f18a7983f7af9726bf84cf67519a",
+          "Explanation": "",
+          "Name": "What's your name?",
+          "NameVisible": true,
+          "Placeholder": "",
+          "Description": "",
+          "Block": { "Type": "tripetto-block-text", "Version": "1.0.12" },
+          "Slots": [
+            {
+              "Id":
+                "b135aa8dfb6f6fa74e6743cfa3737f55c033d751cadc9e4d0f1fbaeec36cccbc",
+              "Type": "Text",
+              "Kind": "static",
+              "Reference": "value",
+              "Sequence": 0,
+              "Name": "",
+              "Placeholder": "What's your name?",
+              "Alias": "",
+              "Transformation": "none"
+            }
+          ]
+        },
+        {
+          "Id":
+            "46cb421f598a1c8023f9f445f0c1af4c3d6497ba45f9aeb24a545acfdb9e33e6",
+          "Explanation": "",
+          "Name": "How would you describe your developer skills?",
+          "NameVisible": true,
+          "Placeholder": "",
+          "Description": "",
+          "Block": {
+            "Type": "tripetto-block-radiobuttons",
+            "Version": "1.0.12",
+            "Radiobuttons": [
+              {
+                "Id":
+                  "a6c1ba8f58548cffe71e40e0d2f4bffa95f3e026c0e7a1c26f6d2087599b17e9",
+                "Name": "Beginner",
+                "Value": ""
+              },
+              {
+                "Id":
+                  "a931f5bebf700875787192b5981bcb6ce805ff5165dbd07fc616ce30b75434bf",
+                "Name": "Advanced",
+                "Value": ""
+              },
+              {
+                "Id":
+                  "4e1d4dc07a5d741cfe197297163d2008b58d87f627d2e94f7dc138bdc968ce61",
+                "Name": "Expert",
+                "Value": ""
+              }
+            ]
+          },
+          "Slots": [
+            {
+              "Id":
+                "de42eb833c6133c0c015a28e7fff03380efe61c3acd0b397fdb624ee7f1c9cd3",
+              "Type": "String",
+              "Kind": "static",
+              "Reference": "button",
+              "Sequence": 0,
+              "Name": "",
+              "Placeholder": "How would you describe your developer skills?",
+              "Alias": ""
+            }
+          ]
+        },
+        {
+          "Id":
+            "e66708029319222bf03104a0c8b28b86ceb07fafdd3e424be72db8264fad6bb8",
+          "Explanation": "",
+          "Name": "Have you tried Tripetto Forms?",
+          "NameVisible": true,
+          "Placeholder": "Please make a choice...",
+          "Description": "",
+          "Block": {
+            "Type": "tripetto-block-dropdown",
+            "Version": "1.0.13",
+            "Options": [
+              {
+                "Id":
+                  "52c5bbf9dbe52ad692da9c61a0352a7cc9b801a7b44faee4a9d23ca9e31a2690",
+                "Name": "Yes",
+                "Value": ""
+              },
+              {
+                "Id":
+                  "dbcd470a4a8177699454d7108542b4f7aba028c9bf682c3e8312c8a04e5edd4b",
+                "Name": "No",
+                "Value": ""
+              }
+            ]
+          },
+          "Slots": [
+            {
+              "Id":
+                "ef6ad34f761c8194d4b00ed5190b5ac7228ded012bc90e5fafbc4a33914dbf4c",
+              "Type": "String",
+              "Kind": "static",
+              "Reference": "option",
+              "Sequence": 0,
+              "Name": "",
+              "Placeholder": "Have you tried Tripetto Forms?",
+              "Alias": "",
+              "Required": true
+            }
+          ]
+        }
+      ],
+      "Branches": [
+        {
+          "Id":
+            "34670bfdd88ea3c8bba218207486cfec8eaafbad6e08f5992418c332db67ae4b",
+          "Culling": "first",
+          "Name": "",
+          "Clusters": [
+            {
+              "Id":
+                "2e70ae9a361792829c09386c640939c8bbd8f4e228cf9c45b24fddd85e50f5ca",
+              "Name": "",
+              "Nodes": [
+                {
+                  "Id":
+                    "1e24436e4928db6d00eb44335868fb0d5d47d4f6c86d68e46e9ae5458cfdf8c9",
+                  "Explanation": "",
+                  "Name": "Did you like it?",
+                  "NameVisible": true,
+                  "Placeholder": "Please make a choice...",
+                  "Description": "",
+                  "Block": {
+                    "Type": "tripetto-block-dropdown",
+                    "Version": "1.0.13",
+                    "Options": [
+                      {
+                        "Id":
+                          "3aab1642aefce325617ae0896e756df289d6d6846e6ea0bfa54c3f942ffb75f2",
+                        "Name": "Yes",
+                        "Value": ""
+                      },
+                      {
+                        "Id":
+                          "2b039feaba85b7a3771780090e4bc916f9c460d4c5691fefea3b7095873b21e6",
+                        "Name": "No",
+                        "Value": ""
+                      }
+                    ]
+                  },
+                  "Slots": [
+                    {
+                      "Id":
+                        "9151b63d49e6476f628225f54c03b48bd4bb2cb00113b856c0df0c7f87a36367",
+                      "Type": "String",
+                      "Kind": "static",
+                      "Reference": "option",
+                      "Sequence": 0,
+                      "Name": "",
+                      "Placeholder": "Did you like it?",
+                      "Alias": "",
+                      "Required": true
+                    }
+                  ]
+                }
+              ],
+              "Branches": [
+                {
+                  "Id":
+                    "22cc2a165549494468b2a618a5b2ae6b88e4dffdc1021dfe48ef6eca2731e8f9",
+                  "Culling": "first",
+                  "Name": "Satisfied",
+                  "Conditions": [
+                    {
+                      "Id":
+                        "a84e8f1bfd5ddd79dbbffcb97eef696d55a2218e9144d62a9a33f08fe43f0ff3",
+                      "Block": {
+                        "Option":
+                          "3aab1642aefce325617ae0896e756df289d6d6846e6ea0bfa54c3f942ffb75f2",
+                        "Type": "tripetto-block-dropdown.is-option-selected",
+                        "Version": "1.0.13",
+                        "Node":
+                          "1e24436e4928db6d00eb44335868fb0d5d47d4f6c86d68e46e9ae5458cfdf8c9",
+                        "Slot":
+                          "9151b63d49e6476f628225f54c03b48bd4bb2cb00113b856c0df0c7f87a36367"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Id":
+                    "5e8661c3f7e1d1c7d01dce6baccf954bbc6ad5788b4b39d8b986f6fe5b86115d",
+                  "Culling": "first",
+                  "Name": "Not satisfied",
+                  "Clusters": [
+                    {
+                      "Id":
+                        "efb78d104d3eb44a273a2133f1332e62ad8b795d1c6ae4b4e528d6e8ecb56b3d",
+                      "Name": "Feedback",
+                      "Nodes": [
+                        {
+                          "Id":
+                            "eec4680558108b490c4e39915aa18d83a8af1111e6c876be33a0ff0e2f7b96f6",
+                          "Explanation": "",
+                          "Name": "Tell us what we can do to improve it.",
+                          "NameVisible": true,
+                          "Placeholder": "",
+                          "Description": "",
+                          "Block": {
+                            "Type": "tripetto-block-textarea",
+                            "Version": "1.0.11"
+                          },
+                          "Slots": [
+                            {
+                              "Id":
+                                "7735eea87da6e2b46e7ef67203eda7ae92d458730dea903a1e6bd6c7d4ae29f7",
+                              "Type": "Text",
+                              "Kind": "static",
+                              "Reference": "value",
+                              "Sequence": 0,
+                              "Name": "",
+                              "Placeholder":
+                                "Tell us what we can do to improve it.",
+                              "Alias": "",
+                              "Transformation": "none"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "Conditions": [
+                    {
+                      "Id":
+                        "8f42b529dfafe4455a9a3a14523907a0c7fcff95c6ff116cb3e3bc7fe73bd247",
+                      "Block": {
+                        "Option":
+                          "2b039feaba85b7a3771780090e4bc916f9c460d4c5691fefea3b7095873b21e6",
+                        "Type": "tripetto-block-dropdown.is-option-selected",
+                        "Version": "1.0.13",
+                        "Node":
+                          "1e24436e4928db6d00eb44335868fb0d5d47d4f6c86d68e46e9ae5458cfdf8c9",
+                        "Slot":
+                          "9151b63d49e6476f628225f54c03b48bd4bb2cb00113b856c0df0c7f87a36367"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "Conditions": [
+            {
+              "Id":
+                "3c98a130d4faab76012b7b176fb3909560e5916e6d0d6a7187525624ee795779",
+              "Block": {
+                "Option":
+                  "52c5bbf9dbe52ad692da9c61a0352a7cc9b801a7b44faee4a9d23ca9e31a2690",
+                "Type": "tripetto-block-dropdown.is-option-selected",
+                "Version": "1.0.13",
+                "Node":
+                  "e66708029319222bf03104a0c8b28b86ceb07fafdd3e424be72db8264fad6bb8",
+                "Slot":
+                  "ef6ad34f761c8194d4b00ed5190b5ac7228ded012bc90e5fafbc4a33914dbf4c"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "1b2dc65a73a626b178fd9032edc087ff6350deed13d43441701d94b9f692f5f0",
+      "Name": "Message",
+      "Nodes": [
+        {
+          "Id":
+            "961a725a3a018c3b6c9a3a2ec976a1aeefac1e74027a126a545a7934cd9a27f1",
+          "Explanation": "",
+          "Name": "Thank you for your feedback!",
+          "NameVisible": true,
+          "Placeholder": "",
+          "Description":
+            "This is a demo application. No data is actually sent.\n\nClick the `Complete`-button and open your developer console to see the collected data."
+        }
+      ]
+    }
+  ],
+  "Editor": { "Name": "tripetto", "Version": "0.4.2" }
+}

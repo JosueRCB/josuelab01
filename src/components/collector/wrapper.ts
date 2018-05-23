@@ -1,4 +1,4 @@
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
 import { TEMPLATE } from './template';
 
@@ -21,16 +21,16 @@ export class WrapperComponent {
   }
 
   get type(): string {
-    return this.node.Props.Provider ? this.node.Props.Provider.Type : '';
+    return this.node.Props.Block ? this.node.Props.Block.Type : '';
   }
 
   get props(): {} {
-    const provider = this.node.Provider as Tripetto.NodeProvider<{}> | undefined;
+    const block = this.node.Block as Tripetto.NodeBlock<{}> | undefined;
 
-    if (!provider) {
-      throw new Error('The provider is invalid!');
+    if (!block) {
+      throw new Error('The block is invalid!');
     }
 
-    return provider.OnRender(this.node.Instance, this.node.Observer);
+    return block.OnRender(this.node.Instance, this.node.Observer);
   }
 }

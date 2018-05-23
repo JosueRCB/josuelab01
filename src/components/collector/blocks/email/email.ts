@@ -1,10 +1,10 @@
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
-import { IEmail } from 'tripetto-forms-email';
+import { IEmail } from 'tripetto-block-email';
 
 /* tslint:disable-next-line:max-line-length */
 const IS_EMAIL = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-const SELECTOR = 'tripetto-forms-email';
+const SELECTOR = 'tripetto-block-email';
 
 interface IProps {
   name: string;
@@ -25,7 +25,7 @@ class EmailComponent {
 }
 
 @Tripetto.node(SELECTOR)
-export class EmailProvider extends Tripetto.NodeProvider<IProps, IEmail> {
+export class EmailBlock extends Tripetto.NodeBlock<IProps, IEmail> {
   static Component = EmailComponent;
 
   public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {

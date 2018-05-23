@@ -1,8 +1,8 @@
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
-import { IPassword } from 'tripetto-forms-password';
+import { IPassword } from 'tripetto-block-password';
 
-const SELECTOR = 'tripetto-forms-password';
+const SELECTOR = 'tripetto-block-password';
 
 interface IProps {
   name: string;
@@ -23,7 +23,7 @@ class PasswordComponent {
 }
 
 @Tripetto.node(SELECTOR)
-export class PasswordProvider extends Tripetto.NodeProvider<IProps, IPassword> {
+export class PasswordBlock extends Tripetto.NodeBlock<IProps, IPassword> {
   static Component = PasswordComponent;
 
   public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {

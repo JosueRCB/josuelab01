@@ -1,8 +1,8 @@
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
-import { IRadiobuttons, IRadiobutton } from 'tripetto-forms-radiobuttons';
+import { IRadiobuttons, IRadiobutton } from 'tripetto-block-radiobuttons';
 
-const SELECTOR = 'tripetto-forms-radiobuttons';
+const SELECTOR = 'tripetto-block-radiobuttons';
 
 interface IProps {
   id: string;
@@ -34,7 +34,7 @@ class RadiobuttonsComponent {
 }
 
 @Tripetto.node(SELECTOR)
-export class RadiobuttonsProvider extends Tripetto.NodeProvider<IProps, IRadiobuttons> {
+export class RadiobuttonsBlock extends Tripetto.NodeBlock<IProps, IRadiobuttons> {
   static Component = RadiobuttonsComponent;
 
   public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {

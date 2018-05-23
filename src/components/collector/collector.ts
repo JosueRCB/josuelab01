@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 
 @Component({
   selector: 'app-collector',
@@ -14,7 +14,7 @@ export class CollectorComponent implements OnInit {
   constructor(private _http: HttpClient) {}
 
   ngOnInit() {
-    this._http.get('/assets/form.json').subscribe((data: Tripetto.IMap) => {
+    this._http.get('/assets/demo.json').subscribe((data: Tripetto.IMap) => {
       this.collector = new Tripetto.Collector<{}>(data, false, undefined, this.end.bind(this));
 
       this.collector.Start();

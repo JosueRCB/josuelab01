@@ -1,8 +1,8 @@
-import * as Tripetto from '@tripetto/forms-collector';
+import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
-import { ICheckbox, ICheckboxes } from 'tripetto-forms-checkboxes';
+import { ICheckbox, ICheckboxes } from 'tripetto-block-checkboxes';
 
-const SELECTOR = 'tripetto-forms-checkboxes';
+const SELECTOR = 'tripetto-block-checkboxes';
 
 interface IProps {
   name: string;
@@ -32,7 +32,7 @@ class CheckboxesComponent {
 }
 
 @Tripetto.node(SELECTOR)
-export class CheckboxesProvider extends Tripetto.NodeProvider<IProps, ICheckboxes> {
+export class CheckboxesBlock extends Tripetto.NodeBlock<IProps, ICheckboxes> {
   static Component = CheckboxesComponent;
 
   public OnRender(instance: Tripetto.Instance, action: Tripetto.Await): IProps {
