@@ -14,7 +14,7 @@ export class CollectorComponent implements OnInit {
   constructor(private _http: HttpClient) {}
 
   ngOnInit() {
-    this._http.get('/assets/demo.json').subscribe((data: Tripetto.IMap) => {
+    this._http.get('/assets/demo.json').subscribe((data: Tripetto.IDefinition) => {
       this.collector = new Tripetto.Collector<{}>(data, false, undefined, this.end.bind(this));
 
       this.collector.Start();
