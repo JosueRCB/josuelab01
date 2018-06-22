@@ -1,6 +1,7 @@
 import * as Tripetto from 'tripetto-collector';
 import { Component, Input } from '@angular/core';
 import { ICheckbox } from 'tripetto-block-checkbox';
+import './conditions';
 
 const SELECTOR = 'tripetto-block-checkbox';
 
