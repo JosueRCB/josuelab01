@@ -2,13 +2,11 @@
   <div class="custom-control custom-checkbox">
       <input
           type="checkbox"
-          id="{{block.key()}}"
+          id={{block.key()}}
           [(ngModel)]="block.checked"
           class="custom-control-input"
       />
-      <label for={{block.key()}} class="custom-control-label">
-        {{name}}
-        <span *ngIf="block.required" class="text-danger">*</span>
-      </label>
-  </div>
+      <label for={{block.key()}} class="custom-control-label" markdown [content]="name" [context]="context" [required]="block.required" lineBreaks=false></label>
+    </div>
+    <small *ngIf="explanation" class="form-text text-secondary" markdown [content]="explanation" [context]="context"></small>
 </div>

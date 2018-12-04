@@ -1,6 +1,6 @@
 import * as Tripetto from 'tripetto-collector';
 import { Block, BlockBaseComponent } from '../block';
-import { Checkbox } from 'tripetto-block-checkbox/collector/es5';
+import { Checkbox } from 'tripetto-block-checkbox/collector';
 import { Component } from '@angular/core';
 
 @Block({

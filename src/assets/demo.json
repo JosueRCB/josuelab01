@@ -10,9 +10,26 @@
           "description": "vfsdvfs\nvf\nsvf\nsdf"
         },
         {
+          "id": "63a9f150e18c81140886d80256be2ca450137739129437a747c1741cb8c11386",
+          "name": "Wat is je **naam**?",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "d2af8b037fbacd36d3f016234d88b8db0ab1c1a3e329ef526dd95fbaffda4128",
+              "type": "text",
+              "kind": "static",
+              "reference": "value",
+              "label": "Tekst",
+              "alias": "NAME",
+              "required": true
+            }
+          ],
+          "block": { "type": "tripetto-block-text", "version": "1.0.13-11" }
+        },
+        {
           "id": "5a8e6c09221a5e835922019efa9adc0c2a44319b186dbaf93f2da532a836d9b9",
-          "explanation": "Hulp",
-          "name": "Ga akkoord met deze checkbox!",
+          "explanation": "Hulp**vffd**@f0cd66a4a706f163685f6a05fb97bf759dabed3e1a708cbde5ad665fd18b7dcc",
+          "name": "@d2af8b037fbacd36d3f016234d88b8db0ab1c1a3e329ef526dd95fbaffda4128, ga akkoord met deze checkbox!",
           "slots": [
             {
               "id": "f0cd66a4a706f163685f6a05fb97bf759dabed3e1a708cbde5ad665fd18b7dcc",

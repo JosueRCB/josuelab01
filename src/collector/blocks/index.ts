@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { template, IBlockComponent, BlockBaseComponent } from './block';
+import { template, BlockBaseComponent } from './block';
+import { blocks } from './block';
 
 /** Import blocks */
 import './checkbox/checkbox';
+import './text/text';
 /*
 import './checkboxes/checkboxes';
 import './dropdown/dropdown';
@@ -10,7 +12,6 @@ import './email/email';
 import './number/number';
 import './password/password';
 import './radiobuttons/radiobuttons';
-import './text/text';
 import './textarea/textarea';
 import './url/url';
 */
@@ -25,4 +26,4 @@ import './url/url';
     </div>
   `
 })
-export class BlockComponent extends BlockBaseComponent implements IBlockComponent {}
+export class BlockContainerComponent extends BlockBaseComponent {}

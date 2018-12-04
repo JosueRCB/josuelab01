@@ -1,18 +1,18 @@
 import { Input, Type } from '@angular/core';
-import { TNodeBlock, block, IObservableNode, NodeBlock, isString, castToBoolean, markdownifyToString } from 'tripetto-collector';
+import { Context, TNodeBlock, block, IObservableNode, NodeBlock, isString, castToBoolean, markdownifyToString } from 'tripetto-collector';
 
 export const blocks: Type<any>[] = [];
 export let template = '';
-
-export interface IBlockComponent {
-  name: string;
-}
 
 export abstract class BlockBaseComponent {
   @Input() node: IObservableNode;
 
   get type(): string {
     return this.node.props.block ? this.node.props.block.type : '';
+  }
+
+  get context(): Context {
+    return this.node.context;
   }
 
   get name(): string {
@@ -28,11 +28,15 @@ export abstract class BlockBaseComponent {
   }
 
   get placeholder(): string {
-    return markdownifyToString(this.node.props.placeholder || '', this.node.context, '...');
+    return markdownifyToString(this.node.props.placeholder || '', this.context, '...');
   }
 
   get block(): NodeBlock {
     return this.node.block;
+  }
+
+  get html(): string {
+    return '<b>Hallo</b>';
   }
 }
 

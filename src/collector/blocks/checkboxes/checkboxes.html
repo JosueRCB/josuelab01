@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label *ngIf="props.name">{{props.name}}</label>
+    <p *ngIf="props.description">{{props.description}}</p>
+    <div class="checkbox" *ngFor="let checkbox of props.checkboxes; let i = index">
+        <label>
+            <input type="checkbox" [checked]="checkbox.checked.Value" (change)="updateCheckbox(i, $event)" />
+            {{checkbox.name}}
+        </label>
+    </div>
+    <span *ngIf="props.explanation" class="help-block">{{props.explanation}}</span>
+</div>
