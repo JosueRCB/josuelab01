@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CollectorComponent } from './collector.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-import { CollectorComponent } from './collector';
-import { DECLARATIONS } from './declarations';
+import { NgModule } from '@angular/core';
+import { BlockComponent } from './blocks/block.component';
+import { blocks } from './blocks/block';
 
 @NgModule({
-  declarations: DECLARATIONS,
+  declarations: [CollectorComponent, BlockComponent, ...blocks],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [CollectorComponent]

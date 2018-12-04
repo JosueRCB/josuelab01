@@ -23,7 +23,7 @@
 
   <section>
     <!-- Form -->
-    <app-collector-wrapper *ngFor="let node of collector.Nodes" [node]="node"></app-collector-wrapper>
+    <tripetto-blocks *ngFor="let node of collector.Nodes" [node]="node"></tripetto-blocks>
 
     <!-- Form completed -->
     <div *ngIf="collector.IsEnded">

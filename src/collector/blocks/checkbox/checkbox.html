@@ -1,0 +1,14 @@
+<div class="form-group">
+  <div class="custom-control custom-checkbox">
+      <input
+          type="checkbox"
+          id="{{block.key()}}"
+          [(ngModel)]="block.checked"
+          class="custom-control-input"
+      />
+      <label for={{block.key()}} class="custom-control-label">
+        {{name}}
+        <span *ngIf="block.required" class="text-danger">*</span>
+      </label>
+  </div>
+</div>
