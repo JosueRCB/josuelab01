@@ -1,0 +1,23 @@
+<div class="form-group">
+  <label *ngIf="name" markdown [content]="name" [context]="context"></label>
+  <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
+  <div class="custom-control custom-checkbox" *ngFor="let checkbox of block.checkboxes; let i = index">
+    <input
+      [id]="block.key(checkbox.id)"
+      [checked]="checkbox.checked"
+      [attr.aria-describedby]="block.key('explanation')"
+      (change)="checkbox.toggle()"
+      type="checkbox"
+      class="custom-control-input"
+    />
+    <label [for]="block.key(checkbox.id)" class="custom-control-label"> {{ checkbox.name }} </label>
+  </div>
+  <small
+    *ngIf="explanation"
+    class="form-text text-secondary"
+    [id]="block.key('explanation')"
+    markdown
+    [content]="explanation"
+    [context]="context"
+  ></small>
+</div>

@@ -1,0 +1,49 @@
+<div class="collector">
+  <section class="container">
+    <div class="row">
+      <div class="col">
+        {{ state }}
+        <!-- Form is empty -->
+        <div *ngIf="state === 'empty'" class="text-center mt-5">
+          <h3>👋 The form stopped itself</h3>
+          <p class="text-secondary">
+            The form stopped immediately after it was started because there are no blocks in it. Add blocks to the form first to get the
+            magic going.
+          </p>
+        </div>
+
+        <!-- Form finished -->
+        <div *ngIf="state === 'finished'" class="text-center mt-5">
+          <h3>✔ You’ve completed the form</h3>
+          <p class="text-secondary">
+            For the purpose of this demo the form output is visible in your browser’s developer console. Go there to see the collected data.
+          </p>
+        </div>
+
+        <!-- Form stopped -->
+        <div *ngIf="state === 'stopped'" class="text-center mt-5">
+          <h3>⏹ You’ve stopped the form</h3>
+          <p class="text-secondary">Press the play icon to start a new session.</p>
+        </div>
+
+        <!-- Form paused -->
+        <div *ngIf="state === 'paused'" class="text-center mt-5">
+          <h3>⏸ You’ve paused the form</h3>
+          <p class="text-secondary">
+            For the purpose of this demo the paused form is saved in your browser’s local store. Refresh the browser to resume the paused
+            form.
+          </p>
+        </div>
+
+        <!-- Form not started -->
+        <div *ngIf="state === 'ready'" class="text-center mt-5">
+          <h3>⏹ You haven’t started the form yet</h3>
+          <p class="text-secondary">Press the play icon to start a new session.</p>
+        </div>
+
+        <!-- Form blocks -->
+        <tripetto-block *ngFor="let node of nodes" [node]="node"></tripetto-block>
+      </div>
+    </div>
+  </section>
+</div>

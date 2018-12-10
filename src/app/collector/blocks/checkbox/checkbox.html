@@ -1,0 +1,21 @@
+<div class="form-group">
+  <div class="custom-control custom-checkbox">
+    <input
+      [id]="block.key()"
+      [(ngModel)]="block.checked"
+      [attr.aria-describedby]="block.key('explanation')"
+      type="checkbox"
+      class="custom-control-input"
+    />
+    <label
+      [for]="block.key()"
+      class="custom-control-label"
+      markdown
+      [content]="name"
+      [context]="context"
+      [required]="block.required"
+      lineBreaks="false"
+    ></label>
+  </div>
+  <small *ngIf="explanation" class="form-text text-secondary" markdown [content]="explanation" [context]="context"></small>
+</div>

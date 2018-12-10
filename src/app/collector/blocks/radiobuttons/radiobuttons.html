@@ -1,0 +1,24 @@
+<div class="form-group">
+  <label *ngIf="name" [for]="block.key()" markdown [content]="name" [context]="context" [required]="block.required"></label>
+  <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
+  <div *ngFor="let button of block.buttons" class="custom-control custom-radio">
+    <input
+      #radio
+      type="radio"
+      [id]="block.key(button.id)"
+      [attr.aria-describedby]="explanation && block.key('explanation')"
+      [checked]="button.selected"
+      (change)="button.select()"
+      class="custom-control-input"
+    />
+    <label [for]="block.key(button.id)" class="custom-control-label"> {{ button.name }} </label>
+  </div>
+  <small
+    *ngIf="explanation"
+    class="form-text text-secondary"
+    [id]="block.key('explanation')"
+    markdown
+    [content]="explanation"
+    [context]="context"
+  ></small>
+</div>
