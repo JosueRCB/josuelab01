@@ -1,11 +1,13 @@
 import { Input, Type } from '@angular/core';
 import { Context, TNodeBlock, block, IObservableNode, NodeBlock, isString, castToBoolean, markdownifyToString } from 'tripetto-collector';
+import { CollectorComponent } from '../../collector.component';
 
-export const blocks: Type<any>[] = [];
-export let template = '';
+export abstract class BlockComponentFactory {
+  static template = '';
+  static declarations: Type<any>[] = [];
 
-export abstract class BlockBaseComponent {
   @Input() node: IObservableNode;
+  @Input() collector: CollectorComponent;
 
   get type(): string {
     return this.node.props.block ? this.node.props.block.type : '';
@@ -13,6 +15,10 @@ export abstract class BlockBaseComponent {
 
   get context(): Context {
     return this.node.context;
+  }
+
+  get numerator(): string {
+    return this.collector.numerators && this.node.numerator && `${this.node.numerator}. ` || '';
   }
 
   get name(): string {
@@ -34,20 +40,17 @@ export abstract class BlockBaseComponent {
   get block(): NodeBlock {
     return this.node.block;
   }
-
-  get html(): string {
-    return '<b>Hallo</b>';
-  }
 }
 
 /**
- * Registers a new Tripetto block and create a component for the block.
+ * Registers a new block and create a component for the block.
  * @param props Specifies the props for the block.
  */
 export function Block(props: { identifier: string; component: (selector: string) => Type<any> }): (pBlock: TNodeBlock) => void {
-  blocks.push(props.component(props.identifier));
-
-  template += `<${props.identifier} *ngIf="type == '${props.identifier}'" [node]="node"></${props.identifier}>`;
+  BlockComponentFactory.declarations.push(props.component(props.identifier));
+  BlockComponentFactory.template += `<${props.identifier} *ngIf="type == '${props.identifier}'" [node]="node" [collector]="collector"></${
+    props.identifier
+  }>`;
 
   return block({
     type: 'node',

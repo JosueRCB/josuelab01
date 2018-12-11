@@ -1,8 +1,15 @@
-import { CollectorComponent } from '../collector/collector.component';
-import { Component, Input, ElementRef, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, NgZone } from '@angular/core';
-import { Editor, IEditorChangeEvent, IEditorReadyEvent } from 'tripetto';
-import * as Superagent from 'superagent';
-import { BehaviorSubject } from 'rxjs';
+import {
+  Component,
+  Input,
+  Output,
+  ElementRef,
+  NgZone,
+  EventEmitter,
+  OnInit,
+  OnDestroy,
+  ChangeDetectionStrategy
+} from '@angular/core';
+import { Editor, IEditorChangeEvent, IEditorReadyEvent, IDefinition } from 'tripetto';
 
 /** Import blocks. */
 import 'tripetto-block-checkbox';
@@ -19,22 +26,38 @@ import 'tripetto-block-url';
 @Component({
   selector: 'tripetto-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  styleUrls: ['./editor.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EditorComponent implements OnInit {
-  @Input() collector: CollectorComponent;
+export class EditorComponent implements OnInit, OnDestroy {
+  private editor: Editor;
+  private initialDefinition: IDefinition | undefined;
 
-  constructor(private el: ElementRef, private zone: NgZone) {}
+  @Input() set definition(definition: IDefinition | undefined) {
+    if (this.editor) {
+      this.zone.runOutsideAngular(() => {
+        this.editor.definition = definition;
+      });
+
+      return;
+    }
+
+    this.initialDefinition = definition;
+  }
+
+  get definition(): IDefinition | undefined {
+    return this.editor && this.editor.definition || this.initialDefinition;
+  }
+
+  @Output() changed = new EventEmitter<IDefinition>();
+
+  constructor(private element: ElementRef, private zone: NgZone) {}
 
   ngOnInit() {
     // Leave the editor outside of Angular to avoid unnecessary and costly change detection.
     this.zone.runOutsideAngular(() => {
-      // For this demo we use the local store to save the definition and snapshot.
-      // Here we try to retrieve that saved data.
-      const definition = JSON.parse(localStorage.getItem('tripetto-example-definition') || 'null') || undefined;
-
-      const editor = Editor.open(definition, {
-        element: this.el.nativeElement.firstChild,
+      this.editor = Editor.open(this.definition, {
+        element: this.element.nativeElement,
         disableSaveButton: true,
         disableRestoreButton: true,
         disableClearButton: false,
@@ -46,31 +69,29 @@ export class EditorComponent implements OnInit {
       });
 
       // Wait until the editor is ready!
-      editor.hook('OnReady', 'synchronous', (editorEvent: IEditorReadyEvent) => {
-        this.collector.reload(editorEvent.definition);
+      this.editor.hook('OnReady', 'synchronous', (editorEvent: IEditorReadyEvent) => {
+        this.changed.emit(editorEvent.definition);
 
-        editor.hook('OnChange', 'synchronous', (changeEvent: IEditorChangeEvent) => {
-          // Store the definition in the persistent local store
-          localStorage.setItem('tripetto-example-definition', JSON.stringify(changeEvent.definition));
-
+        this.editor.hook('OnChange', 'synchronous', (changeEvent: IEditorChangeEvent) => {
           // Reload the collector with the new definition
-          this.collector.reload(changeEvent.definition);
+          this.changed.emit(changeEvent.definition);
         });
       });
 
       // When the host window resizes, we should notify the editor component about that.
-      // This is only necessary when you embed the editor in a custom element.
-      window.addEventListener('resize', () => editor.resize());
-      window.addEventListener('orientationchange', () => editor.resize());
-
-      // If there was no definition found in the local store, fetch our demo definition.
-      if (!definition) {
-        Superagent.get('/assets/demo.json').end((error: {}, response: Superagent.Response) => {
-          if (response.ok) {
-            editor.load(JSON.parse(response.text));
-          }
-        });
-      }
+      window.addEventListener('resize', () => this.editor && this.editor.resize());
+      window.addEventListener('orientationchange', () => this.editor && this.editor.resize());
     });
+  }
+
+  ngOnDestroy() {
+    this.editor.destroy();
+    this.editor = undefined;
+  }
+
+  rename() {
+    if (this.editor) {
+      this.editor.edit();
+    }
   }
 }

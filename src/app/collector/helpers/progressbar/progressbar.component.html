@@ -1,0 +1,12 @@
+<div class="progress">
+  <div
+    class="progress-bar"
+    role="progressbar"
+    [attr.aria-valuenow]="storyline.percentage"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    [ngStyle]="{ 'width.%': storyline.percentage, 'min-width.em': 2 }"
+  >
+    {{ storyline.percentage }}%
+  </div>
+</div>

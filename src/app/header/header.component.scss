@@ -1,34 +1,36 @@
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
 
-.header {
-    position: absolute;
-    left: 50%;
-    right: 0;
-    top: 0;
+:host {
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 0;
 
+  ::ng-deep {
     .container {
-        height: 124px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      height: 124px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     button {
-        &:not([disabled]) {
-            * {
-                cursor: pointer;
-            }
+      &:not([disabled]) {
+        * {
+          cursor: pointer;
         }
+      }
 
-        i {
-            font-size: 11px;
-            position: relative;
-            top: -3px;
-        }
+      i {
+        font-size: 11px;
+        position: relative;
+        top: -3px;
+      }
     }
 
     .modal {
-        left: 50%;
+      left: 50%;
     }
+  }
 }

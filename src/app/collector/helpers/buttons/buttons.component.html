@@ -1,0 +1,30 @@
+<div role="group" aria-label="Navigation">
+  <button
+    *ngIf="storyline.mode === 'progressive'"
+    type="button"
+    class="btn btn-success"
+    [disabled]="!storyline.isFinishable"
+    (click)="storyline.finish()"
+  >
+    Complete
+  </button>
+  <button
+    *ngIf="storyline.mode !== 'progressive' && !storyline.isAtStart"
+    type="button"
+    class="btn btn-default mr-2"
+    [disabled]="storyline.isAtStart"
+    (click)="storyline.stepBackward()"
+  >
+    Back
+  </button>
+  <button
+    *ngIf="storyline.mode !== 'progressive'"
+    type="button"
+    class="btn"
+    [ngClass]="storyline.isAtFinish ? 'btn-success' : 'btn-primary'"
+    [disabled]="storyline.isFailed || (storyline.isAtFinish && !storyline.isFinishable)"
+    (click)="storyline.stepForward()"
+  >
+    {{ storyline.isAtFinish ? 'Complete' : 'Next' }}
+  </button>
+</div>

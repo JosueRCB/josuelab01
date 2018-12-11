@@ -9,6 +9,7 @@ export class MarkdownDirective implements OnInit, OnDestroy {
   @Input() content: string;
   @Input() context: Context;
   @Input() lineBreaks: boolean;
+  @Input() numerator: string;
   @Input() required: boolean;
   @Output() changed = new EventEmitter();
 
@@ -18,6 +19,14 @@ export class MarkdownDirective implements OnInit, OnDestroy {
     const markdown = markdownify(this.content, this.context, {
       lineBreaks: castToBoolean(this.lineBreaks, true)
     });
+
+    if (this.numerator) {
+      const numeratorElement = document.createElement('span');
+
+      numeratorElement.textContent = this.numerator;
+
+      this.element.nativeElement.appendChild(numeratorElement);
+    }
 
     this.element.nativeElement.appendChild(
       markdown.reduce<HTMLElement>((type: MarkdownTypes | undefined, content: string | HTMLElement[], value?: IVariable | string) => {

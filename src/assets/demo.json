@@ -1,1 +1,506 @@
-{ "editor": { "name": "tripetto", "version": "0.4.13-59" } }
+{
+  "name": "Angular + Bootstrap 4.1",
+  "clusters": [
+    {
+      "id": "63f8d92b4325696cc16a718e897573d3f11903c6bb731ba42f312364e38872dd",
+      "nodes": [
+        {
+          "id": "d3b1aee5576af0ee22f4338364b6c0de5c3c2a8ff5b478797a13b4ab9b9b5065",
+          "name": "Hi @cf003353fa6d8ae3ab936ef11b94745cd8d599b185911d0b1bcc549fa25b1e90",
+          "nameVisible": true,
+          "description": "This is an example form. No data is collected."
+        },
+        {
+          "id": "ebc8521eb26684d6fc185352034e586985aa9a8fd775bfd96db6963a0399120c",
+          "explanation": "Please enter your name, so we can personalize this form.",
+          "name": "What's your name?",
+          "nameVisible": true,
+          "placeholder": "My name is...",
+          "slots": [
+            {
+              "id": "cf003353fa6d8ae3ab936ef11b94745cd8d599b185911d0b1bcc549fa25b1e90",
+              "type": "text",
+              "kind": "static",
+              "reference": "value",
+              "label": "Tekst",
+              "alias": "NAME"
+            }
+          ],
+          "block": { "type": "tripetto-block-text", "version": "1.0.13-11" }
+        },
+        {
+          "id": "b2cc5c43dea7ecd8552eeeb3ae9d4f9095584c61b087f0581e763cd69f2d248d",
+          "name": "@cf003353fa6d8ae3ab936ef11b94745cd8d599b185911d0b1bcc549fa25b1e90, did you try Tripetto?",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "4f5c9b5a52c098e6690f74d74620fe6b6a2244c8ed3be930f2c30542d609768f",
+              "type": "string",
+              "kind": "static",
+              "reference": "button",
+              "label": "Gekozen knop"
+            }
+          ],
+          "block": {
+            "type": "tripetto-block-radiobuttons",
+            "version": "1.0.13-12",
+            "buttons": [
+              {
+                "id": "fad175fe87d9a121aff64049d67195919d20ab0a9d8ae256f2446e7187d3d003",
+                "name": "Yes",
+                "value": ""
+              },
+              {
+                "id": "3da4b61f4e098b84c0465445fe3ff35aa93975248fef4436575da79c31de7aea",
+                "name": "No",
+                "value": ""
+              }
+            ]
+          }
+        }
+      ],
+      "branches": [
+        {
+          "id": "cc6c1ec99747fee2f4e08802501219fad3164b6d242deb225ab369ccc976b358",
+          "clusters": [
+            {
+              "id": "84d1eb83897d480d877eee9efa60faf553be291c40af3f8797a0ef67bf2edc7d",
+              "nodes": [
+                {
+                  "id": "699287c7dbc23bee5070a234838fb001bde6facb16b6165d629fc14a61008332",
+                  "name": "What do you think of Tripetto?",
+                  "nameVisible": true,
+                  "slots": [
+                    {
+                      "id": "027ffb9ba74f4b976dca704def21ab7905b81e0526c486abf1a4ae62d1d26eba",
+                      "type": "string",
+                      "kind": "static",
+                      "reference": "button",
+                      "label": "Gekozen knop"
+                    }
+                  ],
+                  "block": {
+                    "type": "tripetto-block-radiobuttons",
+                    "version": "1.0.13-12",
+                    "buttons": [
+                      {
+                        "id": "20cb1e4a020afaf6ec61ef2ed6571566f973c290ac2e8635ad7b23ac6fa2dfef",
+                        "name": "Awesome",
+                        "value": ""
+                      },
+                      {
+                        "id": "6b29da0cce6b5095ac163f964e7b4fa88538f9374f5b17211ef1a89c681c4a7d",
+                        "name": "Ok-ish",
+                        "value": ""
+                      },
+                      {
+                        "id": "bb9504a06ceb045146f5e70e6115c527aef5cd3284fc7083db5b51dabb57bbbc",
+                        "name": "Total trainwreck",
+                        "value": ""
+                      }
+                    ]
+                  }
+                }
+              ],
+              "branches": [
+                {
+                  "id": "1a1e042ed19eeef7ea4ac75b9395cdf4b3e1c63480c046e65e6166a3b8533965",
+                  "clusters": [
+                    {
+                      "id": "ae0f247de72a007a95ad71010c20d85c40399357cf20aaa77cfef023c18f0499",
+                      "nodes": [
+                        {
+                          "id": "7664fb5661226e52d7f4ca4fbb1486118aa4badad347e5afea2eaedb7d9253a5",
+                          "name": "@cf003353fa6d8ae3ab936ef11b94745cd8d599b185911d0b1bcc549fa25b1e90, do you have suggestions for us how we can improve?",
+                          "nameVisible": true,
+                          "slots": [
+                            {
+                              "id": "d2979cf87d9a2ec287c3cccd0e49983f914c782304f6c86fcbe98fbd34e238be",
+                              "type": "text",
+                              "kind": "static",
+                              "reference": "value",
+                              "label": "Tekst"
+                            }
+                          ],
+                          "block": {
+                            "type": "tripetto-block-text",
+                            "version": "1.0.13-11"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "conditions": [
+                    {
+                      "id": "07e313cb3d0741da57a02f981b8b908ada2a7df9aaea2ed998ae06356e0bd2d5",
+                      "block": {
+                        "button": "6b29da0cce6b5095ac163f964e7b4fa88538f9374f5b17211ef1a89c681c4a7d",
+                        "type": "tripetto-block-radiobuttons",
+                        "version": "1.0.13-12",
+                        "node": "699287c7dbc23bee5070a234838fb001bde6facb16b6165d629fc14a61008332",
+                        "slot": "027ffb9ba74f4b976dca704def21ab7905b81e0526c486abf1a4ae62d1d26eba"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "f2421f4b8b066d72002ae01a6c0cc5ddaf56b5362b8c4684c017a4d9cecdd4d8",
+                  "clusters": [
+                    {
+                      "id": "24f48b26546be723c9f2d74e532bc11725d9ec4e94986e451d15f814b2f94228",
+                      "nodes": [
+                        {
+                          "id": "a79332d5dbfe877042082c4befe9338b8876cbc1a4966eaa4735348145170f66",
+                          "name": "We're sorry @cf003353fa6d8ae3ab936ef11b94745cd8d599b185911d0b1bcc549fa25b1e90. Could you tell us what's wrong?",
+                          "nameVisible": true,
+                          "slots": [
+                            {
+                              "id": "ea75c79cb6ebb9bef705fa99eb5ed3b5c5050491f64c47e227c2af48ae136586",
+                              "type": "text",
+                              "kind": "static",
+                              "reference": "value",
+                              "label": "Tekst",
+                              "required": true
+                            }
+                          ],
+                          "block": {
+                            "type": "tripetto-block-text",
+                            "version": "1.0.13-11"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "conditions": [
+                    {
+                      "id": "3a5ad7d8e49551dcc19d02e5f8cd37605dae93b13a955f1ba406cc925a0afa46",
+                      "block": {
+                        "button": "bb9504a06ceb045146f5e70e6115c527aef5cd3284fc7083db5b51dabb57bbbc",
+                        "type": "tripetto-block-radiobuttons",
+                        "version": "1.0.13-12",
+                        "node": "699287c7dbc23bee5070a234838fb001bde6facb16b6165d629fc14a61008332",
+                        "slot": "027ffb9ba74f4b976dca704def21ab7905b81e0526c486abf1a4ae62d1d26eba"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "id": "bd1d860f49114798cb28db4706a9c6e0b25cb3ffc974d835f4fc281a07ed2de4",
+              "block": {
+                "button": "fad175fe87d9a121aff64049d67195919d20ab0a9d8ae256f2446e7187d3d003",
+                "type": "tripetto-block-radiobuttons",
+                "version": "1.0.13-12",
+                "node": "b2cc5c43dea7ecd8552eeeb3ae9d4f9095584c61b087f0581e763cd69f2d248d",
+                "slot": "4f5c9b5a52c098e6690f74d74620fe6b6a2244c8ed3be930f2c30542d609768f"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "590101aa13f96c3e467669c971c5b1cecc7db8e36ca0e9de6f9623897c140fc2",
+      "nodes": [
+        {
+          "id": "95629a00e5faed72cb4fa5b87ffbb2f3e3b3b90278dd5b349b51f5cfb076d18f",
+          "name": "Did you try other tools?",
+          "nameVisible": true,
+          "slots": [
+            {
+              "id": "e9d435b5ea2b5022d75f056eff1a535766a25a66e2d75e7315a94bb9f7377b22",
+              "type": "string",
+              "kind": "static",
+              "reference": "button",
+              "label": "Gekozen knop"
+            }
+          ],
+          "block": {
+            "type": "tripetto-block-radiobuttons",
+            "version": "1.0.13-12",
+            "buttons": [
+              {
+                "id": "689b9041a2a38f1784f5f8dee58565d37a17004122e99340069cee542ad5c4a0",
+                "name": "Yes",
+                "value": ""
+              },
+              {
+                "id": "2b3af6342ca8ddb508315f4c3c86dc6cb5d1b706353a40770748b012d423b6ae",
+                "name": "No",
+                "value": ""
+              }
+            ]
+          }
+        }
+      ],
+      "branches": [
+        {
+          "id": "a6574d3b6aa43a45b026c4232f84d67cedea0816e4d0f69198d99322e2a047c1",
+          "clusters": [
+            {
+              "id": "71d0ca17bafa171a9deb9f324784e5f27cfc56af7a1f1f5a4a05054a983b9d47",
+              "nodes": [
+                {
+                  "id": "6778e948d4818b1b92512d5af84754cf1891065ad1e25afecf15439d78b10e85",
+                  "name": "Was it one of these? Please select the tools you've used.",
+                  "nameVisible": true,
+                  "slots": [
+                    {
+                      "id": "d59eda8438029a0d4b86db38b7bcb4233af9199029046168e1a771a48d89dcaa",
+                      "type": "boolean",
+                      "kind": "dynamic",
+                      "reference": "2d344cf9c8955b179a586f5c645117fe7f070e323614cd612cebfa8e48e64282",
+                      "sequence": 0,
+                      "label": "Keuzevak",
+                      "name": "SurveyMonkey",
+                      "pipable": {
+                        "group": "Checkbox",
+                        "label": "Keuzevak",
+                        "template": "name",
+                        "alias": "TOOLS"
+                      }
+                    },
+                    {
+                      "id": "bdef9bb99c43c17b1f72dc940ed6ab05c495cfcec9cfcbdfb4367844e074172c",
+                      "type": "boolean",
+                      "kind": "dynamic",
+                      "reference": "11c9d677e9c786c766c9492b6fddddecab031fc67befed63d95753a1a2a99148",
+                      "sequence": 1,
+                      "label": "Keuzevak",
+                      "name": "Typeform",
+                      "pipable": {
+                        "group": "Checkbox",
+                        "label": "Keuzevak",
+                        "template": "name",
+                        "alias": "TOOLS"
+                      }
+                    },
+                    {
+                      "id": "cf9e6bf6b1d1764871e0185b3f3fca989fa3c75d2bfcece7c04d79bea9c82c1f",
+                      "type": "boolean",
+                      "kind": "dynamic",
+                      "reference": "23e84c95a2688f1a978e27ee62124114b88e6e34876770a1500102a4dfa1e75e",
+                      "sequence": 2,
+                      "label": "Keuzevak",
+                      "name": "TellForm",
+                      "pipable": {
+                        "group": "Checkbox",
+                        "label": "Keuzevak",
+                        "template": "name",
+                        "alias": "TOOLS"
+                      }
+                    },
+                    {
+                      "id": "b531bfe8a7499093f9b44fd6799365c129eb2b1dd0243500df0866215da57631",
+                      "type": "boolean",
+                      "kind": "dynamic",
+                      "reference": "0e2227da8be8b82f2d21a705cd0a8b3ef8f936ceb48aab889a3baafb227fa137",
+                      "sequence": 3,
+                      "label": "Keuzevak",
+                      "name": "SurveyJS",
+                      "pipable": {
+                        "group": "Checkbox",
+                        "label": "Keuzevak",
+                        "template": "name",
+                        "alias": "TOOLS"
+                      }
+                    },
+                    {
+                      "id": "6073206ad28201d78b973e96ae2e3a15b8435b4bc615f6919fc1312e7b06acd4",
+                      "type": "boolean",
+                      "kind": "dynamic",
+                      "reference": "7a696aa550c5e3a66cfafcda84536f7dc88d785d06db2728c8b76cc47dca6e82",
+                      "sequence": 4,
+                      "label": "Keuzevak",
+                      "name": "SurveyGizmo",
+                      "pipable": {
+                        "group": "Checkbox",
+                        "label": "Keuzevak",
+                        "template": "name",
+                        "alias": "TOOLS"
+                      }
+                    },
+                    {
+                      "id": "199172f8b99d6f1e7a7f18efb0139e58bcbacb04d456f8ddeec9f4748226daeb",
+                      "type": "boolean",
+                      "kind": "dynamic",
+                      "reference": "5d14b20a69c6eb706ec1b8debf54bf7edcb5452bc652c446fdbd6f38f1567f7e",
+                      "sequence": 5,
+                      "label": "Keuzevak",
+                      "name": "Qualtrics",
+                      "pipable": {
+                        "group": "Checkbox",
+                        "label": "Keuzevak",
+                        "template": "name",
+                        "alias": "TOOLS"
+                      }
+                    }
+                  ],
+                  "block": {
+                    "type": "tripetto-block-checkboxes",
+                    "version": "1.0.15-17",
+                    "checkboxes": [
+                      {
+                        "id": "2d344cf9c8955b179a586f5c645117fe7f070e323614cd612cebfa8e48e64282",
+                        "name": "SurveyMonkey"
+                      },
+                      {
+                        "id": "11c9d677e9c786c766c9492b6fddddecab031fc67befed63d95753a1a2a99148",
+                        "name": "Typeform"
+                      },
+                      {
+                        "id": "23e84c95a2688f1a978e27ee62124114b88e6e34876770a1500102a4dfa1e75e",
+                        "name": "TellForm"
+                      },
+                      {
+                        "id": "0e2227da8be8b82f2d21a705cd0a8b3ef8f936ceb48aab889a3baafb227fa137",
+                        "name": "SurveyJS"
+                      },
+                      {
+                        "id": "7a696aa550c5e3a66cfafcda84536f7dc88d785d06db2728c8b76cc47dca6e82",
+                        "name": "SurveyGizmo"
+                      },
+                      {
+                        "id": "5d14b20a69c6eb706ec1b8debf54bf7edcb5452bc652c446fdbd6f38f1567f7e",
+                        "name": "Qualtrics"
+                      }
+                    ],
+                    "alias": "TOOLS"
+                  }
+                }
+              ],
+              "branches": [
+                {
+                  "id": "bc4b68f6312cf589faa5039da2c3ad7670bc31574f364dd650595b8dc80f507d",
+                  "clusters": [
+                    {
+                      "id": "89f3cb2169f9d57f12a230048cd694c2d2be4ce715de40fe2d7e1818565cb829",
+                      "nodes": [
+                        {
+                          "id": "18ef27bd947e5c631cfc6db018b1bfd7b2eaac43838344709c2b3d19cf1a7957",
+                          "name": "Do you think Tripetto is better than @9a7ebe7d1d0af63492cdc9da72157c8eb1fc2a0c65ee06e4f44a945576ba1b21?",
+                          "nameVisible": true,
+                          "placeholder": "No opinion",
+                          "slots": [
+                            {
+                              "id": "b8dc87573f0304fbe6348fa3fe88d718d05d01321ead7f0ded30709eb3025749",
+                              "type": "string",
+                              "kind": "static",
+                              "reference": "option",
+                              "label": "Gekozen optie"
+                            }
+                          ],
+                          "block": {
+                            "type": "tripetto-block-dropdown",
+                            "version": "1.0.14-20",
+                            "options": [
+                              {
+                                "id": "48e8125ccfe0adb37c461c6ca8300c624dbba894f77438716b4ea134e93750c3",
+                                "name": "Yes",
+                                "value": ""
+                              },
+                              {
+                                "id": "026d9120c23902cfe87f04bc9dc6dc0eb8e396beaf0c450898ddf5cd0210ca41",
+                                "name": "No",
+                                "value": ""
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "conditions": [
+                    {
+                      "id": "ad6e69dc33b42fb8f4dcbaa50448bfea568cddc6ea3336a06edef02e100d3427",
+                      "block": {
+                        "checkbox": "2d344cf9c8955b179a586f5c645117fe7f070e323614cd612cebfa8e48e64282",
+                        "type": "tripetto-block-checkboxes",
+                        "version": "0.0.0",
+                        "node": "6778e948d4818b1b92512d5af84754cf1891065ad1e25afecf15439d78b10e85",
+                        "slot": "d59eda8438029a0d4b86db38b7bcb4233af9199029046168e1a771a48d89dcaa",
+                        "checked": true
+                      }
+                    },
+                    {
+                      "id": "133b0afc170f0f98d93b7d4777b65653b796eb2c6a16d1ca51b9acf9e0c2db0f",
+                      "block": {
+                        "checkbox": "11c9d677e9c786c766c9492b6fddddecab031fc67befed63d95753a1a2a99148",
+                        "type": "tripetto-block-checkboxes",
+                        "version": "0.0.0",
+                        "node": "6778e948d4818b1b92512d5af84754cf1891065ad1e25afecf15439d78b10e85",
+                        "slot": "bdef9bb99c43c17b1f72dc940ed6ab05c495cfcec9cfcbdfb4367844e074172c",
+                        "checked": true
+                      }
+                    },
+                    {
+                      "id": "b68e58e263d38ea3ba240f99826cfbc0ce65788b20ee169dc156b1cf9b474c93",
+                      "block": {
+                        "checkbox": "23e84c95a2688f1a978e27ee62124114b88e6e34876770a1500102a4dfa1e75e",
+                        "type": "tripetto-block-checkboxes",
+                        "version": "0.0.0",
+                        "node": "6778e948d4818b1b92512d5af84754cf1891065ad1e25afecf15439d78b10e85",
+                        "slot": "cf9e6bf6b1d1764871e0185b3f3fca989fa3c75d2bfcece7c04d79bea9c82c1f",
+                        "checked": true
+                      }
+                    },
+                    {
+                      "id": "49e1505b2a16489f4456fcb37e9c2a5f49ddb4fc47564db62ebfb28fbba12c14",
+                      "block": {
+                        "checkbox": "0e2227da8be8b82f2d21a705cd0a8b3ef8f936ceb48aab889a3baafb227fa137",
+                        "type": "tripetto-block-checkboxes",
+                        "version": "0.0.0",
+                        "node": "6778e948d4818b1b92512d5af84754cf1891065ad1e25afecf15439d78b10e85",
+                        "slot": "b531bfe8a7499093f9b44fd6799365c129eb2b1dd0243500df0866215da57631",
+                        "checked": true
+                      }
+                    },
+                    {
+                      "id": "1c6a9c2b6f06d938defd3417418f73cf9d53fc648aa97c536bf67fdedf88226c",
+                      "block": {
+                        "checkbox": "7a696aa550c5e3a66cfafcda84536f7dc88d785d06db2728c8b76cc47dca6e82",
+                        "type": "tripetto-block-checkboxes",
+                        "version": "0.0.0",
+                        "node": "6778e948d4818b1b92512d5af84754cf1891065ad1e25afecf15439d78b10e85",
+                        "slot": "6073206ad28201d78b973e96ae2e3a15b8435b4bc615f6919fc1312e7b06acd4",
+                        "checked": true
+                      }
+                    },
+                    {
+                      "id": "b696d8b0a7c6bfae683b89bc32c9792638c159530c4cf87379024af2ea750046",
+                      "block": {
+                        "checkbox": "5d14b20a69c6eb706ec1b8debf54bf7edcb5452bc652c446fdbd6f38f1567f7e",
+                        "type": "tripetto-block-checkboxes",
+                        "version": "0.0.0",
+                        "node": "6778e948d4818b1b92512d5af84754cf1891065ad1e25afecf15439d78b10e85",
+                        "slot": "199172f8b99d6f1e7a7f18efb0139e58bcbacb04d456f8ddeec9f4748226daeb",
+                        "checked": true
+                      }
+                    }
+                  ],
+                  "culling": "each"
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "id": "2242fb858c5297967e086c4b1806d49ead602ef819ab9ffb8d7b231ef628c827",
+              "block": {
+                "button": "689b9041a2a38f1784f5f8dee58565d37a17004122e99340069cee542ad5c4a0",
+                "type": "tripetto-block-radiobuttons",
+                "version": "1.0.13-12",
+                "node": "95629a00e5faed72cb4fa5b87ffbb2f3e3b3b90278dd5b349b51f5cfb076d18f",
+                "slot": "e9d435b5ea2b5022d75f056eff1a535766a25a66e2d75e7315a94bb9f7377b22"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "editor": { "name": "tripetto", "version": "0.4.13-60" }
+}

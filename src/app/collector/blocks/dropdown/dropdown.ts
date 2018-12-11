@@ -1,5 +1,5 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockBaseComponent } from '../block';
+import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
 import { Dropdown, IDropdownOption } from 'tripetto-block-dropdown/collector';
 import { Component } from '@angular/core';
 
@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
       selector: s,
       templateUrl: './dropdown.html'
     })
-    class BlockComponent extends BlockBaseComponent {}
+    class BlockComponent extends BlockComponentFactory {}
     return BlockComponent;
   }
 })

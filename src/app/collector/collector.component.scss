@@ -1,4 +1,4 @@
-.collector {
+:host {
   position: absolute;
   left: 50%;
   right: 0;
@@ -10,55 +10,55 @@
   scroll-behavior: smooth;
   touch-action: auto;
 
-  * {
-      touch-action: auto;
-  }
-
-  .form-group {
-      margin-top: 30px;
-
-      label {
-          span.text-danger {
-              padding-left: 4px;
-          }
-      }
-  }
-
   > section {
-      padding: 32px;
+    padding: 32px;
 
-      &.sticky {
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 60px;
-          overflow-x: hidden;
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-          scroll-behavior: smooth;
-          touch-action: auto;
+    &.sticky {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 60px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      touch-action: auto;
+    }
+
+    ::ng-deep {
+      .form-group {
+        margin-top: 30px;
+
+        label {
+          span.text-danger {
+            padding-left: 4px;
+          }
+        }
       }
+
+      .buttons-inline {
+        margin-top: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+
+        .progress {
+          margin-top: 11px;
+        }
+      }
+    }
   }
 
-  .buttons {
-      &-inline {
-          margin-top: 16px;
-          padding-top: 16px;
-          padding-bottom: 16px;
+  > nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    background-color: #fff;
+  }
 
-          .progress {
-              margin-top: 11px;
-          }
-      }
-
-      &-sticky {
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          height: 60px;
-          background-color: #fff;
-      }
+  ::ng-deep * {
+    touch-action: auto;
   }
 }

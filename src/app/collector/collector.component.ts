@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { Collector, Export, IDefinition, Instance, IObservableNode, Moment, NodeBlock, TModes } from 'tripetto-collector';
+import { Component, ChangeDetectorRef, Input, Output, EventEmitter, NgZone, ChangeDetectionStrategy } from '@angular/core';
+import { Collector, IDefinition, Instance, IObservableNode, Moment, NodeBlock, TModes, ISnapshot, Storyline } from 'tripetto-collector';
 
 @Component({
   selector: 'tripetto-collector',
@@ -8,24 +8,44 @@ import { Collector, Export, IDefinition, Instance, IObservableNode, Moment, Node
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CollectorComponent {
-  collector: Collector;
+  private collector?: Collector;
 
-  constructor(private changeDetector: ChangeDetectorRef) {
-    changeDetector.detach();
+  @Input() set definition(definition: IDefinition) {
+      // Leave the collector outside of Angular to avoid unnecessary and costly change detection.
+      this.zone.runOutsideAngular(() => {
+      if (this.collector) {
+        this.collector.reload(definition);
+
+        return;
+      }
+
+      this.collector = new Collector(this.definition, this.mode, this.snapshot || true, this.preview);
+
+      this.collector.onChange = () => {
+        this.changeDetector.detectChanges();
+        this.changed.emit();
+      };
+
+      this.collector.onFinish = (instance: Instance) => {
+        this.finished.emit(instance);
+      };
+    });
   }
 
-  get nodes(): IObservableNode[] {
-    const nodes: IObservableNode[] = [];
-    const storyline = this.collector && this.collector.storyline;
-    console.log('GET NODES');
-    if (storyline) {
-      storyline.map((moment: Moment<NodeBlock>) => nodes.push(...moment.nodes));
-    }
+  @Input() snapshot?: ISnapshot;
+  @Input() mode: TModes = 'progressive';
+  @Input() preview = false;
+  @Input() numerators = false;
+  @Input() pages = true;
+  @Input() progressbar = false;
+  @Input() buttons: 'inline' | 'sticky' = 'inline';
+  @Output() changed = new EventEmitter();
+  @Output() finished = new EventEmitter<Instance>();
+  @Output() paused = new EventEmitter<ISnapshot>();
 
-    return nodes;
-  }
+  constructor(private changeDetector: ChangeDetectorRef, private zone: NgZone) {}
 
-  get state(): 'loading' | 'ready' | 'empty' | 'running' | 'paused' | 'stopped' | 'finished' {
+  get status(): 'unloaded' | 'ready' | 'empty' | 'running' | 'paused' | 'stopped' | 'finished' {
     if (this.collector) {
       if (this.collector.isEmpty) {
         return 'empty';
@@ -50,27 +70,32 @@ export class CollectorComponent {
       return 'ready';
     }
 
-    return 'loading';
+    return 'unloaded';
   }
 
-  get mode(): TModes {
-    return (this.collector && this.collector.mode) || 'paginated';
+  get storyline(): Storyline | undefined {
+    return this.collector && this.collector.storyline;
   }
 
-  set mode(mode: TModes) {
-    if (this.collector) {
-      this.collector.mode = mode;
+  get nodes(): IObservableNode[] {
+    const nodes: IObservableNode[] = [];
+    const storyline = this.storyline;
+
+    if (storyline) {
+      storyline.map((moment: Moment<NodeBlock>) => nodes.push(...moment.nodes));
     }
+
+    return nodes;
   }
 
-  get preview(): boolean {
-    return (this.collector && this.collector.preview) || false;
+  get isEmpty(): boolean {
+    const storyline = this.storyline;
+
+    return storyline && storyline.isEmpty || false;
   }
 
-  set preview(preview: boolean) {
-    if (this.collector) {
-      this.collector.preview = preview;
-    }
+  get name(): string {
+    return this.collector && this.collector.name || '';
   }
 
   /** Start the collector. */
@@ -83,7 +108,7 @@ export class CollectorComponent {
   /** Pause the collector. */
   pause(): void {
     if (this.collector) {
-      this.collector.pause();
+      this.paused.emit(this.collector.pause());
     }
   }
 
@@ -94,20 +119,43 @@ export class CollectorComponent {
     }
   }
 
-  /** Reloads with a new definition. */
-  reload(definition: IDefinition): void {
-    if (!this.collector) {
-      this.collector = new Collector(definition, 'paginated');
+  /** Change a setting. */
+  set(setting: 'mode', value: TModes);
+  set(setting: 'buttons', value: 'inline' | 'sticky');
+  set(setting: 'preview' | 'numerators' | 'pages' | 'progressbar', value: boolean);
+  set(setting: 'mode' | 'preview' | 'numerators' | 'pages' | 'progressbar' | 'buttons', value: any) {
+    switch (setting) {
+      case 'mode':
+        this.mode = value;
 
-      this.collector.onChange = () => {
-        this.changeDetector.detectChanges();
-      };
+        if (this.collector) {
+          this.collector.mode = this.mode;
+        }
 
-      this.collector.onFinish = (i: Instance) => {
-        console.dir(Export.fields(i));
-      };
+        return;
+      case 'preview':
+        this.preview = value;
+
+        if (this.collector) {
+          this.collector.preview = this.preview;
+        }
+
+        return;
+      case 'numerators':
+        this.numerators = value;
+        break;
+      case 'pages':
+        this.pages = value;
+        break;
+      case 'progressbar':
+        this.progressbar = value;
+        break;
+      case 'buttons':
+        this.buttons = value;
+        break;
     }
 
-    this.collector.reload(definition);
+    this.changeDetector.detectChanges();
+    this.changed.emit();
   }
 }
