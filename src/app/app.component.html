@@ -1,3 +1,3 @@
-<tripetto-collector #collector (finished)="onCollectorFinished($event)" (paused)="onCollectorPaused($event)" (changed)="header.changed()" class="bootstrap"></tripetto-collector>
 <tripetto-editor #editor (changed)="onEditorChanged($event)"></tripetto-editor>
+<tripetto-collector #collector mode="progressive" (finished)="onCollectorFinished($event)" (paused)="onCollectorPaused($event)" (changed)="header.changed()" class="bootstrap"></tripetto-collector>
 <tripetto-header #header [editor]="editor" [collector]="collector" class="bootstrap"></tripetto-header>

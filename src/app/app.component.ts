@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
      }
   }
 
-  // A change is made in the editor, inform the collector amd store it.
+  // A change was made in the editor, inform the collector and store the definition.
   onEditorChanged(definition: IDefinition) {
     // Push the definition to the collector.
     this.collector.definition = definition;

@@ -11,7 +11,7 @@
           type="button"
           data-toggle="button"
           [ngClass]="{ 'btn btn-lg': true, 'btn-success': !collector.preview, 'btn-secondary': collector.preview }"
-          (click)="collector.preview = false"
+          (click)="collector.set('preview', false)"
         >
           Collect
         </button>
@@ -20,7 +20,7 @@
           class="btn btn-lg"
           data-toggle="button"
           [ngClass]="{ 'btn btn-lg': true, 'btn-success': collector.preview, 'btn-secondary': !collector.preview }"
-          (click)="collector.preview = true"
+          (click)="collector.set('preview', true)"
         >
           Preview
         </button>

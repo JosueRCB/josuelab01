@@ -1,11 +1,13 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { Context, markdownify, castToBoolean, castToString, MarkdownTypes, Str, IVariable } from 'tripetto-collector';
 
 @Directive({
   selector: '[markdown]'
 })
-export class MarkdownDirective implements OnInit, OnDestroy {
+export class MarkdownDirective implements OnInit, OnDestroy, OnChanges {
   private variables: IVariable[] = [];
+  private numeratorElement: HTMLSpanElement;
+  private requiredElement: HTMLSpanElement;
   @Input() content: string;
   @Input() context: Context;
   @Input() lineBreaks: boolean;
@@ -20,13 +22,10 @@ export class MarkdownDirective implements OnInit, OnDestroy {
       lineBreaks: castToBoolean(this.lineBreaks, true)
     });
 
-    if (this.numerator) {
-      const numeratorElement = document.createElement('span');
-
-      numeratorElement.textContent = this.numerator;
-
-      this.element.nativeElement.appendChild(numeratorElement);
-    }
+    this.numeratorElement = document.createElement('span');
+    this.numeratorElement.textContent = this.numerator;
+    this.numeratorElement.style.display = this.numerator ? 'inline' : 'none';
+    this.element.nativeElement.appendChild(this.numeratorElement);
 
     this.element.nativeElement.appendChild(
       markdown.reduce<HTMLElement>((type: MarkdownTypes | undefined, content: string | HTMLElement[], value?: IVariable | string) => {
@@ -82,13 +81,23 @@ export class MarkdownDirective implements OnInit, OnDestroy {
       })
     );
 
-    if (this.required) {
-      const requiredElement = document.createElement('span');
+    this.requiredElement = document.createElement('span');
 
-      requiredElement.className = 'text-danger';
-      requiredElement.textContent = '*';
+    this.requiredElement.className = 'text-danger';
+    this.requiredElement.textContent = '*';
+    this.requiredElement.style.display = this.required ? 'inline' : 'none';
 
-      this.element.nativeElement.appendChild(requiredElement);
+    this.element.nativeElement.appendChild(this.requiredElement);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.numeratorElement && changes.numerator) {
+      this.numeratorElement.textContent = changes.numerator.currentValue;
+      this.numeratorElement.style.display = changes.numerator.currentValue ? 'inline' : 'none';
+    }
+
+    if (this.requiredElement && changes.required) {
+      this.requiredElement.style.display = changes.required.currentValue ? 'inline' : 'none';
     }
   }
 

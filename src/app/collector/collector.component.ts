@@ -11,15 +11,15 @@ export class CollectorComponent {
   private collector?: Collector;
 
   @Input() set definition(definition: IDefinition) {
-      // Leave the collector outside of Angular to avoid unnecessary and costly change detection.
-      this.zone.runOutsideAngular(() => {
+    // Leave the collector outside of Angular to avoid unnecessary and costly change detection.
+    this.zone.runOutsideAngular(() => {
       if (this.collector) {
         this.collector.reload(definition);
 
         return;
       }
 
-      this.collector = new Collector(this.definition, this.mode, this.snapshot || true, this.preview);
+      this.collector = new Collector(definition, this.mode, this.snapshot || true, this.preview);
 
       this.collector.onChange = () => {
         this.changeDetector.detectChanges();
@@ -33,7 +33,7 @@ export class CollectorComponent {
   }
 
   @Input() snapshot?: ISnapshot;
-  @Input() mode: TModes = 'progressive';
+  @Input() mode: TModes = 'paginated';
   @Input() preview = false;
   @Input() numerators = false;
   @Input() pages = true;
@@ -91,11 +91,11 @@ export class CollectorComponent {
   get isEmpty(): boolean {
     const storyline = this.storyline;
 
-    return storyline && storyline.isEmpty || false;
+    return (storyline && storyline.isEmpty) || false;
   }
 
   get name(): string {
-    return this.collector && this.collector.name || '';
+    return (this.collector && this.collector.name) || '';
   }
 
   /** Start the collector. */
