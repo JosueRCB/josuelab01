@@ -2,6 +2,7 @@ import './checkbox/checkbox';
 import './checkboxes/checkboxes';
 import './dropdown/dropdown';
 import './email/email';
+import './example/example';
 import './number/number';
 import './password/password';
 import './radiobuttons/radiobuttons';

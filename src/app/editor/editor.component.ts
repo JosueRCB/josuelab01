@@ -1,17 +1,6 @@
 import { Component, Input, Output, ElementRef, NgZone, EventEmitter, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Editor, IEditorChangeEvent, IEditorReadyEvent, IDefinition } from 'tripetto';
-
-/** Import blocks. */
-import 'tripetto-block-checkbox';
-import 'tripetto-block-checkboxes';
-import 'tripetto-block-dropdown';
-import 'tripetto-block-email';
-import 'tripetto-block-number';
-import 'tripetto-block-password';
-import 'tripetto-block-radiobuttons';
-import 'tripetto-block-text';
-import 'tripetto-block-textarea';
-import 'tripetto-block-url';
+import './blocks';
 
 @Component({
   selector: 'tripetto-editor',
