@@ -1,33 +1,19 @@
 <div *ngIf="collector.status !== 'unloaded'" class="container-fluid">
   <div class="row">
     <div class="col-6 d-flex align-items-center">
-      <h1 class="mr-1 mr-md-3 text-truncate" (click)="editor.rename()">
-        {{ collector.name || 'Unnamed' }}
-      </h1>
-      <a
-          href="https://gitlab.com/tripetto/examples/angular"
-          target="_blank"
-          role="button"
-          class="btn btn-sm btn-link"
-      >
-          <i class="fas fa-code pr-2"></i>Get source
+      <h1 class="mr-1 mr-md-3 text-truncate" (click)="editor.rename()">{{ collector.name || 'Unnamed' }}</h1>
+      <a href="https://gitlab.com/tripetto/examples/angular" target="_blank" role="button" class="btn btn-sm btn-link">
+        <i class="fas fa-code pr-2"></i>Get source
       </a>
       <a
-          href="https://gitlab.com/tripetto/examples/angular/blob/master/README.md"
-          target="_blank"
-          role="button"
-          class="btn btn-sm btn-link"
+        href="https://gitlab.com/tripetto/examples/angular/blob/master/README.md"
+        target="_blank"
+        role="button"
+        class="btn btn-sm btn-link"
       >
-          <i class="fas fa-book-reader pr-2"></i>View readme
+        <i class="fas fa-book-reader pr-2"></i>View readme
       </a>
-      <a
-          href="#"
-          (click)="app.reset()"
-          role="button"
-          class="btn btn-sm btn-link"
-      >
-          <i class="fas fa-redo pr-2"></i>Reset demo
-      </a>
+      <a href="#" (click)="app.reset()" role="button" class="btn btn-sm btn-link"> <i class="fas fa-redo pr-2"></i>Reset demo </a>
     </div>
     <div class="col-6 d-flex justify-content-end align-items-center">
       <div *ngIf="!collector.preview" class="btn-group mr-1 mr-md-4" role="group" aria-label="Controls">
@@ -62,7 +48,9 @@
           <i class="fas fa-stop fa-fw"></i>
         </button>
       </div>
-      <button *ngIf="!collector.preview" type="button" class="btn btn-primary mr-1 mr-md-4" data-toggle="modal" data-target="#settings">Settings</button>
+      <button *ngIf="!collector.preview" type="button" class="btn btn-primary mr-1 mr-md-4" data-toggle="modal" data-target="#settings">
+        Settings
+      </button>
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <button
           type="button"

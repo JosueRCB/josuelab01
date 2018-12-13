@@ -72,11 +72,14 @@
               aria-describedby="setting-enumerators-label"
             />
             <label for="setting-enumerators" class="custom-control-label">
-              Enumerators <small class="form-text text-secondary" id="setting-enumerators-label"> Shows question numbers for blocks that collect data. </small>
+              Enumerators
+              <small class="form-text text-secondary" id="setting-enumerators-label">
+                Shows question numbers for blocks that collect data.
+              </small>
             </label>
           </div>
         </div>
-        <div class="form-group"*ngIf="collector.mode === 'paginated'">
+        <div class="form-group" *ngIf="collector.mode === 'paginated'">
           <div class="custom-control custom-checkbox">
             <input
               id="setting-pages"
@@ -87,7 +90,10 @@
               aria-describedby="setting-pages-label"
             />
             <label for="setting-pages" class="custom-control-label">
-              Pages <small class="form-text text-secondary" id="setting-pages-label"> Shows an index with pages (works only in paginated mode). </small>
+              Pages
+              <small class="form-text text-secondary" id="setting-pages-label">
+                Shows an index with pages (works only in paginated mode).
+              </small>
             </label>
           </div>
         </div>
