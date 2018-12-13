@@ -1,4 +1,4 @@
-<div class="modal-dialog" role="document">
+<div class="modal-dialog modal-dialog-centered" role="document">
   <div class="modal-content">
     <div class="modal-header px-4">
       <h5 class="modal-title" id="settings-label">Settings</h5>
@@ -76,7 +76,7 @@
             </label>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group"*ngIf="collector.mode === 'paginated'">
           <div class="custom-control custom-checkbox">
             <input
               id="setting-pages"

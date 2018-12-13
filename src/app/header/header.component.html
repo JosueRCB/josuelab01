@@ -1,36 +1,31 @@
-<div *ngIf="collector.status !== 'unloaded'" class="container">
+<div *ngIf="collector.status !== 'unloaded'" class="container-fluid">
   <div class="row">
-    <div class="col">
-      <div class="navbar-header navbar-brand my-2 font-weight-bold" (click)="editor.rename()">{{ collector.name || 'Unnamed' }}</div>
+    <div class="col-6 d-flex align-items-center">
+      <h1 class="mr-1 mr-md-3 text-truncate" (click)="editor.rename()">
+        {{ collector.name || 'Unnamed' }}
+      </h1>
+      <a
+          href="https://gitlab.com/tripetto/examples/angular"
+          target="_blank"
+          role="button"
+          class="btn btn-sm btn-link"
+      >
+          <i class="fas fa-code pr-2"></i>Get source
+      </a>
+      <a
+          href="https://gitlab.com/tripetto/examples/angular/blob/master/README.md"
+          target="_blank"
+          role="button"
+          class="btn btn-sm btn-link"
+      >
+          <i class="fas fa-book-reader pr-2"></i>View readme
+      </a>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-4">
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <div class="col-6 d-flex justify-content-end align-items-center">
+      <div *ngIf="!collector.preview" class="btn-group mr-1 mr-md-4" role="group" aria-label="Controls">
         <button
           type="button"
-          data-toggle="button"
-          [ngClass]="{ 'btn btn-lg': true, 'btn-success': !collector.preview, 'btn-secondary': collector.preview }"
-          (click)="collector.set('preview', false)"
-        >
-          Collect
-        </button>
-        <button
-          type="button"
-          class="btn btn-lg"
-          data-toggle="button"
-          [ngClass]="{ 'btn btn-lg': true, 'btn-success': collector.preview, 'btn-secondary': !collector.preview }"
-          (click)="collector.set('preview', true)"
-        >
-          Preview
-        </button>
-      </div>
-    </div>
-    <div *ngIf="!collector.preview" class="col-8 text-right">
-      <div class="btn-group" role="group" aria-label="Controls">
-        <button
-          type="button"
-          class="btn btn-lg btn-primary"
+          class="btn btn-primary"
           title="Start form"
           [disabled]="collector.status !== 'stopped' && collector.status !== 'finished'"
           (click)="collector.start()"
@@ -39,7 +34,7 @@
         </button>
         <button
           type="button"
-          class="btn btn-lg btn-primary"
+          class="btn btn-primary"
           title="Pause form"
           [disabled]="collector.status !== 'running'"
           (click)="collector.pause()"
@@ -48,7 +43,7 @@
         </button>
         <button
           type="button"
-          class="btn btn-lg btn-primary"
+          class="btn btn-primary"
           title="Stop form"
           [disabled]="collector.status !== 'running'"
           (click)="collector.stop()"
@@ -56,7 +51,25 @@
           <i class="fas fa-stop fa-fw"></i>
         </button>
       </div>
-      <button type="button" class="btn btn-lg btn-primary ml-2" data-toggle="modal" data-target="#settings">Settings</button>
+      <button *ngIf="!collector.preview" type="button" class="btn btn-primary mr-1 mr-md-4" data-toggle="modal" data-target="#settings">Settings</button>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <button
+          type="button"
+          data-toggle="button"
+          [ngClass]="{ 'btn ': true, 'btn-success': !collector.preview, 'btn-secondary': collector.preview }"
+          (click)="collector.set('preview', false)"
+        >
+          Collect
+        </button>
+        <button
+          type="button"
+          data-toggle="button"
+          [ngClass]="{ 'btn ': true, 'btn-success': collector.preview, 'btn-secondary': !collector.preview }"
+          (click)="collector.set('preview', true)"
+        >
+          Preview
+        </button>
+      </div>
     </div>
   </div>
 </div>
