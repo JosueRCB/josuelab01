@@ -1,7 +1,5 @@
 <ul *ngIf="storyline.pages.length > 0" class="pagination mb-0">
-    <li *ngFor="let page of storyline.pages" class="page-item" [ngClass]="page.active ? 'active' : ''">
-        <span class="page-link" (click)="page.activate()">
-            {{ page.number }}
-        </span>
-    </li>
+  <li *ngFor="let page of storyline.pages" class="page-item" [ngClass]="page.active ? 'active' : ''">
+    <span class="page-link" (click)="page.activate()"> {{ page.number }} </span>
+  </li>
 </ul>

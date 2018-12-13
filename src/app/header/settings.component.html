@@ -1,7 +1,7 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header px-4">
-      <h5 class="modal-title" id="settingsModalTitle">Settings</h5>
+      <h5 class="modal-title" id="settings-label">Settings</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     </div>
     <div class="modal-body px-4">
@@ -10,16 +10,16 @@
         <div class="custom-control custom-radio mb-3">
           <input
             type="radio"
-            id="paginated"
+            id="setting-mode-paginated"
             name="mode"
             [checked]="collector.mode === 'paginated'"
             (change)="collector.set('mode', 'paginated')"
             class="custom-control-input"
-            aria-describedby="paginated_explanation"
+            aria-describedby="setting-mode-paginated-label"
           />
-          <label for="paginated" class="custom-control-label">
+          <label for="setting-mode-paginated" class="custom-control-label">
             Paginated
-            <small class="form-text text-secondary" id="paginated_explanation">
+            <small class="form-text text-secondary" id="setting-mode-paginated-label">
               Blocks are presented page for page and the user navigates through the pages using the next and back buttons.
             </small>
           </label>
@@ -27,16 +27,16 @@
         <div class="custom-control custom-radio mb-3">
           <input
             type="radio"
-            id="continuous"
+            id="setting-mode-continuous"
             name="mode"
             [checked]="collector.mode === 'continuous'"
             (change)="collector.set('mode', 'continuous')"
             class="custom-control-input"
-            aria-describedby="continuous_explanation"
+            aria-describedby="setting-mode-continuous-label"
           />
-          <label for="continuous" class="custom-control-label">
+          <label for="setting-mode-continuous" class="custom-control-label">
             Continuous
-            <small class="form-text text-secondary" id="continuous_explanation">
+            <small class="form-text text-secondary" id="setting-mode-continuous-label">
               This will keep all past blocks in view as the user navigates using the next and back buttons.
             </small>
           </label>
@@ -44,16 +44,16 @@
         <div class="custom-control custom-radio mb-3">
           <input
             type="radio"
-            id="progressive"
+            id="setting-mode-progressive"
             name="mode"
             [checked]="collector.mode === 'progressive'"
             (change)="collector.set('mode', 'progressive')"
             class="custom-control-input"
-            aria-describedby="progressive_explanation"
+            aria-describedby="setting-mode-progressive-label"
           />
-          <label for="progressive" class="custom-control-label">
+          <label for="setting-mode-progressive" class="custom-control-label">
             Progressive
-            <small class="form-text text-secondary" id="progressive_explanation">
+            <small class="form-text text-secondary" id="setting-mode-progressive-label">
               In this mode all possible blocks are presented to the user. The user does not need to navigate using the next and back buttons
               (so we can hide those buttons).
             </small>
@@ -64,46 +64,46 @@
         <div class="form-group">
           <div class="custom-control custom-checkbox">
             <input
-              id="numerators"
+              id="setting-enumerators"
               type="checkbox"
-              [checked]="collector.numerators"
-              (change)="collector.set('numerators', !collector.numerators)"
+              [checked]="collector.enumerators"
+              (change)="collector.set('enumerators', !collector.enumerators)"
               class="custom-control-input"
-              aria-describedby="numerators_explanation"
+              aria-describedby="setting-enumerators-label"
             />
-            <label for="numerators" class="custom-control-label">
-              Numerators <small class="form-text text-secondary" id="numerators_explanation"> Shows numbers in labels. </small>
+            <label for="setting-enumerators" class="custom-control-label">
+              Enumerators <small class="form-text text-secondary" id="setting-enumerators-label"> Shows numbers in labels. </small>
             </label>
           </div>
         </div>
         <div class="form-group">
           <div class="custom-control custom-checkbox">
             <input
-              id="pages"
+              id="setting-pages"
               type="checkbox"
               [checked]="collector.pages"
               (change)="collector.set('pages', !collector.pages)"
               class="custom-control-input"
-              aria-describedby="pages_explanation"
+              aria-describedby="setting-pages-label"
             />
-            <label for="pages" class="custom-control-label">
-              Pages <small class="form-text text-secondary" id="pages_explanation"> Shows pages-index in paginated mode. </small>
+            <label for="setting-pages" class="custom-control-label">
+              Pages <small class="form-text text-secondary" id="setting-pages-label"> Shows pages-index in paginated mode. </small>
             </label>
           </div>
         </div>
         <div class="form-group">
           <div class="custom-control custom-checkbox">
             <input
-              id="buttons-sticky"
+              id="setting-buttons"
               type="checkbox"
               [checked]="collector.buttons === 'sticky'"
               (change)="collector.set('buttons', collector.buttons === 'sticky' ? 'inline' : 'sticky')"
               class="custom-control-input"
-              aria-describedby="buttons-sticky_explanation"
+              aria-describedby="setting-buttons-label"
             />
-            <label for="buttons-sticky" class="custom-control-label">
+            <label for="setting-buttons" class="custom-control-label">
               Sticky buttons
-              <small class="form-text text-secondary" id="buttons-sticky_explanation">
+              <small class="form-text text-secondary" id="setting-buttons-label">
                 Shows buttons sticky to bottom of the collector-window.
               </small>
             </label>
@@ -112,15 +112,15 @@
         <div class="form-group">
           <div class="custom-control custom-checkbox">
             <input
-              id="progressbar"
+              id="setting-progressbar"
               type="checkbox"
               [checked]="collector.progressbar"
               (change)="collector.set('progressbar', !collector.progressbar)"
               class="custom-control-input"
-              aria-describedby="progressbar_explanation"
+              aria-describedby="setting-progressbar-label"
             />
-            <label for="progressbar" class="custom-control-label">
-              Progressbar <small class="form-text text-secondary" id="progressbar_explanation"> Shows progressbar. </small>
+            <label for="setting-progressbar" class="custom-control-label">
+              Progressbar <small class="form-text text-secondary" id="setting-progressbar-label"> Shows progressbar. </small>
             </label>
           </div>
         </div>

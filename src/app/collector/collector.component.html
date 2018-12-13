@@ -1,15 +1,6 @@
 <section *ngIf="status !== 'unloaded'" class="container" [ngClass]="buttons === 'sticky' && !preview ? 'sticky' : ''">
   <div class="row">
     <div class="col">
-      <!-- Form is empty -->
-      <div *ngIf="status === 'empty'" class="text-center mt-5">
-        <h3>👋 The form stopped itself</h3>
-        <p class="text-secondary">
-          The form stopped immediately after it was started because there are no blocks in it. Add blocks to the form first to get the
-          magic going.
-        </p>
-      </div>
-
       <!-- Form finished -->
       <div *ngIf="status === 'finished'" class="text-center mt-5">
         <h3>✔ You’ve completed the form</h3>
@@ -39,18 +30,23 @@
         <p class="text-secondary">Press the play icon to start a new session.</p>
       </div>
 
-      <!-- Form blocks -->
-      <tripetto-block *ngFor="let node of nodes" [node]="node" [collector]="this"></tripetto-block>
-
-      <div *ngIf="isEmpty" class="text-center mt-5">
+      <!-- Form is empty -->
+      <div *ngIf="status === 'empty'" class="text-center mt-5">
         <h3>👋 Nothing to show here yet</h3>
         <p class="text-secondary">Add blocks to the form first to get the magic going.</p>
       </div>
 
+      <!-- Form blocks -->
+      <tripetto-block *ngFor="let node of nodes" [node]="node" [collector]="this"></tripetto-block>
+
       <!-- Inline buttons -->
-      <div *ngIf="buttons === 'inline' && storyline && !preview" class="row buttons-inline">
+      <div *ngIf="status !== 'empty' && buttons === 'inline' && storyline && !preview" class="row buttons-inline">
         <tripetto-collector-buttons [storyline]="storyline" class="col-md-auto"></tripetto-collector-buttons>
-        <tripetto-collector-pages *ngIf="mode === 'paginated' && pages" [storyline]="storyline" class="col-md-auto"></tripetto-collector-pages>
+        <tripetto-collector-pages
+          *ngIf="mode === 'paginated' && pages"
+          [storyline]="storyline"
+          class="col-md-auto"
+        ></tripetto-collector-pages>
         <tripetto-collector-progressbar *ngIf="progressbar" [storyline]="storyline" class="col"></tripetto-collector-progressbar>
       </div>
     </div>
@@ -58,7 +54,10 @@
 </section>
 
 <!-- Sticky buttons -->
-<nav *ngIf="status !== 'unloaded' && buttons === 'sticky' && storyline && !preview" class="navbar navbar-expand navbar-dark bg-light buttons-sticky">
+<nav
+  *ngIf="status !== 'unloaded' && status !== 'empty' && buttons === 'sticky' && storyline && !preview"
+  class="navbar navbar-expand navbar-dark bg-light buttons-sticky"
+>
   <div class="container">
     <tripetto-collector-buttons [storyline]="storyline" class="col-md-auto"></tripetto-collector-buttons>
     <tripetto-collector-pages *ngIf="mode === 'paginated' && pages" [storyline]="storyline" class="col-md-auto"></tripetto-collector-pages>

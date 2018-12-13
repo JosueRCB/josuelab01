@@ -17,8 +17,8 @@ export abstract class BlockComponentFactory {
     return this.node.context;
   }
 
-  get numerator(): string {
-    return this.collector.numerators && this.node.numerator && `${this.node.numerator}. ` || '';
+  get enumerator(): string {
+    return (this.collector.enumerators && this.node.enumerator && `${this.node.enumerator}. `) || '';
   }
 
   get name(): string {

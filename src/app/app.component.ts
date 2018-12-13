@@ -20,17 +20,17 @@ export class AppComponent implements OnInit {
   constructor(private _http: HttpClient) {}
 
   ngOnInit() {
-      // For this demo we use the local store to save the definition and snapshot.
-      // Here we try to retrieve that saved data.
-      this.editor.definition = JSON.parse(localStorage.getItem(DEFINITION) || 'null') || undefined;
-      this.collector.snapshot = JSON.parse(localStorage.getItem(SNAPSHOT) || 'null') || undefined;
+    // For this demo we use the local store to save the definition and snapshot.
+    // Here we try to retrieve that saved data.
+    this.editor.definition = JSON.parse(localStorage.getItem(DEFINITION) || 'null') || undefined;
+    this.collector.snapshot = JSON.parse(localStorage.getItem(SNAPSHOT) || 'null') || undefined;
 
-      // If there was no definition found in the local store, fetch our demo definition.
-      if (!this.editor.definition) {
-        this._http.get('/assets/demo.json').subscribe((definitionFromRemote: IDefinition) => {
-          this.editor.definition = definitionFromRemote;
-        });
-     }
+    // If there was no definition found in the local store, fetch our demo definition.
+    if (!this.editor.definition) {
+      this._http.get('/assets/demo.json').subscribe((definitionFromRemote: IDefinition) => {
+        this.editor.definition = definitionFromRemote;
+      });
+    }
   }
 
   // A change was made in the editor, inform the collector and store the definition.

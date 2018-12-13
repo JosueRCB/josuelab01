@@ -1,4 +1,4 @@
-import { Component, Input  } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CollectorComponent } from '../collector/collector.component';
 import { TModes } from 'tripetto-collector';
 

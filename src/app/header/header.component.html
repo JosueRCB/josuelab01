@@ -1,8 +1,8 @@
 <div *ngIf="collector.status !== 'unloaded'" class="container">
   <div class="row">
-    <div class="col"><div class="navbar-header navbar-brand my-2 font-weight-bold" (click)="editor.rename();">
-      {{ collector.name || "Unnamed" }}
-    </div></div>
+    <div class="col">
+      <div class="navbar-header navbar-brand my-2 font-weight-bold" (click)="editor.rename()">{{ collector.name || 'Unnamed' }}</div>
+    </div>
   </div>
   <div class="row">
     <div class="col-4">
@@ -56,9 +56,16 @@
           <i class="fas fa-stop fa-fw"></i>
         </button>
       </div>
-      <button type="button" class="btn btn-lg btn-primary ml-2" data-toggle="modal" data-target="#settingsModal">Settings</button>
+      <button type="button" class="btn btn-lg btn-primary ml-2" data-toggle="modal" data-target="#settings">Settings</button>
     </div>
   </div>
 </div>
 
-<tripetto-settings [collector]="collector" class="modal" id="settingsModal" role="dialog" aria-labelledby="settingsModalTitle" aria-hidden="true"></tripetto-settings>
+<tripetto-settings
+  [collector]="collector"
+  class="modal"
+  id="settings"
+  role="dialog"
+  aria-labelledby="settings-label"
+  aria-hidden="true"
+></tripetto-settings>

@@ -6,12 +6,12 @@ import { Context, markdownify, castToBoolean, castToString, MarkdownTypes, Str, 
 })
 export class MarkdownDirective implements OnInit, OnDestroy, OnChanges {
   private variables: IVariable[] = [];
-  private numeratorElement: HTMLSpanElement;
+  private enumeratorElement: HTMLSpanElement;
   private requiredElement: HTMLSpanElement;
   @Input() content: string;
   @Input() context: Context;
   @Input() lineBreaks: boolean;
-  @Input() numerator: string;
+  @Input() enumerator: string;
   @Input() required: boolean;
   @Output() changed = new EventEmitter();
 
@@ -22,10 +22,10 @@ export class MarkdownDirective implements OnInit, OnDestroy, OnChanges {
       lineBreaks: castToBoolean(this.lineBreaks, true)
     });
 
-    this.numeratorElement = document.createElement('span');
-    this.numeratorElement.textContent = this.numerator;
-    this.numeratorElement.style.display = this.numerator ? 'inline' : 'none';
-    this.element.nativeElement.appendChild(this.numeratorElement);
+    this.enumeratorElement = document.createElement('span');
+    this.enumeratorElement.textContent = this.enumerator;
+    this.enumeratorElement.style.display = this.enumerator ? 'inline' : 'none';
+    this.element.nativeElement.appendChild(this.enumeratorElement);
 
     this.element.nativeElement.appendChild(
       markdown.reduce<HTMLElement>((type: MarkdownTypes | undefined, content: string | HTMLElement[], value?: IVariable | string) => {
@@ -91,9 +91,9 @@ export class MarkdownDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.numeratorElement && changes.numerator) {
-      this.numeratorElement.textContent = changes.numerator.currentValue;
-      this.numeratorElement.style.display = changes.numerator.currentValue ? 'inline' : 'none';
+    if (this.enumeratorElement && changes.enumerator) {
+      this.enumeratorElement.textContent = changes.enumerator.currentValue;
+      this.enumeratorElement.style.display = changes.enumerator.currentValue ? 'inline' : 'none';
     }
 
     if (this.requiredElement && changes.required) {

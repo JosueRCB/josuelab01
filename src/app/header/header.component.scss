@@ -16,12 +16,6 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
     }
 
     button {
-      &:not([disabled]) {
-        * {
-          cursor: pointer;
-        }
-      }
-
       i {
         font-size: 11px;
         position: relative;

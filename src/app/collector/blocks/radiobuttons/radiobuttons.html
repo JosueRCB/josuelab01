@@ -1,5 +1,13 @@
 <div class="form-group">
-  <label *ngIf="name" [for]="block.key()" markdown [content]="name" [context]="context" [numerator]="numerator" [required]="block.required"></label>
+  <label
+    *ngIf="name"
+    [for]="block.key()"
+    markdown
+    [content]="name"
+    [context]="context"
+    [enumerator]="enumerator"
+    [required]="block.required"
+  ></label>
   <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
   <div *ngFor="let button of block.buttons" class="custom-control custom-radio">
     <input

@@ -1,14 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  ElementRef,
-  NgZone,
-  EventEmitter,
-  OnInit,
-  OnDestroy,
-  ChangeDetectionStrategy
-} from '@angular/core';
+import { Component, Input, Output, ElementRef, NgZone, EventEmitter, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Editor, IEditorChangeEvent, IEditorReadyEvent, IDefinition } from 'tripetto';
 
 /** Import blocks. */
@@ -46,7 +36,7 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   get definition(): IDefinition | undefined {
-    return this.editor && this.editor.definition || this.initialDefinition;
+    return (this.editor && this.editor.definition) || this.initialDefinition;
   }
 
   @Output() changed = new EventEmitter<IDefinition>();

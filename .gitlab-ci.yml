@@ -1,13 +1,13 @@
 image: node:alpine
 
 before_script:
-    - node --version
-    - npm --version
-    - npm install
+  - node --version
+  - npm --version
+  - npm ci || npm install
 
 make:
-    script:
-        - npm run make --silent
-    artifacts:
-        paths:
-            - dist/
+  script:
+    - npm run make
+  artifacts:
+    paths:
+      - dist/

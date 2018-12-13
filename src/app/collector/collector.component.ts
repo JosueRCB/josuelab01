@@ -35,7 +35,7 @@ export class CollectorComponent {
   @Input() snapshot?: ISnapshot;
   @Input() mode: TModes = 'paginated';
   @Input() preview = false;
-  @Input() numerators = false;
+  @Input() enumerators = false;
   @Input() pages = true;
   @Input() progressbar = false;
   @Input() buttons: 'inline' | 'sticky' = 'inline';
@@ -47,7 +47,7 @@ export class CollectorComponent {
 
   get status(): 'unloaded' | 'ready' | 'empty' | 'running' | 'paused' | 'stopped' | 'finished' {
     if (this.collector) {
-      if (this.collector.isEmpty) {
+      if (this.collector.isEmpty || (this.storyline && this.storyline.isEmpty)) {
         return 'empty';
       }
 
@@ -88,12 +88,6 @@ export class CollectorComponent {
     return nodes;
   }
 
-  get isEmpty(): boolean {
-    const storyline = this.storyline;
-
-    return (storyline && storyline.isEmpty) || false;
-  }
-
   get name(): string {
     return (this.collector && this.collector.name) || '';
   }
@@ -120,10 +114,10 @@ export class CollectorComponent {
   }
 
   /** Change a setting. */
-  set(setting: 'mode', value: TModes);
-  set(setting: 'buttons', value: 'inline' | 'sticky');
-  set(setting: 'preview' | 'numerators' | 'pages' | 'progressbar', value: boolean);
-  set(setting: 'mode' | 'preview' | 'numerators' | 'pages' | 'progressbar' | 'buttons', value: any) {
+  set(setting: 'mode', value: TModes): void;
+  set(setting: 'buttons', value: 'inline' | 'sticky'): void;
+  set(setting: 'preview' | 'enumerators' | 'pages' | 'progressbar', value: boolean): void;
+  set(setting: 'mode' | 'preview' | 'enumerators' | 'pages' | 'progressbar' | 'buttons', value: any): void {
     switch (setting) {
       case 'mode':
         this.mode = value;
@@ -141,8 +135,8 @@ export class CollectorComponent {
         }
 
         return;
-      case 'numerators':
-        this.numerators = value;
+      case 'enumerators':
+        this.enumerators = value;
         break;
       case 'pages':
         this.pages = value;

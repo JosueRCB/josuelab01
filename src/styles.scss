@@ -1,5 +1,5 @@
 .bootstrap {
-  @import "~bootstrap/scss/bootstrap";
+  @import '~bootstrap/scss/bootstrap';
 
   margin: 0;
   font-family: $font-family-base;
@@ -13,4 +13,3 @@
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba($black, 0);
 }
-
