@@ -53,8 +53,7 @@ export class EditorComponent implements OnInit, OnDestroy {
         disableClearButton: false,
         disableCloseButton: true,
         disableOpenCloseAnimation: true,
-        supportURL: false,
-        showTutorial: false,
+        showTutorial: true,
         zoom: 'fit-horizontal'
       });
 

@@ -36,7 +36,7 @@ export class CollectorComponent {
   @Input() mode: TModes = 'paginated';
   @Input() preview = false;
   @Input() enumerators = false;
-  @Input() pages = true;
+  @Input() pages = false;
   @Input() progressbar = false;
   @Input() buttons: 'inline' | 'sticky' = 'inline';
   @Output() changed = new EventEmitter();
@@ -110,6 +110,13 @@ export class CollectorComponent {
   stop(): void {
     if (this.collector) {
       this.collector.stop();
+    }
+  }
+
+  /** Resets the collector. */
+  reset(): void {
+    if (this.collector) {
+      this.collector.restart(false);
     }
   }
 

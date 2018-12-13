@@ -1,6 +1,7 @@
 import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { EditorComponent } from '../editor/editor.component';
 import { CollectorComponent } from '../collector/collector.component';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'tripetto-header',
@@ -8,6 +9,7 @@ import { CollectorComponent } from '../collector/collector.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @Input() app: AppComponent;
   @Input() editor: EditorComponent;
   @Input() collector: CollectorComponent;
 

@@ -20,13 +20,22 @@
       >
           <i class="fas fa-book-reader pr-2"></i>View readme
       </a>
+      <a
+          href="#"
+          (click)="app.reset()"
+          role="button"
+          class="btn btn-sm btn-link"
+      >
+          <i class="fas fa-redo pr-2"></i>Reset demo
+      </a>
     </div>
     <div class="col-6 d-flex justify-content-end align-items-center">
       <div *ngIf="!collector.preview" class="btn-group mr-1 mr-md-4" role="group" aria-label="Controls">
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn"
           title="Start form"
+          [ngClass]="collector.status !== 'stopped' && collector.status !== 'finished' ? '' : 'btn-primary'"
           [disabled]="collector.status !== 'stopped' && collector.status !== 'finished'"
           (click)="collector.start()"
         >
@@ -34,8 +43,9 @@
         </button>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn"
           title="Pause form"
+          [ngClass]="collector.status === 'running' ? 'btn-primary' : ''"
           [disabled]="collector.status !== 'running'"
           (click)="collector.pause()"
         >
@@ -43,8 +53,9 @@
         </button>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn"
           title="Stop form"
+          [ngClass]="collector.status === 'running' ? 'btn-primary' : ''"
           [disabled]="collector.status !== 'running'"
           (click)="collector.stop()"
         >
@@ -56,7 +67,8 @@
         <button
           type="button"
           data-toggle="button"
-          [ngClass]="{ 'btn ': true, 'btn-success': !collector.preview, 'btn-secondary': collector.preview }"
+          class="btn"
+          [ngClass]="{ 'btn-success': !collector.preview, 'btn-secondary': collector.preview }"
           (click)="collector.set('preview', false)"
         >
           Collect
@@ -64,7 +76,8 @@
         <button
           type="button"
           data-toggle="button"
-          [ngClass]="{ 'btn ': true, 'btn-success': collector.preview, 'btn-secondary': !collector.preview }"
+          class="btn"
+          [ngClass]="{ 'btn-success': collector.preview, 'btn-secondary': !collector.preview }"
           (click)="collector.set('preview', true)"
         >
           Preview

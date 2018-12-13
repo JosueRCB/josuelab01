@@ -8,7 +8,7 @@ Tripetto is a full-fledged form kit. Rapidly create and deploy smart flowing for
 [![docs](https://img.shields.io/badge/docs-website-blue.svg)](https://docs.tripetto.community/collector)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/tripetto)
 
-This demo shows how to implement the collector for some basic form input controls using [Angular](https://angular.io/) and [Bootstrap](http://getbootstrap.com/). The goal is to show you how to implement the collector with minimal code footprint so you get a good understanding of the principles.
+This demo shows how to implement the editor and collector for some basic form input controls using [Angular](https://angular.io/) and [Bootstrap](http://getbootstrap.com/). The goal is to show you how to implement Tripetto with minimal code footprint so you get a good understanding of the principles. In this example the browser window is split in two. At the left side you see the editor and at the right side the collector. Use the editor to create a form definition. It will run in the collector at the right. At the top is a header with the title of the form definition and some controls for demo purposes (like start/pause/stop the collector).
 
 # How to run
 1. [Download](https://gitlab.com/tripetto/examples/angular/repository/master/archive.zip) or clone the [repository](https://gitlab.com/tripetto/examples/angular) to your local machine:
@@ -25,15 +25,6 @@ $ npm install
 ```bash
 $ npm test
 ```
-
-4. Open another terminal/command prompt and start the editor (this will open an example definition file located at `./src/assets/demo.json`):
-```bash
-$ npm start
-```
-
-This last command will probably automatically open your default browser with the URL http://localhost:3333. If not, open the browser of your choice and navigate to this URL.
-
-When you have changed your form, click the `Save` button at the right top of the editor. Then, refresh the form collector to run the altered form.
 
 # Documentation
 The complete Tripetto documentation can be found at [docs.tripetto.community](https://docs.tripetto.community).

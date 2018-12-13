@@ -16,6 +16,7 @@ const SNAPSHOT = 'tripetto-example-angular-bootstrap-snapshot';
 export class AppComponent implements OnInit {
   @ViewChild('collector') collector: CollectorComponent;
   @ViewChild('editor') editor: EditorComponent;
+  demoDefinition: IDefinition;
 
   constructor(private _http: HttpClient) {}
 
@@ -25,15 +26,26 @@ export class AppComponent implements OnInit {
     this.editor.definition = JSON.parse(localStorage.getItem(DEFINITION) || 'null') || undefined;
     this.collector.snapshot = JSON.parse(localStorage.getItem(SNAPSHOT) || 'null') || undefined;
 
-    // If there was no definition found in the local store, fetch our demo definition.
-    if (!this.editor.definition) {
-      this._http.get('/assets/demo.json').subscribe((definitionFromRemote: IDefinition) => {
-        this.editor.definition = definitionFromRemote;
-      });
-    }
+    this._http.get('/assets/demo.json').subscribe((demoDefinition: IDefinition) => {
+      this.demoDefinition = demoDefinition;
+
+      // If there was no definition found in the local store, use our demo definition.
+      if (!this.editor.definition) {
+        this.editor.definition = demoDefinition;
+      }
+    });
   }
 
-  // A change was made in the editor, inform the collector and store the definition.
+  /** Resets the form definition to the demo definition. */
+  reset() {
+    localStorage.removeItem(DEFINITION);
+    localStorage.removeItem(SNAPSHOT);
+
+    this.editor.definition = this.demoDefinition;
+    this.collector.reset();
+  }
+
+  /** A change was made in the editor, inform the collector and store the definition. */
   onEditorChanged(definition: IDefinition) {
     // Push the definition to the collector.
     this.collector.definition = definition;
@@ -42,13 +54,13 @@ export class AppComponent implements OnInit {
     localStorage.setItem(DEFINITION, JSON.stringify(definition));
   }
 
-  // The collector was paused, store the snapshot.
+  /** The collector was paused, store the snapshot. */
   onCollectorPaused(snapshot: ISnapshot) {
     // Store the snapshot in the local store, so we can restore it on browser refresh.
     localStorage.setItem(SNAPSHOT, JSON.stringify(snapshot));
   }
 
-  // The collector was finished, output the collected data to the console.
+  /** The collector was finished, output the collected data to the console. */
   onCollectorFinished(instance: Instance) {
     // Output the collected data to the console for demo purposes.
     console.dir(Export.fields(instance));

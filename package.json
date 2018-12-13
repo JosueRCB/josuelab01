@@ -1,8 +1,8 @@
 {
-  "name": "tripetto-example-angular",
-  "title": "Tripetto collector example (Angular)",
+  "name": "tripetto-example-angular-bootstrap",
+  "title": "Tripetto example (Angular + Bootstrap)",
   "version": "1.0.0",
-  "description": "Demo for implementing the Tripetto collector using Angular and Bootstrap.",
+  "description": "Demo for implementing Tripetto using Angular and Bootstrap.",
   "license": "MIT",
   "private": true,
   "homepage": "https://gitlab.com/tripetto/examples/angular",
