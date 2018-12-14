@@ -11,3 +11,16 @@ make:
   artifacts:
     paths:
       - dist/
+
+pages:
+  stage: deploy
+  script:
+    - npm run make
+  environment:
+    name: Production
+    url: https://angular-bootstrap-example.tripetto.com/
+  artifacts:
+    paths:
+      - dist
+  only:
+    - master
