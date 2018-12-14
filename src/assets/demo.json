@@ -9,7 +9,7 @@
           "id": "3aa3016e2ff41e789df25dcca54faf95c7b62bc2f05de6e8f93418530e172b19",
           "name": "Welcome to Tripetto!",
           "nameVisible": true,
-          "description": "A full-fledged form kit to rapidly create and deploy smart flowing forms and surveys. Drop the kit into your codebase to get everything you need. And be the single host of your own data.\n\nThis example shows you how to use the editor and collector in your own projects. This demo form learns you more about the available features. Beginning with **markdown** *support*. ~Goodbye plain text.~\n\nCan't wait to implement Tripetto? Head over to our [documentation](https://docs.tripetto.community/).\n\n🗨 *So what you see here is an actual form running in - what we call - the collector. This is the right part of the screen. On the left is the editor. You can edit this form there and see the result in real time. Have fun!*"
+          "description": "**A full-fledged form kit to rapidly create and deploy smart flowing forms and surveys. Drop the kit into your codebase to get everything you need. And be the single host of your own data.**\n\nThis example shows you how to use the editor and collector in your own projects and demonstrates some powerful features available in Tripetto (e.g. a visual form editor, smart flows, **markdown** *support*, extensibility and many, many more). Can't wait to implement Tripetto? Head over to our **[documentation](https://docs.tripetto.community/)**.\n\n🗨 *This demo setup shows the form editor on the left and the so-called collector on the right, running the form being built in the editor. All editing is realtime. Have fun!*"
         }
       ]
     },
@@ -19,16 +19,16 @@
       "nodes": [
         {
           "id": "a41e7aee8c63dfe1159c17f9610b11228f8400281c59b31c2941e983f0168de9",
-          "name": "Powerful data flows (piping)",
+          "name": "Smart flows (piping)",
           "nameVisible": true,
-          "description": "Tripetto allows piping of data anywhere in the form. Typ your name in the input box below to see how this works."
+          "description": "Tripetto handles the piping of data anywhere in the form. Type your name in the input box below to see how this works."
         },
         {
           "id": "6bb19d29b0a05b8fc37240916d3ec779f7cf469b986bd5d4e78e6d50a03e8b48",
-          "explanation": "Hello *@2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0*, you can use collected data literally anywhere (for example in this help text)!",
-          "name": "👋 Hello @2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0",
+          "explanation": "You can use collected data *anywhere*. Yes, even in this help text, **@2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0**!",
+          "name": "👋 Hello there, @2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0!",
           "nameVisible": true,
-          "placeholder": "Please enter your name",
+          "placeholder": "What's your name?",
           "slots": [
             {
               "id": "2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0",
@@ -53,13 +53,13 @@
           "id": "7720412dd05b3288b6e7c45168ee40e6b5a83fca09dc151417138d6b5a62e946",
           "name": "Sound logic for creating conversations",
           "nameVisible": true,
-          "description": "Forms should flow like conversations. But those only really work with sound logic. Tripetto supports this in its core."
+          "description": "We believe good forms are smart forms. They should flow like conversations. But those only really work with sound logic. That's where Tripetto comes in."
         },
         {
           "id": "9b799c9c56989a9204f99de38c61964f4051edd76bbdd37fdc28c894015d52fc",
-          "name": "@2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0, time to learn more about Tripetto!",
+          "name": "What would you like to learn about Tripetto, @2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0?",
           "nameVisible": true,
-          "description": "Select some topics from the list below (we suggest to select more than 1 topic for the best demo experience 😉).",
+          "description": "Select your topics from the list below. We suggest selecting more than one for the optimal experience 😉.",
           "slots": [
             {
               "id": "c357e913d1019850befe3c41b1235a41800cc17effa82f4acc9d715c3eb1ad77",
@@ -68,7 +68,7 @@
               "reference": "ecb6b8b19b96c9688c67ee5571d9aa1df93de21acc773375573e09d864c21afa",
               "sequence": 0,
               "label": "Keuzevak",
-              "name": "Editor",
+              "name": "Visual editor for form creation",
               "pipable": {
                 "group": "Checkbox",
                 "label": "Keuzevak",
@@ -83,7 +83,7 @@
               "reference": "90f33f36ba6abdb8745870e2f882a5760ee45a138abe06c239eec6f3d30faad1",
               "sequence": 1,
               "label": "Keuzevak",
-              "name": "Collector",
+              "name": "Collector for response gathering",
               "pipable": {
                 "group": "Checkbox",
                 "label": "Keuzevak",
@@ -98,7 +98,7 @@
               "reference": "3820cc79b6d79a25dd411e82b94f50c4e803fc057c67b2225a6bb94befd6bb1a",
               "sequence": 2,
               "label": "Keuzevak",
-              "name": "Blocks",
+              "name": "Custom building blocks",
               "pipable": {
                 "group": "Checkbox",
                 "label": "Keuzevak",
@@ -113,15 +113,15 @@
             "checkboxes": [
               {
                 "id": "ecb6b8b19b96c9688c67ee5571d9aa1df93de21acc773375573e09d864c21afa",
-                "name": "Editor"
+                "name": "Visual editor for form creation"
               },
               {
                 "id": "90f33f36ba6abdb8745870e2f882a5760ee45a138abe06c239eec6f3d30faad1",
-                "name": "Collector"
+                "name": "Collector for response gathering"
               },
               {
                 "id": "3820cc79b6d79a25dd411e82b94f50c4e803fc057c67b2225a6bb94befd6bb1a",
-                "name": "Blocks"
+                "name": "Custom building blocks"
               }
             ],
             "alias": "TOPICS"
@@ -140,7 +140,7 @@
                   "id": "45f32e70b67ec511532b3d7ff2e9c647d17289da7ccf7ceaa29c653ac1d2874e",
                   "name": "Visual editor for form creation",
                   "nameVisible": true,
-                  "description": "The visual editor is for creating forms with clever flows on a self-organizing drawing board. It visualizes your form's flow and structure and helps you use all the right logic for skipping questions, branching the flow and much more.\n👨‍💻 [Start implementing the editor](https://docs.tripetto.community/editor/)\n\n🗨 *You see this information, because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**'.*"
+                  "description": "The visual editor is for creating forms with clever flows on a self-organizing drawing board. It visualizes your form's flow and structure and helps you use all the right logic for skipping questions, branching the flow and much more.\n\n👨‍💻 **[Start integrating the visual editor](https://docs.tripetto.community/editor/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
                 }
               ]
             }
@@ -168,9 +168,9 @@
               "nodes": [
                 {
                   "id": "49254d29ef6d79a69dcd5528b0413df55498dc5a78f2b572df5eb59b288bdf54",
-                  "name": "Collector for response collection",
+                  "name": "Collector for response gathering",
                   "nameVisible": true,
-                  "description": "The collector library is for form deployment and response collection in your projects. It runs your forms built with the editor, handling all logic and response delivery. Also, it's the front-end for your forms, and infinitely customizable.\n👨‍💻 [Start building your own collector](https://docs.tripetto.community/collector/)\n\n🗨 *You see this information, because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**'.*"
+                  "description": "The collector library is for form deployment and response collection in your projects. It runs your forms built with the editor, handling all logic and response delivery. Also, it's the front-end for your forms, and infinitely customizable.\n\n👨‍💻 **[Start implementing your own collector](https://docs.tripetto.community/collector/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
                 }
               ]
             }
@@ -200,7 +200,7 @@
                   "id": "c0ced66783813d02ecb9addd0cc662cbdba57e2ea29884ee58996b6fd14f47ae",
                   "name": "SDK for developing form building blocks",
                   "nameVisible": true,
-                  "description": "The TypeScript SDK is for developing customized form building blocks to extend Tripetto far beyond its default capabilities. With custom blocks you can hook our form kit up to anything, making your forms ever more sophisticated.\n👨‍💻 [Start developing your own building blocks](https://docs.tripetto.community/blocks/)\n\n🗨 *You see this information, because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**'.*"
+                  "description": "The TypeScript SDK is for developing customized form building blocks to extend Tripetto far beyond its default capabilities. With custom blocks you can hook our form kit up to anything, making your forms ever more sophisticated.\n\n👨‍💻 **[Start developing your own building blocks](https://docs.tripetto.community/blocks/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
                 }
               ]
             }
@@ -227,9 +227,9 @@
       "nodes": [
         {
           "id": "fdf028d6dd8917181e2b3332fd35162063f45c77d0f524bcf6dd02940a79b163",
-          "name": "Making clever iterations",
+          "name": "Clever iterations",
           "nameVisible": true,
-          "description": "You can also iterate a certain set of questions based on previously given answers. For example, iterating some questions for the selected topics above.\n\n🗨 *If you previously checked one or more topics, we now iterate through the same set of questions for each selected topic.*"
+          "description": "You can also iterate a certain set of questions based on previously given answers. For example, to dig deeper into selected topics.\n\n🗨 *If you checked one or more items earlier, you'll now be taken through the same set of questions for each selected topic.*"
         }
       ],
       "branches": [
@@ -242,12 +242,12 @@
               "nodes": [
                 {
                   "id": "fa43f30bfca37fdae992fab07755878e02376b9fa1b0ee1c27c43b8462202dc2",
-                  "name": "Topic @7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf",
+                  "name": "Topic: @7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf",
                   "nameVisible": true
                 },
                 {
                   "id": "5e8af38edf8c1c0d9978102cbd1b196e4cce359fb29df16297d109c1de6542ef",
-                  "name": "Was the information about topic _**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**_ sufficient?",
+                  "name": "Was the information about the _**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**_ sufficient?",
                   "nameVisible": true,
                   "slots": [
                     {
@@ -286,10 +286,10 @@
                       "nodes": [
                         {
                           "id": "fdb7c33dae3fbd84f5785878e52ef3c871e7c36d2812fe809cadd8b1404803d3",
-                          "explanation": "This is a demo, no data is actually sent.",
-                          "name": "Improve topic @7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf",
+                          "explanation": "This is a demo. No data is actually sent. If you really want to share something with us, contact us **[here](https://tripetto.com/contact/)**.",
+                          "name": "What can we do to improve this?",
                           "nameVisible": true,
-                          "description": "Could you tell us what we can do to improve the information about topic @7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf?",
+                          "description": "Could you tell us what we can do to improve the information about the @7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf?",
                           "slots": [
                             {
                               "id": "65d855cf11f2e1da73098401e71e7e93e1e4ae0c03387fc1df553f1b117be55c",
@@ -368,12 +368,12 @@
       "nodes": [
         {
           "id": "c5413a3d5230ca0375116ec0f68fe30bfe3f4510c5379fa7f30ff2a044f68807",
-          "name": "Start with Tripetto",
+          "name": "Get started with Tripetto!",
           "nameVisible": true
         },
         {
           "id": "6958fd6300174670eabe0fb0fb79a164eba18adf57c42c8f5e38ec73cdef9be8",
-          "name": "So @2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0, do you want to start implementing Tripetto?",
+          "name": "So @2dfc6a6947325ae704a80b579a321cf44dd980f1b3178ef1c518f76dec4b46d0, do you fancy using the Tripetto form kit?",
           "nameVisible": true,
           "slots": [
             {
@@ -391,12 +391,12 @@
             "buttons": [
               {
                 "id": "ca77d15f840a15d9a609603e01f3e96ff628fa73cdc2d6eea86d8179cd8ea974",
-                "name": "Yes",
+                "name": "Yes, please!",
                 "value": ""
               },
               {
                 "id": "040976acfc997d53dbf97b4854060beff84b9c685156aa1105613987621dd8e5",
-                "name": "No",
+                "name": "No, thank you.",
                 "value": ""
               }
             ]
@@ -415,7 +415,7 @@
                   "id": "84442bf92fcd4b13c5c1cd60082532b9aac3ac1af4dfda98a5d7381827287fe7",
                   "name": "Sweet!",
                   "nameVisible": true,
-                  "description": "You can find all the stuff you need [here](https://docs.tripetto.community/).\n\nOr peek under the hood of this [demo](https://gitlab.com/tripetto/examples/angular). You can use the code of this example free of charge. Use it for your own collector. Have a blast!"
+                  "description": "You can find all the stuff you need **[here](https://docs.tripetto.community/)**.\n\nOr take a peek under the hood of this **[demo](https://gitlab.com/tripetto/examples/angular)**. You may use the code of this example free of charge for your own collector. Have a blast!"
                 }
               ]
             }
@@ -442,10 +442,10 @@
               "nodes": [
                 {
                   "id": "ca0760c6b0e57c7898833d4e226168b828f0d60ce9a3c4796dfa049500db6d39",
-                  "explanation": "This is a demo, no data is actually sent. If you really want to share something with us, contact us [here](https://tripetto.com/contact/).",
-                  "name": "We're sorry Tripetto isn't right for you!",
+                  "explanation": "This is a demo. No data is actually sent. If you really want to share something with us, contact us **[here](https://tripetto.com/contact/)**.",
+                  "name": "We're sorry Tripetto isn't right for you.",
                   "nameVisible": true,
-                  "description": "Could you elaborate on what is wrong? Are you missing certain features? What can we do to make it better?",
+                  "description": "Could you elaborate a bit on what you feel is wrong? Are you missing certain features? What can we do to make it better?",
                   "slots": [
                     {
                       "id": "8dfff7e0a838709d0d0b5b76765faa077cd23604053f301a0354d12deb07c5a5",
