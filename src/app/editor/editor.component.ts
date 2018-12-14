@@ -41,6 +41,7 @@ export class EditorComponent implements OnInit, OnDestroy {
         disableRestoreButton: true,
         disableClearButton: false,
         disableCloseButton: true,
+        supportURL: false,
         disableOpenCloseAnimation: true,
         showTutorial: true,
         zoom: 'fit-horizontal'
