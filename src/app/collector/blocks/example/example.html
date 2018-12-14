@@ -1,7 +1,11 @@
 <div class="form-group">
   <label *ngIf="name" [for]="block.key()" markdown [content]="name" [context]="context" [enumerator]="enumerator"></label>
   <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
-  <div><b>Example block</b></div>
+  <div (click)="block.exampleValue.set('A nice value!')" style="color: red;">
+    This is an example block with an example data slot that can be set. If the block is required, the validation will pass as soon as the
+    value is set. <br />
+    Current value of example slot: <b>{{block.exampleValue.string || 'Not set'}}</b> (click here to set a value)
+  </div>
   <small
     *ngIf="explanation"
     class="form-text text-secondary"
