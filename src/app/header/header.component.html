@@ -19,9 +19,8 @@
       <div *ngIf="!collector.preview" class="btn-group mr-1 mr-md-4" role="group" aria-label="Controls">
         <button
           type="button"
-          class="btn"
+          class="btn btn-primary"
           title="Start form"
-          [ngClass]="collector.status !== 'stopped' && collector.status !== 'finished' ? '' : 'btn-primary'"
           [disabled]="collector.status !== 'stopped' && collector.status !== 'finished'"
           (click)="collector.start()"
         >
@@ -29,9 +28,8 @@
         </button>
         <button
           type="button"
-          class="btn"
+          class="btn btn-primary"
           title="Pause form"
-          [ngClass]="collector.status === 'running' ? 'btn-primary' : ''"
           [disabled]="collector.status !== 'running'"
           (click)="collector.pause()"
         >
@@ -39,9 +37,8 @@
         </button>
         <button
           type="button"
-          class="btn"
+          class="btn btn-primary"
           title="Stop form"
-          [ngClass]="collector.status === 'running' ? 'btn-primary' : ''"
           [disabled]="collector.status !== 'running'"
           (click)="collector.stop()"
         >
