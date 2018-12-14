@@ -6,7 +6,7 @@ import '../../blocks';
   selector: 'tripetto-block',
   template: `
     ${BlockComponentFactory.template}
-    <div *ngIf="type == ''">
+    <div *ngIf="type == ''" class="static">
       <h3 *ngIf="name" markdown [content]="name" [context]="context"></h3>
       <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
     </div>

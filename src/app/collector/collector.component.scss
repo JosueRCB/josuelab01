@@ -27,7 +27,9 @@
 
     ::ng-deep {
       .form-group {
-        margin-top: 30px;
+        > label:first-child {
+          font-weight: bold;
+        }
 
         label {
           span.text-danger {
@@ -43,6 +45,18 @@
 
         .progress {
           margin-top: 11px;
+        }
+      }
+
+      // Static blocks get an extra margin
+      .static {
+        margin-top: 64px;
+      }
+
+      // Unless it is the first block...
+      *[data-index='0'] {
+        .static {
+          margin-top: 0;
         }
       }
     }

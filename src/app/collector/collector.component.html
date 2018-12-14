@@ -37,7 +37,7 @@
       </div>
 
       <!-- Form blocks -->
-      <tripetto-block *ngFor="let node of nodes" [node]="node" [collector]="this"></tripetto-block>
+      <tripetto-block *ngFor="let node of nodes; let i = index" [node]="node" [collector]="this" [attr.data-index]="i"></tripetto-block>
 
       <!-- Inline buttons -->
       <div *ngIf="status !== 'empty' && buttons === 'inline' && storyline && !preview" class="row buttons-inline">
