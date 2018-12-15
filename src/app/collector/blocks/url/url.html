@@ -15,7 +15,7 @@
     class="form-control"
     [id]="block.key()"
     [required]="block.required"
-    [placeholder]="placeholder"
+    [placeholder]="placeholder || 'https://'"
     [attr.aria-describedby]="explanation && block.key('explanation')"
     [(ngModel)]="block.url"
     (focus)="block.onFocus(url)"
