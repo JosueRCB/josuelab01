@@ -229,7 +229,7 @@
           "id": "fdf028d6dd8917181e2b3332fd35162063f45c77d0f524bcf6dd02940a79b163",
           "name": "Clever iterations",
           "nameVisible": true,
-          "description": "You can also iterate a certain set of questions based on previously given answers. For example, to dig deeper into selected topics.\n\n🗨 *If you checked one or more items earlier, you'll now be taken through the same set of questions for each selected topic.*"
+          "description": "You can also iterate a certain set of questions based on previously given answers. For example, to dig deeper into selected topics. In this case **@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**.\n\n🗨 *If you checked one or more items earlier, you'll now be taken through the same set of questions for each selected topic.*"
         }
       ],
       "branches": [
