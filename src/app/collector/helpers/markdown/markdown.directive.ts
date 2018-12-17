@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { Context, markdownify, castToBoolean, castToString, MarkdownTypes, Str, IVariable } from 'tripetto-collector';
+import { Context, markdownify, castToBoolean, castToString, MarkdownTypes, IVariable } from 'tripetto-collector';
 
 @Directive({
   selector: '[markdown]'
@@ -60,9 +60,12 @@ export class MarkdownDirective implements OnInit, OnDestroy, OnChanges {
             el.textContent = (variable && variable.string) || '...';
 
             if (variable) {
-              variable.subscribe((v: IVariable) => {
-                el.textContent = v.string || '...';
+              // Variable values can change, so subscribe to receive changes!
+              variable.subscribe(() => {
+                el.textContent = variable.string || '...';
               });
+
+              this.variables.push(variable);
             }
 
             return el;

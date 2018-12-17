@@ -55,7 +55,7 @@
     "tripetto-block-text": "^1.0.13-11",
     "tripetto-block-textarea": "^1.0.12-8",
     "tripetto-block-url": "^1.0.12-8",
-    "tripetto-collector": "^0.4.26-30",
+    "tripetto-collector": "^0.4.26-33",
     "tslib": "^1.9.3",
     "zone.js": "^0.8.26"
   },

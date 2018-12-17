@@ -229,7 +229,7 @@
           "id": "fdf028d6dd8917181e2b3332fd35162063f45c77d0f524bcf6dd02940a79b163",
           "name": "Clever iterations",
           "nameVisible": true,
-          "description": "You can also iterate a certain set of questions based on previously given answers. For example, to dig deeper into selected topics. In this case **@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**.\n\n🗨 *If you checked one or more items earlier, you'll now be taken through the same set of questions for each selected topic.*"
+          "description": "You can also iterate a certain set of questions based on previously given answers. For example, to dig deeper into selected topics. In this case you've selected **@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**.\n\n🗨 *If you checked one or more items earlier, you'll now be taken through the same set of questions for each selected topic.*"
         }
       ],
       "branches": [
@@ -247,7 +247,7 @@
                 },
                 {
                   "id": "5e8af38edf8c1c0d9978102cbd1b196e4cce359fb29df16297d109c1de6542ef",
-                  "name": "Was the information about the _**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**_ sufficient?",
+                  "name": "Was the information about the _@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf_ sufficient?",
                   "nameVisible": true,
                   "slots": [
                     {
@@ -289,7 +289,7 @@
                           "explanation": "This is a demo. No data is actually sent. If you really want to share something with us, contact us **[here](https://tripetto.com/contact/)**.",
                           "name": "What can we do to improve this?",
                           "nameVisible": true,
-                          "description": "Could you tell us what we can do to improve the information about the @7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf?",
+                          "description": "Could you tell us what we can do to improve the information about the '@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf'?",
                           "slots": [
                             {
                               "id": "65d855cf11f2e1da73098401e71e7e93e1e4ae0c03387fc1df553f1b117be55c",
@@ -413,9 +413,9 @@
               "nodes": [
                 {
                   "id": "84442bf92fcd4b13c5c1cd60082532b9aac3ac1af4dfda98a5d7381827287fe7",
-                  "name": "Sweet!",
+                  "name": "👏 Sweet!",
                   "nameVisible": true,
-                  "description": "You can find all the stuff you need **[here](https://docs.tripetto.community/)**.\n\nOr take a peek under the hood of this **[demo](https://gitlab.com/tripetto/examples/angular)**. You may use the code of this example free of charge for your own collector. Have a blast!"
+                  "description": "Start with reading our docs or dive into one of our example projects!\n\n📘 You can find all the stuff you need **[here](https://docs.tripetto.community/)**.\n\n👨‍💻 Or take a peek under the hood of this **[demo](https://gitlab.com/tripetto/examples/angular)**. You may use the code of this example free of charge for your own collector. Have a blast!"
                 }
               ]
             }
@@ -443,7 +443,7 @@
                 {
                   "id": "ca0760c6b0e57c7898833d4e226168b828f0d60ce9a3c4796dfa049500db6d39",
                   "explanation": "This is a demo. No data is actually sent. If you really want to share something with us, contact us **[here](https://tripetto.com/contact/)**.",
-                  "name": "We're sorry Tripetto isn't right for you.",
+                  "name": "😢 We're sorry Tripetto isn't right for you.",
                   "nameVisible": true,
                   "description": "Could you elaborate a bit on what you feel is wrong? Are you missing certain features? What can we do to make it better?",
                   "slots": [

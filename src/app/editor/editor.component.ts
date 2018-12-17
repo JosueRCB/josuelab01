@@ -12,6 +12,7 @@ export class EditorComponent implements OnInit, OnDestroy {
   private editor: Editor;
   private initialDefinition: IDefinition | undefined;
 
+  /** Specifies the form definition. */
   @Input() set definition(definition: IDefinition | undefined) {
     if (this.editor) {
       this.zone.runOutsideAngular(() => {
@@ -24,10 +25,15 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.initialDefinition = definition;
   }
 
+  /** Retrieves the form definition. */
   get definition(): IDefinition | undefined {
     return (this.editor && this.editor.definition) || this.initialDefinition;
   }
 
+  /**
+   * Invoked when the form definition is changed.
+   * @event
+   */
   @Output() changed = new EventEmitter<IDefinition>();
 
   constructor(private element: ElementRef, private zone: NgZone) {}
@@ -37,6 +43,7 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.zone.runOutsideAngular(() => {
       this.editor = Editor.open(this.definition, {
         element: this.element.nativeElement,
+        fonts: '/fonts/',
         disableSaveButton: true,
         disableRestoreButton: true,
         disableClearButton: false,
