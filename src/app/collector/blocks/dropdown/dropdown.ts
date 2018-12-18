@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Dropdown, IDropdownOption } from 'tripetto-block-dropdown/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './dropdown.html'
+})
+export class DropdownBlockComponent extends BlockComponentFactory<DropdownBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-dropdown',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './dropdown.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: DropdownBlockComponent
 })
 export class DropdownBlock extends Dropdown {
   get required(): boolean {

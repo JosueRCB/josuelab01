@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Checkboxes, ICheckbox } from 'tripetto-block-checkboxes/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './checkboxes.html'
+})
+export class CheckboxesBlockComponent extends BlockComponentFactory<CheckboxesBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-checkboxes',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './checkboxes.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: CheckboxesBlockComponent
 })
 export class CheckboxesBlock extends Checkboxes {
   get checkboxes(): {

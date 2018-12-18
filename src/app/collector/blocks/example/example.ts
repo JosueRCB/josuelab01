@@ -1,19 +1,18 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Component } from '@angular/core';
 
-@Block({
-  identifier: 'example',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './example.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+@Component({
+  templateUrl: './example.html'
 })
-export class CheckboxBlock extends Tripetto.NodeBlock {
+export class ExampleBlockComponent extends BlockComponentFactory<ExampleBlock> {}
+
+@Tripetto.block({
+  type: 'node',
+  identifier: 'example',
+  ref: ExampleBlockComponent
+})
+export class ExampleBlock extends Tripetto.NodeBlock {
   get exampleValue(): Tripetto.Value<string> {
     return Tripetto.assert(this.value('example-slot'));
   }

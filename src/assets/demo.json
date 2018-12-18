@@ -9,7 +9,7 @@
           "id": "3aa3016e2ff41e789df25dcca54faf95c7b62bc2f05de6e8f93418530e172b19",
           "name": "Welcome to Tripetto!",
           "nameVisible": true,
-          "description": "**A full-fledged form kit to rapidly create and deploy smart flowing forms and surveys. Drop the kit into your codebase to get everything you need. And be the single host of your own data.**\n\nThis example shows you how to use the editor and collector in your own projects and demonstrates some powerful features available in Tripetto (e.g. a visual form editor, smart flows, **markdown** *support*, extensibility and many, many more). Can't wait to implement Tripetto? Head over to our **[documentation](https://docs.tripetto.community/)**.\n\n🗨 *This demo setup shows the form editor on the left and the so-called collector on the right, running the form being built in the editor. All editing is realtime. Have fun!*"
+          "description": "**A full-fledged form kit to rapidly create and deploy smart flowing forms and surveys. Drop the kit into your codebase to get everything you need. And be the single host of your own data.**\n\nThis example shows you how to use the editor and collector in your own projects and demonstrates some powerful features available in Tripetto (e.g. a visual form editor, smart flows, **markdown** *support*, extensibility and many, many more). Can't wait to implement Tripetto? Head over to our **[documentation](https://docs.tripetto.com/)**.\n\n🗨 *This demo setup shows the form editor on the left and the so-called collector on the right, running the form being built in the editor. All editing is realtime. Have fun!*"
         }
       ]
     },
@@ -140,7 +140,7 @@
                   "id": "45f32e70b67ec511532b3d7ff2e9c647d17289da7ccf7ceaa29c653ac1d2874e",
                   "name": "Visual editor for form creation",
                   "nameVisible": true,
-                  "description": "The visual editor is for creating forms with clever flows on a self-organizing drawing board. It visualizes your form's flow and structure and helps you use all the right logic for skipping questions, branching the flow and much more.\n\n👨‍💻 **[Start integrating the visual editor](https://docs.tripetto.community/editor/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
+                  "description": "The visual editor is for creating forms with clever flows on a self-organizing drawing board. It visualizes your form's flow and structure and helps you use all the right logic for skipping questions, branching the flow and much more.\n\n👨‍💻 **[Start integrating the visual editor](https://docs.tripetto.com/editor/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
                 }
               ]
             }
@@ -170,7 +170,7 @@
                   "id": "49254d29ef6d79a69dcd5528b0413df55498dc5a78f2b572df5eb59b288bdf54",
                   "name": "Collector for response gathering",
                   "nameVisible": true,
-                  "description": "The collector library is for form deployment and response collection in your projects. It runs your forms built with the editor, handling all logic and response delivery. Also, it's the front-end for your forms, and infinitely customizable.\n\n👨‍💻 **[Start implementing your own collector](https://docs.tripetto.community/collector/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
+                  "description": "The collector library is for form deployment and response collection in your projects. It runs your forms built with the editor, handling all logic and response delivery. Also, it's the front-end for your forms, and infinitely customizable.\n\n👨‍💻 **[Start implementing your own collector](https://docs.tripetto.com/collector/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
                 }
               ]
             }
@@ -200,7 +200,7 @@
                   "id": "c0ced66783813d02ecb9addd0cc662cbdba57e2ea29884ee58996b6fd14f47ae",
                   "name": "SDK for developing form building blocks",
                   "nameVisible": true,
-                  "description": "The TypeScript SDK is for developing customized form building blocks to extend Tripetto far beyond its default capabilities. With custom blocks you can hook our form kit up to anything, making your forms ever more sophisticated.\n\n👨‍💻 **[Start developing your own building blocks](https://docs.tripetto.community/blocks/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
+                  "description": "The TypeScript SDK is for developing customized form building blocks to extend Tripetto far beyond its default capabilities. With custom blocks you can hook our form kit up to anything, making your forms ever more sophisticated.\n\n👨‍💻 **[Start developing your own building blocks](https://docs.tripetto.com/blocks/)**\n\n🗨 *You see this information because you've selected the topic '**@7dd19e69b4b55a5dbc083dd9ad0998385753a60dcd7e2b28872e30b5f4d0c3bf**' just now.*"
                 }
               ]
             }
@@ -415,7 +415,7 @@
                   "id": "84442bf92fcd4b13c5c1cd60082532b9aac3ac1af4dfda98a5d7381827287fe7",
                   "name": "👏 Sweet!",
                   "nameVisible": true,
-                  "description": "Start with reading our docs or dive into one of our example projects!\n\n📘 You can find all the stuff you need **[here](https://docs.tripetto.community/)**.\n\n👨‍💻 Or take a peek under the hood of this **[demo](https://gitlab.com/tripetto/examples/angular)**. You may use the code of this example free of charge for your own collector. Have a blast!"
+                  "description": "Start with reading our docs or dive into one of our example projects!\n\n📘 You can find all the stuff you need **[here](https://docs.tripetto.com/)**.\n\n👨‍💻 Or take a peek under the hood of this **[demo](https://gitlab.com/tripetto/examples/angular)**. You may use the code of this example free of charge for your own collector. Have a blast!"
                 }
               ]
             }

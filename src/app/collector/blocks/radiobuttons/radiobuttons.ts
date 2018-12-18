@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Radiobuttons, IRadiobutton } from 'tripetto-block-radiobuttons/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './radiobuttons.html'
+})
+export class RadiobuttonsBlockComponent extends BlockComponentFactory<RadiobuttonsBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-radiobuttons',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './radiobuttons.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: RadiobuttonsBlockComponent
 })
 export class RadiobuttonsBlock extends Radiobuttons {
   get required(): boolean {

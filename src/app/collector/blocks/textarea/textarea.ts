@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Textarea } from 'tripetto-block-textarea/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './textarea.html'
+})
+export class TextareaBlockComponent extends BlockComponentFactory<TextareaBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-textarea',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './textarea.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: TextareaBlockComponent
 })
 export class TextareaBlock extends Textarea {
   get required(): boolean {

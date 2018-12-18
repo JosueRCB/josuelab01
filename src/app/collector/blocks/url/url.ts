@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { URL } from 'tripetto-block-url/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './url.html'
+})
+export class URLBlockComponent extends BlockComponentFactory<URLBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-url',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './url.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: URLBlockComponent
 })
 export class URLBlock extends URL {
   get required(): boolean {

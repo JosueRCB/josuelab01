@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Password } from 'tripetto-block-password/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './password.html'
+})
+export class PasswordBlockComponent extends BlockComponentFactory<PasswordBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-password',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './password.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: PasswordBlockComponent
 })
 export class PasswordBlock extends Password {
   get required(): boolean {

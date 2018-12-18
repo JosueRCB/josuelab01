@@ -22,7 +22,7 @@
     "ng": "ng",
     "start": "tripetto ./src/assets/demo.json --tutorial",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.html\" \"src/**/*.scss\" \"**/*.json\" \"!package-lock.json\" \"*.yml\"",
-    "build": "ng build --prod --extract-css=false",
+    "build": "ng build --prod",
     "make": "npm run format && npm run lint && npm run build",
     "test": "ng serve",
     "lint": "ng lint"
@@ -55,7 +55,7 @@
     "tripetto-block-text": "^1.0.13-11",
     "tripetto-block-textarea": "^1.0.12-8",
     "tripetto-block-url": "^1.0.12-8",
-    "tripetto-collector": "^0.4.26-33",
+    "tripetto-collector": "^0.4.26-38",
     "tslib": "^1.9.3",
     "zone.js": "^0.8.26"
   },

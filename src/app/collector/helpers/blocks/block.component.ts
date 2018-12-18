@@ -1,15 +1,22 @@
-import { Component } from '@angular/core';
-import { BlockComponentFactory } from './block.factory';
-import '../../blocks';
+import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, Type } from '@angular/core';
+import { BlockComponentFactory } from './factory';
 
 @Component({
   selector: 'tripetto-block',
-  template: `
-    ${BlockComponentFactory.template}
-    <div *ngIf="type == ''" class="static">
-      <h3 *ngIf="name" markdown [content]="name" [context]="context"></h3>
-      <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
-    </div>
-  `
+  templateUrl: './block.component.html'
 })
-export class BlockComponent extends BlockComponentFactory {}
+export class BlockComponent extends BlockComponentFactory implements OnInit {
+  constructor(private viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver) {
+    super();
+  }
+
+  ngOnInit() {
+    if (this.node.block) {
+      const component = this.componentFactoryResolver.resolveComponentFactory<BlockComponentFactory>(this.node.block.type.ref as Type<any>);
+      const instance = this.viewContainerRef.createComponent<BlockComponentFactory>(component).instance;
+
+      instance.node = this.node;
+      instance.collector = this.collector;
+    }
+  }
+}

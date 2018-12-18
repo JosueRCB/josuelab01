@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Number } from 'tripetto-block-number/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './number.html'
+})
+export class NumberBlockComponent extends BlockComponentFactory<NumberBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-number',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './number.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: NumberBlockComponent
 })
 export class NumberBlock extends Number {
   private focus = false;

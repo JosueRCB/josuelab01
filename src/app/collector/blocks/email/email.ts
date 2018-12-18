@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Email } from 'tripetto-block-email/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './email.html'
+})
+export class EmailBlockComponent extends BlockComponentFactory<EmailBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-email',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './email.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: EmailBlockComponent
 })
 export class EmailBlock extends Email {
   get required(): boolean {

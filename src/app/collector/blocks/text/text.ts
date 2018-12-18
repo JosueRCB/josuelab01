@@ -1,18 +1,17 @@
 import * as Tripetto from 'tripetto-collector';
-import { Block, BlockComponentFactory } from '../../helpers/blocks/block.factory';
+import { BlockComponentFactory } from '../../helpers/blocks/factory';
 import { Text } from 'tripetto-block-text/collector';
 import { Component } from '@angular/core';
 
-@Block({
+@Component({
+  templateUrl: './text.html'
+})
+export class TextBlockComponent extends BlockComponentFactory<TextBlock> {}
+
+@Tripetto.block({
+  type: 'node',
   identifier: 'tripetto-block-text',
-  component: (s: string) => {
-    @Component({
-      selector: s,
-      templateUrl: './text.html'
-    })
-    class BlockComponent extends BlockComponentFactory {}
-    return BlockComponent;
-  }
+  ref: TextBlockComponent
 })
 export class TextBlock extends Text {
   get required(): boolean {
