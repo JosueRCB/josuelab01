@@ -23,14 +23,14 @@ export class CollectorComponent implements OnInit, OnDestroy {
 
   /** Specifies the form definition to run. */
   @Input() set definition(definition: IDefinition) {
-    if (this.collector) {
-      this.collector.reload(definition);
-
-      return;
-    }
-
     // Leave the collector outside of Angular to avoid unnecessary and costly change detection.
     this.zone.runOutsideAngular(() => {
+      if (this.collector) {
+        this.collector.reload(definition);
+
+        return;
+      }
+
       this.collector = new Collector(definition, this.mode, this.snapshot || true, this.preview);
 
       this.collector.onChange = (ev: ICollectorChangeEvent) => {

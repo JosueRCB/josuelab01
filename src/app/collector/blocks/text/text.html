@@ -16,6 +16,7 @@
     [id]="block.key()"
     [required]="block.required"
     [placeholder]="placeholder"
+    [attr.maxlength]="block.maxLength || null"
     [attr.aria-describedby]="explanation && block.key('explanation')"
     [(ngModel)]="block.textSlot.value"
     (focus)="block.onFocus(ref)"
