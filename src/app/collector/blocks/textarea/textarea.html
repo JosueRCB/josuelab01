@@ -10,16 +10,16 @@
   ></label>
   <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
   <textarea
-    #textarea
+    #ref
     rows="3"
     class="form-control"
     [id]="block.key()"
     [required]="block.required"
     [placeholder]="placeholder"
     [attr.aria-describedby]="explanation && block.key('explanation')"
-    [(ngModel)]="block.text"
-    (focus)="block.onFocus(textarea)"
-    (blur)="block.onBlur(textarea)"
+    [(ngModel)]="block.textareaSlot.value"
+    (focus)="block.onFocus(ref)"
+    (blur)="block.onBlur(ref)"
   ></textarea>
   <small
     *ngIf="explanation"

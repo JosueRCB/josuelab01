@@ -2,7 +2,7 @@
   <div class="custom-control custom-checkbox">
     <input
       [id]="block.key()"
-      [(ngModel)]="block.checked"
+      [(ngModel)]="block.checkboxSlot.value"
       [attr.aria-describedby]="block.key('explanation')"
       type="checkbox"
       class="custom-control-input"

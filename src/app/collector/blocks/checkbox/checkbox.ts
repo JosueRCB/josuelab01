@@ -13,18 +13,4 @@ export class CheckboxBlockComponent extends BlockComponentFactory<CheckboxBlock>
   identifier: 'tripetto-block-checkbox',
   ref: CheckboxBlockComponent
 })
-export class CheckboxBlock extends Checkbox {
-  get required(): boolean {
-    const slot = Tripetto.assert(this.slot('checked'));
-
-    return slot.required || false;
-  }
-
-  get checked(): boolean {
-    return Tripetto.assert(this.value<boolean>('checked')).confirm().value;
-  }
-
-  set checked(checked: boolean) {
-    Tripetto.assert(this.value<boolean>('checked')).value = checked;
-  }
-}
+export class CheckboxBlock extends Checkbox {}

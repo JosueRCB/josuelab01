@@ -9,14 +9,13 @@
     [required]="block.required"
   ></label>
   <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
-  <div *ngFor="let button of block.buttons" class="custom-control custom-radio">
+  <div *ngFor="let button of block.props.buttons" class="custom-control custom-radio">
     <input
-      #radio
       type="radio"
       [id]="block.key(button.id)"
       [attr.aria-describedby]="explanation && block.key('explanation')"
-      [checked]="button.selected"
-      (change)="button.select()"
+      [checked]="block.isSelected(button)"
+      (change)="block.select(button)"
       class="custom-control-input"
     />
     <label [for]="block.key(button.id)" class="custom-control-label"> {{ button.name }} </label>

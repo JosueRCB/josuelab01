@@ -10,16 +10,16 @@
   ></label>
   <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
   <input
-    #text
+    #ref
     type="text"
     class="form-control"
     [id]="block.key()"
     [required]="block.required"
     [placeholder]="placeholder"
     [attr.aria-describedby]="explanation && block.key('explanation')"
-    [(ngModel)]="block.text"
-    (focus)="block.onFocus(text)"
-    (blur)="block.onBlur(text)"
+    [(ngModel)]="block.textSlot.value"
+    (focus)="block.onFocus(ref)"
+    (blur)="block.onBlur(ref)"
   />
   <small
     *ngIf="explanation"

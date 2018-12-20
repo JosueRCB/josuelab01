@@ -12,17 +12,17 @@
   <div class="input-group">
     <div class="input-group-prepend"><span class="input-group-text">#</span></div>
     <input
-      #number
+      #ref
       type="text"
       class="form-control"
       [id]="block.key()"
       [required]="block.required"
       [placeholder]="placeholder"
-      [step]="block.step"
+      [step]="block.stepSize"
       [attr.aria-describedby]="explanation && block.key('explanation')"
-      [(ngModel)]="block.number"
-      (focus)="block.onFocus(number)"
-      (blur)="block.onBlur(number)"
+      [(ngModel)]="block.value"
+      (focus)="block.onFocus(ref)"
+      (blur)="block.onBlur(ref)"
     />
   </div>
   <small

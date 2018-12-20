@@ -10,16 +10,16 @@
   ></label>
   <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
   <input
-    #url
+    #ref
     type="url"
     class="form-control"
     [id]="block.key()"
     [required]="block.required"
     [placeholder]="placeholder || 'https://'"
     [attr.aria-describedby]="explanation && block.key('explanation')"
-    [(ngModel)]="block.url"
-    (focus)="block.onFocus(url)"
-    (blur)="block.onBlur(url)"
+    [(ngModel)]="block.urlSlot.value"
+    (focus)="block.onFocus(ref)"
+    (blur)="block.onBlur(ref)"
   />
   <small
     *ngIf="explanation"

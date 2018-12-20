@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { EditorComponent } from '../editor/editor.component';
 import { CollectorComponent } from '../collector/collector.component';
 import { AppComponent } from '../app.component';
@@ -6,7 +6,8 @@ import { AppComponent } from '../app.component';
 @Component({
   selector: 'tripetto-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   @Input() app: AppComponent;

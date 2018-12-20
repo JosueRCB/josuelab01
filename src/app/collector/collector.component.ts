@@ -1,10 +1,21 @@
-import { Component, ChangeDetectorRef, Input, Output, EventEmitter, NgZone, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  ChangeDetectorRef,
+  ChangeDetectionStrategy,
+  Input,
+  Output,
+  EventEmitter,
+  NgZone,
+  OnInit,
+  OnDestroy
+} from '@angular/core';
 import { Collector, IDefinition, Instance, TModes, ISnapshot, TStatus, ICollectorChangeEvent, IStoryline } from 'tripetto-collector';
 
 @Component({
   selector: 'tripetto-collector',
   templateUrl: './collector.component.html',
-  styleUrls: ['./collector.component.scss']
+  styleUrls: ['./collector.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CollectorComponent implements OnInit, OnDestroy {
   private collector: Collector | undefined;
@@ -12,14 +23,14 @@ export class CollectorComponent implements OnInit, OnDestroy {
 
   /** Specifies the form definition to run. */
   @Input() set definition(definition: IDefinition) {
+    if (this.collector) {
+      this.collector.reload(definition);
+
+      return;
+    }
+
     // Leave the collector outside of Angular to avoid unnecessary and costly change detection.
     this.zone.runOutsideAngular(() => {
-      if (this.collector) {
-        this.collector.reload(definition);
-
-        return;
-      }
-
       this.collector = new Collector(definition, this.mode, this.snapshot || true, this.preview);
 
       this.collector.onChange = (ev: ICollectorChangeEvent) => {

@@ -1,16 +1,16 @@
 <div class="form-group">
   <label *ngIf="name" markdown [content]="name" [context]="context" [enumerator]="enumerator"></label>
   <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
-  <div class="custom-control custom-checkbox" *ngFor="let checkbox of block.checkboxes; let i = index">
+  <div class="custom-control custom-checkbox" *ngFor="let checkbox of block.props.checkboxes">
     <input
       [id]="block.key(checkbox.id)"
-      [checked]="checkbox.checked"
+      [checked]="block.isChecked(checkbox)"
       [attr.aria-describedby]="block.key('explanation')"
-      (change)="checkbox.toggle()"
+      (change)="block.toggle(checkbox)"
       type="checkbox"
       class="custom-control-input"
     />
-    <label [for]="block.key(checkbox.id)" class="custom-control-label"> {{ checkbox.name }} </label>
+    <label [for]="block.key(checkbox.id)" class="custom-control-label"> {{ checkbox.name || "..." }} </label>
   </div>
   <small
     *ngIf="explanation"

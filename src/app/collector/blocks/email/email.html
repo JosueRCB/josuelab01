@@ -12,16 +12,16 @@
   <div class="input-group">
     <div class="input-group-prepend"><span class="input-group-text">@</span></div>
     <input
-      #email
+      #ref
       type="email"
       class="form-control"
       [id]="block.key()"
       [required]="block.required"
       [placeholder]="placeholder"
       [attr.aria-describedby]="explanation && block.key('explanation')"
-      [(ngModel)]="block.emailAddress"
-      (focus)="block.onFocus(email)"
-      (blur)="block.onBlur(email)"
+      [(ngModel)]="block.emailSlot.value"
+      (focus)="block.onFocus(ref)"
+      (blur)="block.onBlur(ref)"
     />
   </div>
   <small

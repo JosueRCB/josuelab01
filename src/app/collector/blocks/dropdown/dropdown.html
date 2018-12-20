@@ -10,16 +10,16 @@
   ></label>
   <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
   <select
-    #select
+    #ref
     class="custom-select"
     [id]="block.key()"
     [attr.aria-describedby]="explanation && block.key('explanation')"
-    (change)="block.onChange(select)"
-    (focus)="block.onFocus(select)"
-    (blur)="block.onBlur(select)"
+    (change)="block.value=ref.value"
+    (focus)="block.onFocus(ref)"
+    (blur)="block.onBlur(ref)"
   >
     <option *ngIf="placeholder" value="">{{ placeholder }}</option>
-    <option *ngFor="let option of block.options" [value]="option.id" [selected]="option.selected">{{ option.name }}</option>
+    <option *ngFor="let option of block.props.options" [value]="option.id" [selected]="option.selected">{{ option.name || "..."}}</option>
   </select>
   <small
     *ngIf="explanation"

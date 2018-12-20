@@ -14,24 +14,12 @@ export class PasswordBlockComponent extends BlockComponentFactory<PasswordBlock>
   ref: PasswordBlockComponent
 })
 export class PasswordBlock extends Password {
-  get required(): boolean {
-    return Tripetto.assert(this.slot('password')).required || false;
-  }
-
-  get password(): string {
-    return Tripetto.assert(this.value<string>('password')).value;
-  }
-
-  set password(val: string) {
-    Tripetto.assert(this.value<string>('password')).value = val;
-  }
-
   onFocus(el: HTMLInputElement): void {
     el.classList.remove('is-invalid');
   }
 
   onBlur(el: HTMLInputElement): void {
-    el.value = Tripetto.assert(this.value<string>('password')).string;
-    el.classList.toggle('is-invalid', this.validation === 'fail');
+    el.value = this.passwordSlot.string;
+    el.classList.toggle('is-invalid', this.isFailed);
   }
 }
