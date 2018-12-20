@@ -21,7 +21,7 @@
           type="button"
           class="btn btn-primary"
           title="Start form"
-          [disabled]="collector.status !== 'stopped' && collector.status !== 'finished'"
+          [disabled]="collector.status === 'empty'|| (collector.status !== 'stopped' && collector.status !== 'finished')"
           (click)="collector.start()"
         >
           <i class="fas fa-play fa-fw"></i>
