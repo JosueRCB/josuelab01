@@ -18,6 +18,7 @@ export class HeaderComponent {
   /**
    * We need this function since this component is a sibling of the collector component.
    * When the collector component detects a change, its siblings are not changed.
+   * So we invoke this function so the header can detect the change.
    */
   changed() {
     this.changeDetector.detectChanges();

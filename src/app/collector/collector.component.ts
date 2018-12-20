@@ -1,13 +1,14 @@
-import { Component, ChangeDetectorRef, Input, Output, EventEmitter, NgZone, OnDestroy } from '@angular/core';
-import { Collector, IDefinition, Instance, IObservableNode, Moment, NodeBlock, TModes, ISnapshot, Storyline } from 'tripetto-collector';
+import { Component, ChangeDetectorRef, Input, Output, EventEmitter, NgZone, OnInit, OnDestroy } from '@angular/core';
+import { Collector, IDefinition, Instance, TModes, ISnapshot, TStatus, ICollectorChangeEvent, IStoryline } from 'tripetto-collector';
 
 @Component({
   selector: 'tripetto-collector',
   templateUrl: './collector.component.html',
   styleUrls: ['./collector.component.scss']
 })
-export class CollectorComponent implements OnDestroy {
-  private collector?: Collector;
+export class CollectorComponent implements OnInit, OnDestroy {
+  private collector: Collector | undefined;
+  private storyline: IStoryline;
 
   /** Specifies the form definition to run. */
   @Input() set definition(definition: IDefinition) {
@@ -21,7 +22,9 @@ export class CollectorComponent implements OnDestroy {
 
       this.collector = new Collector(definition, this.mode, this.snapshot || true, this.preview);
 
-      this.collector.onChange = () => {
+      this.collector.onChange = (ev: ICollectorChangeEvent) => {
+        this.storyline = ev.storyline;
+
         this.changeDetector.detectChanges();
         this.changed.emit();
       };
@@ -71,55 +74,35 @@ export class CollectorComponent implements OnDestroy {
    */
   @Output() paused = new EventEmitter<ISnapshot>();
 
-  constructor(private changeDetector: ChangeDetectorRef, private zone: NgZone) {
-    // We can completely detach from the change detector. Changes are invoked by the collector.
-    changeDetector.detach();
+  constructor(private changeDetector: ChangeDetectorRef, private zone: NgZone) {}
+
+  /** Make sure we have a valid storyline, even if the collector is not started yet. */
+  ngOnInit() {
+    this.storyline = Collector.getInitialStoryline(this.mode);
+  }
+
+  /** Cleanup the collector. */
+  ngOnDestroy() {
+    if (this.collector) {
+      this.collector.destroy();
+
+      this.collector = undefined;
+    }
   }
 
   /** Retrieve the status of the collector. */
-  get status(): 'unloaded' | 'ready' | 'empty' | 'running' | 'paused' | 'stopped' | 'finished' {
-    if (this.collector) {
-      if (this.collector.isEmpty || (this.storyline && this.storyline.isEmpty)) {
-        return 'empty';
-      }
-
-      if (this.collector.isFinished) {
-        return 'finished';
-      }
-
-      if (this.collector.isStopped) {
-        return 'stopped';
-      }
-
-      if (this.collector.isPaused) {
-        return 'paused';
-      }
-
-      if (this.collector.isRunning) {
-        return 'running';
-      }
-
-      return 'ready';
-    }
-
-    return 'unloaded';
+  get status(): 'uninitialized' | TStatus {
+    return (this.collector && this.collector.status) || 'uninitialized';
   }
 
-  /** Retrieves the storyline of the collector. */
-  get storyline(): Storyline | undefined {
-    return this.collector && this.collector.storyline;
+  /** Retrieves if the collector is empty. */
+  get isEmpty(): boolean {
+    return this.collector && this.collector.isEmpty;
   }
 
-  /** Retrieves the active nodes. */
-  get nodes(): IObservableNode[] {
-    const nodes: IObservableNode[] = [];
-    const storyline = this.storyline;
-
-    if (storyline) {
-      storyline.map((moment: Moment<NodeBlock>) => nodes.push(...moment.nodes));
-    }
-
-    return nodes;
+  /** Retrieves if the collector is evaluating. */
+  get isEvaluating(): boolean {
+    return this.storyline.isEvaluating;
   }
 
   /** Retrieves the name of the definition. */
@@ -193,13 +176,5 @@ export class CollectorComponent implements OnDestroy {
 
     this.changeDetector.detectChanges();
     this.changed.emit();
-  }
-
-  ngOnDestroy() {
-    if (this.collector) {
-      this.collector.destroy();
-
-      this.collector = undefined;
-    }
   }
 }

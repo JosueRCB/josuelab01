@@ -1,4 +1,4 @@
-<section *ngIf="status !== 'unloaded'" class="container" [ngClass]="buttons === 'sticky' && !preview ? 'sticky' : ''">
+<section *ngIf="status !== 'uninitialized'" class="container" [ngClass]="buttons === 'sticky' && !preview ? 'sticky' : ''">
   <div class="row">
     <div class="col">
       <!-- Form finished -->
@@ -25,22 +25,30 @@
       </div>
 
       <!-- Form not started -->
-      <div *ngIf="status === 'ready'" class="text-center mt-5">
+      <div *ngIf="status === 'idle'" class="text-center mt-5">
         <h3>⏹ You haven’t started the form yet</h3>
         <p class="text-secondary">Press the play icon to start a new session.</p>
       </div>
 
+      <!-- Form blocks -->
+      <tripetto-block
+        *ngFor="let node of storyline.activeNodes; let i = index"
+        [node]="node"
+        [collector]="this"
+        [attr.data-index]="i"
+      ></tripetto-block>
+
       <!-- Form is empty -->
-      <div *ngIf="status === 'empty'" class="text-center mt-5">
+      <div *ngIf="isEmpty" class="text-center mt-5">
         <h3>👋 Nothing to show here yet</h3>
         <p class="text-secondary">Add blocks to the form first to get the magic going.</p>
       </div>
 
-      <!-- Form blocks -->
-      <tripetto-block *ngFor="let node of nodes; let i = index" [node]="node" [collector]="this" [attr.data-index]="i"></tripetto-block>
+      <!-- Form is evaluating -->
+      <div *ngIf="isEvaluating" class="text-center mt-5"><p class="text-secondary">⏳ Please wait...</p></div>
 
       <!-- Inline buttons -->
-      <div *ngIf="status !== 'empty' && buttons === 'inline' && storyline && !preview" class="row buttons-inline">
+      <div *ngIf="buttons === 'inline' && status === 'running'" class="row buttons-inline">
         <tripetto-collector-buttons [storyline]="storyline" class="col-md-auto"></tripetto-collector-buttons>
         <tripetto-collector-pages
           *ngIf="mode === 'paginated' && pages"
@@ -55,7 +63,7 @@
 
 <!-- Sticky buttons -->
 <nav
-  *ngIf="status !== 'unloaded' && status !== 'empty' && buttons === 'sticky' && storyline && !preview"
+  *ngIf="status !== 'uninitialized' && buttons === 'sticky' && status === 'running'"
   class="navbar navbar-expand navbar-dark bg-light buttons-sticky"
 >
   <div class="container">

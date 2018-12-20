@@ -1,4 +1,4 @@
-<div *ngIf="collector.status !== 'unloaded'" class="container-fluid">
+<div *ngIf="collector.status !== 'uninitialized'" class="container-fluid">
   <div class="row">
     <div class="col-6 d-flex align-items-center">
       <h1 class="mr-1 mr-md-3 text-truncate" (click)="editor.rename()">{{ collector.name || 'Unnamed' }}</h1>
