@@ -12,15 +12,15 @@ package:
     paths:
       - dist/
 
-pages:
-  stage: deploy
-  script:
-    - npm run make
-  environment:
-    name: Production
-    url: https://example-angular-bootstrap.tripetto.com/
-  artifacts:
-    paths:
-      - dist
-  only:
-    - master
+#pages:
+#  stage: deploy
+#  script:
+#    - npm run make
+#  environment:
+#    name: Production
+#    url: https://example-angular-bootstrap.tripetto.com/
+#  artifacts:
+#    paths:
+#      - dist
+#  only:
+#    - master
