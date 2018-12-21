@@ -1,0 +1,4 @@
+<div *ngIf="!node.block" class="static">
+  <h3 *ngIf="name" markdown [content]="name" [context]="context"></h3>
+  <p *ngIf="description" class="text-secondary" markdown [content]="description" [context]="context"></p>
+</div>

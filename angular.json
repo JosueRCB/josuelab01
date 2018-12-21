@@ -7,30 +7,34 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
-            "main": "src/app.ts",
+            "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets",
-              "src/favicon.ico"
+              { "input": "src/assets", "glob": "**/*", "output": "assets" },
+              { "input": "src", "glob": "favicon.ico", "output": "." },
+              { "input": "node_modules/tripetto/fonts", "glob": "**/*", "output": "fonts" }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "styles": ["src/styles.scss"],
+            "scripts": ["node_modules/jquery/dist/jquery.min.js", "node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
+              "extractCss": false,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -65,12 +69,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["src/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -81,14 +81,5 @@
       "projectType": "application"
     }
   },
-  "defaultProject": "angular",
-  "schematics": {
-    "@schematics/angular:component": {
-      "prefix": "app",
-      "styleext": "css"
-    },
-    "@schematics/angular:directive": {
-      "prefix": "app"
-    }
-  }
+  "defaultProject": "angular"
 }

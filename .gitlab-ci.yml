@@ -1,13 +1,26 @@
-image: node:alpine
+image: node
 
 before_script:
-    - node --version
-    - npm --version
-    - npm install
+  - node --version
+  - npm --version
+  - npm ci || npm install
 
-make:
-    script:
-        - npm run make --silent
-    artifacts:
-        paths:
-            - dist/
+package:
+  script:
+    - npm run make
+  artifacts:
+    paths:
+      - dist/
+
+pages:
+  stage: deploy
+  script:
+    - npm run make
+  environment:
+    name: Production
+    url: https://example-angular-bootstrap.tripetto.com/
+  artifacts:
+    paths:
+      - dist
+  only:
+    - master

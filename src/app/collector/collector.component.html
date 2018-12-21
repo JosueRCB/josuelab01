@@ -1,0 +1,74 @@
+<section *ngIf="status !== 'uninitialized'" class="container" [ngClass]="buttons === 'sticky' && !preview ? 'sticky' : ''">
+  <div class="row">
+    <div class="col">
+      <!-- Form finished -->
+      <div *ngIf="status === 'finished'" class="text-center mt-5">
+        <h3>✔ You’ve completed the form</h3>
+        <p class="text-secondary">
+          For the purpose of this demo the form output is visible in your browser’s developer console. Go there to see the collected data.
+        </p>
+      </div>
+
+      <!-- Form stopped -->
+      <div *ngIf="status === 'stopped'" class="text-center mt-5">
+        <h3>⏹ You’ve stopped the form</h3>
+        <p class="text-secondary">Press the play icon to start a new session.</p>
+      </div>
+
+      <!-- Form paused -->
+      <div *ngIf="status === 'paused'" class="text-center mt-5">
+        <h3>⏸ You’ve paused the form</h3>
+        <p class="text-secondary">
+          For the purpose of this demo the paused form is saved in your browser’s local store. Refresh the browser to resume the paused
+          form.
+        </p>
+      </div>
+
+      <!-- Form not started -->
+      <div *ngIf="status === 'idle'" class="text-center mt-5">
+        <h3>⏹ You haven’t started the form yet</h3>
+        <p class="text-secondary">Press the play icon to start a new session.</p>
+      </div>
+
+      <!-- Form blocks -->
+      <tripetto-block
+        *ngFor="let node of storyline.activeNodes; let i = index"
+        [node]="node"
+        [collector]="this"
+        [attr.data-index]="i"
+      ></tripetto-block>
+
+      <!-- Form is empty -->
+      <div *ngIf="isEmpty" class="text-center mt-5">
+        <h3>👋 Nothing to show here yet</h3>
+        <p class="text-secondary">Add blocks to the form first to get the magic going.</p>
+      </div>
+
+      <!-- Form is evaluating -->
+      <div *ngIf="isEvaluating" class="text-center mt-5"><p class="text-secondary">⏳ Please wait...</p></div>
+
+      <!-- Inline buttons -->
+      <div *ngIf="buttons === 'inline' && status === 'running'" class="row buttons-inline">
+        <tripetto-collector-buttons [storyline]="storyline" class="col-md-auto"></tripetto-collector-buttons>
+        <tripetto-collector-pages
+          *ngIf="mode === 'paginated' && pages"
+          [storyline]="storyline"
+          class="col-md-auto"
+        ></tripetto-collector-pages>
+        <tripetto-collector-progressbar *ngIf="progressbar" [storyline]="storyline" class="col"></tripetto-collector-progressbar>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky buttons -->
+<nav
+  *ngIf="status !== 'uninitialized' && buttons === 'sticky' && status === 'running'"
+  class="navbar navbar-expand navbar-dark bg-light buttons-sticky"
+>
+  <div class="container">
+    <tripetto-collector-buttons [storyline]="storyline" class="col-md-auto"></tripetto-collector-buttons>
+    <tripetto-collector-pages *ngIf="mode === 'paginated' && pages" [storyline]="storyline" class="col-md-auto"></tripetto-collector-pages>
+    <tripetto-collector-progressbar *ngIf="progressbar" [storyline]="storyline" class="col"></tripetto-collector-progressbar>
+  </div>
+</nav>

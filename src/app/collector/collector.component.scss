@@ -1,0 +1,73 @@
+:host {
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 64px;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  > section {
+    padding: 32px;
+
+    &.sticky {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 60px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      touch-action: auto;
+    }
+
+    ::ng-deep {
+      .form-group {
+        > label:first-child {
+          font-weight: bold;
+        }
+
+        label {
+          span.text-danger {
+            padding-left: 4px;
+          }
+        }
+      }
+
+      .buttons-inline {
+        margin-top: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+
+        .progress {
+          margin-top: 11px;
+        }
+      }
+
+      // Static blocks get an extra margin
+      .static {
+        margin-top: 64px;
+      }
+
+      // Unless it is the first block...
+      *[data-index='0'] {
+        .static {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  > nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    background-color: #fff;
+  }
+}
