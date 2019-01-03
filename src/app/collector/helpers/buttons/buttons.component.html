@@ -11,7 +11,7 @@
   <button
     *ngIf="storyline.mode !== 'progressive' && !storyline.isAtStart"
     type="button"
-    class="btn btn-default mr-2"
+    class="btn btn-light mr-2"
     [disabled]="storyline.isAtStart"
     (click)="storyline.stepBackward()"
   >
