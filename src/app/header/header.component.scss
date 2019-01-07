@@ -22,6 +22,10 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
           margin-bottom: 0px;
           padding-bottom: 1px;
         }
+
+        a {
+          white-space: nowrap;
+        }
       }
     }
 
