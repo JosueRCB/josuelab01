@@ -17,5 +17,12 @@
       lineBreaks="false"
     ></label>
   </div>
-  <small *ngIf="explanation" class="form-text text-secondary" markdown [content]="explanation" [context]="context"></small>
+  <small
+    *ngIf="explanation"
+    class="form-text text-secondary"
+    [id]="block.key('explanation')"
+    markdown
+    [content]="explanation"
+    [context]="context"
+  ></small>
 </div>
