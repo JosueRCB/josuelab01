@@ -44,7 +44,7 @@
   <i className="fas fa-cog fa-fw mr-2 d-lg-none"></i>
   Settings
 </button>
-<div class="dropdown-divider offset-up d-lg-none"></div>
+<div *ngIf="!collector.preview" class="dropdown-divider offset-up d-lg-none"></div>
 <div class="btn-group btn-group-toggle" [ngClass]="dropdown ? 'px-4 py-2' : ''" data-toggle="buttons">
   <button
     type="button"
