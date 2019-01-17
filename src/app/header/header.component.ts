@@ -24,4 +24,17 @@ export class HeaderComponent {
   changed() {
     this.changeDetector.detectChanges();
   }
+
+  /** Toggles the editor to show/hide. */
+  toggleEditor() {
+    const editor = document.getElementById('editor');
+    const editor_button = document.getElementById('editor_button');
+
+    if (editor && editor_button) {
+        editor.classList.toggle('show');
+        editor_button.classList.toggle('btn-success');
+        editor_button.classList.toggle('btn-secondary');
+        editor_button.title = editor_button.classList.contains('btn-success') ? 'Close the editor' : 'Open the editor';
+    }
+  }
 }

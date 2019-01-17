@@ -1,0 +1,26 @@
+<a
+  href="https://gitlab.com/tripetto/examples/angular"
+  target="_blank"
+  role="button"
+  class="btn btn-sm btn-link"
+  [ngClass]="dropdown ? 'dropdown-item' : ''"
+>
+  <i class="fas fa-code pr-2"></i>Get source
+</a>
+<a
+  href="https://gitlab.com/tripetto/examples/angular/blob/master/README.md"
+  target="_blank"
+  role="button"
+  class="btn btn-sm btn-link"
+  [ngClass]="dropdown ? 'dropdown-item' : ''"
+>
+  <i class="fas fa-book-reader pr-2"></i>View readme
+</a>
+<a
+  href="#"
+  (click)="app.reset()"
+  role="button"
+  class="btn btn-sm btn-link"
+  [ngClass]="dropdown ? 'dropdown-item' : ''"
+>
+  <i class="fas fa-redo pr-2"></i>Reset demo </a>

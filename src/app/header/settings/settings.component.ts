@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CollectorComponent } from '../collector/collector.component';
-import { TModes } from 'tripetto-collector';
+import { CollectorComponent } from '../../collector/collector.component';
 
 @Component({
   selector: 'tripetto-settings',

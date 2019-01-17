@@ -1,4 +1,5 @@
-<tripetto-editor #editor (changed)="onEditorChanged($event)"></tripetto-editor>
+<tripetto-header #header [app]="this" [editor]="editor" [collector]="collector" class="bootstrap"></tripetto-header>
+<tripetto-editor #editor id="editor" (changed)="onEditorChanged($event)"></tripetto-editor>
 <tripetto-collector
   #collector
   (finished)="onCollectorFinished($event)"
@@ -6,4 +7,3 @@
   (changed)="header.changed()"
   class="bootstrap"
 ></tripetto-collector>
-<tripetto-header #header [app]="this" [editor]="editor" [collector]="collector" class="bootstrap"></tripetto-header>

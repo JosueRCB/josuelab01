@@ -23,23 +23,40 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
           padding-bottom: 1px;
         }
 
-        a {
-          white-space: nowrap;
+        .dropdown-menu {
+          z-index: 10000001;
+
+          .offset-up {
+            position: relative;
+            top: -54px;
+          }
+
+          .offset-down {
+            position: relative;
+            top: 49px;
+          }
         }
       }
     }
 
-    button {
-      i {
-        font-size: 9px;
-        position: relative;
-        top: -2px;
+    .controls {
+      button {
+        i {
+          font-size: 9px;
+          position: relative;
+          top: -2px;
+        }
       }
     }
 
     .modal {
       left: 50%;
       width: 50%;
+
+      @media (max-width: 991px) {
+        left: 0;
+        width: 100%;
+      }
     }
   }
 }
