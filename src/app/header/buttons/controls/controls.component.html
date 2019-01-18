@@ -1,7 +1,7 @@
 <div
   *ngIf="!collector.preview"
   class="btn-group controls"
-  [ngClass]="dropdown ? 'px-4 py-2 offset-down' : 'mr-1 mr-md-4'"
+  [ngClass]="isEmbedded ? 'px-4 py-2 offset-down' : 'mr-1 mr-md-4'"
   role="group"
   aria-label="Controls"
 >
@@ -14,22 +14,10 @@
   >
     <i class="fas fa-play fa-fw"></i>
   </button>
-  <button
-    type="button"
-    class="btn btn-primary"
-    title="Pause form"
-    [disabled]="collector.status !== 'running'"
-    (click)="collector.pause()"
-  >
+  <button type="button" class="btn btn-primary" title="Pause form" [disabled]="collector.status !== 'running'" (click)="collector.pause()">
     <i class="fas fa-pause fa-fw"></i>
   </button>
-  <button
-    type="button"
-    class="btn btn-primary"
-    title="Stop form"
-    [disabled]="collector.status !== 'running'"
-    (click)="collector.stop()"
-  >
+  <button type="button" class="btn btn-primary" title="Stop form" [disabled]="collector.status !== 'running'" (click)="collector.stop()">
     <i class="fas fa-stop fa-fw"></i>
   </button>
 </div>
@@ -37,15 +25,14 @@
   *ngIf="!collector.preview"
   type="button"
   class="btn btn-primary"
-  [ngClass]="dropdown ? 'btn-link btn-sm dropdown-item offset-up' : 'btn-primary mr-1 mr-md-4'"
+  [ngClass]="isEmbedded ? 'btn-link btn-sm dropdown-item offset-up' : 'btn-primary mr-1 mr-md-4'"
   data-toggle="modal"
   data-target="#settings"
 >
-  <i className="fas fa-cog fa-fw mr-2 d-lg-none"></i>
-  Settings
+  <i class="fas fa-cog fa-fw mr-2 d-lg-none"></i> Settings
 </button>
 <div *ngIf="!collector.preview" class="dropdown-divider offset-up d-lg-none"></div>
-<div class="btn-group btn-group-toggle" [ngClass]="dropdown ? 'px-4 py-2' : ''" data-toggle="buttons">
+<div class="btn-group btn-group-toggle" [ngClass]="isEmbedded ? 'px-4 py-2' : ''" data-toggle="buttons">
   <button
     type="button"
     data-toggle="button"

@@ -6,7 +6,11 @@ import { CollectorComponent } from '../../../collector/collector.component';
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss']
 })
-export class ButtonsControlsComponent {
+export class ControlsComponent {
   @Input() collector: CollectorComponent;
-  @Input() dropdown: boolean;
+  @Input() mode: 'inline' | 'embedded';
+
+  get isEmbedded(): boolean {
+    return this.mode === 'embedded';
+  }
 }

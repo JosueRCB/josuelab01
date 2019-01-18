@@ -2,37 +2,38 @@
   <div class="row">
     <div class="col-9 col-lg-6 d-flex align-items-center">
       <button
+        #toggle
         type="button"
-        class="btn btn-secondary mr-3 d-lg-none"
-        title="Open the editor"
-        id="editor_button"
+        [ngClass]="isEditorOpen ? 'btn-success' : 'btn-secondary'"
+        class="btn mr-3 d-lg-none"
+        [title]="isEditorOpen ? 'Close the editor' : 'Open the editor'"
         (click)="toggleEditor()"
       >
         Edit
       </button>
       <h1 class="mr-1 mr-md-3 text-truncate" (click)="editor.rename()">{{ collector.name || 'Unnamed' }}</h1>
-      <div class="d-none d-lg-block text-nowrap"><tripetto-buttons-docs [dropdown]=false></tripetto-buttons-docs></div>
+      <div class="d-none d-lg-block text-nowrap"><tripetto-buttons-links [app]="app" mode="inline"></tripetto-buttons-links></div>
     </div>
     <div class="col-3 col-lg-6 d-flex justify-content-end align-items-center">
-      <div class="d-none d-lg-block"><tripetto-buttons-controls [collector]="collector" [dropdown]=false></tripetto-buttons-controls></div>
+      <div class="d-none d-lg-block"><tripetto-buttons-controls [collector]="collector" mode="inline"></tripetto-buttons-controls></div>
       <div class="d-lg-none">
-          <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenu"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-          >
-              <i class="fas fa-cog fa-fw mr-1"></i>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
-              <h6 class="dropdown-header">Demo documentation</h6>
-              <tripetto-buttons-docs [dropdown]=true></tripetto-buttons-docs>
-              <div class="dropdown-divider"></div>
-              <h6 class="dropdown-header">Demo controls</h6>
-              <tripetto-buttons-controls [collector]="collector" [dropdown]=true></tripetto-buttons-controls>
-          </div>
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenu"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="fas fa-cog fa-fw mr-1"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
+          <h6 class="dropdown-header">Demo documentation</h6>
+          <tripetto-buttons-links [app]="app" mode="embedded"></tripetto-buttons-links>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Demo controls</h6>
+          <tripetto-buttons-controls [collector]="collector" mode="embedded"></tripetto-buttons-controls>
+        </div>
       </div>
     </div>
   </div>

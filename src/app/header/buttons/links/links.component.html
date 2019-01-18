@@ -3,7 +3,7 @@
   target="_blank"
   role="button"
   class="btn btn-sm btn-link"
-  [ngClass]="dropdown ? 'dropdown-item' : ''"
+  [ngClass]="isEmbedded ? 'dropdown-item' : ''"
 >
   <i class="fas fa-code pr-2"></i>Get source
 </a>
@@ -12,15 +12,10 @@
   target="_blank"
   role="button"
   class="btn btn-sm btn-link"
-  [ngClass]="dropdown ? 'dropdown-item' : ''"
+  [ngClass]="isEmbedded ? 'dropdown-item' : ''"
 >
   <i class="fas fa-book-reader pr-2"></i>View readme
 </a>
-<a
-  href="#"
-  (click)="app.reset()"
-  role="button"
-  class="btn btn-sm btn-link"
-  [ngClass]="dropdown ? 'dropdown-item' : ''"
->
-  <i class="fas fa-redo pr-2"></i>Reset demo </a>
+<a href="#" (click)="app.reset()" role="button" class="btn btn-sm btn-link" [ngClass]="isEmbedded ? 'dropdown-item' : ''">
+  <i class="fas fa-redo pr-2"></i>Reset demo
+</a>

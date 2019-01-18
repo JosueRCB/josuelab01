@@ -75,6 +75,18 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.editor = undefined;
   }
 
+  show(show: boolean) {
+    const element = this.element.nativeElement as HTMLDivElement | undefined;
+
+    if (element) {
+      if (show) {
+        element.classList.add('show');
+      } else {
+        element.classList.remove('show');
+      }
+    }
+  }
+
   rename() {
     if (this.editor) {
       this.editor.edit();
