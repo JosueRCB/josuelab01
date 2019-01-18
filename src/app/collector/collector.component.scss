@@ -9,6 +9,10 @@
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 
+  @media (max-width: 991px) {
+    left: 0;
+  }
+
   > section {
     padding: 32px;
 
@@ -42,6 +46,12 @@
         margin-top: 16px;
         padding-top: 16px;
         padding-bottom: 16px;
+
+        .pagination {
+          @media (max-width: 767px) {
+            margin-top: 11px;
+          }
+        }
 
         .progress {
           margin-top: 11px;

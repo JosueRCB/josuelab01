@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, ChangeDetectionStrategy, ViewRef } from '@angular/core';
 import { EditorComponent } from '../editor/editor.component';
 import { CollectorComponent } from '../collector/collector.component';
 import { AppComponent } from '../app.component';
@@ -13,6 +13,7 @@ export class HeaderComponent {
   @Input() app: AppComponent;
   @Input() editor: EditorComponent;
   @Input() collector: CollectorComponent;
+  isEditorOpen = false;
 
   constructor(private changeDetector: ChangeDetectorRef) {}
 
@@ -23,5 +24,12 @@ export class HeaderComponent {
    */
   changed() {
     this.changeDetector.detectChanges();
+  }
+
+  /** Toggles the editor to show/hide. */
+  toggleEditor() {
+    this.editor.show((this.isEditorOpen = !this.isEditorOpen));
+
+    this.changed();
   }
 }
