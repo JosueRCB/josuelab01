@@ -43,7 +43,7 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.zone.runOutsideAngular(() => {
       this.editor = Editor.open(this.definition, {
         element: this.element.nativeElement,
-        fonts: '/fonts/',
+        fonts: 'fonts/',
         disableSaveButton: true,
         disableRestoreButton: true,
         disableClearButton: false,
