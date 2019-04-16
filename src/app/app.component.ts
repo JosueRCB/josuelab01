@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     this.editor.definition = JSON.parse(localStorage.getItem(DEFINITION) || 'null') || undefined;
     this.collector.snapshot = JSON.parse(localStorage.getItem(SNAPSHOT) || 'null') || undefined;
 
-    this._http.get('/assets/demo.json').subscribe((demoDefinition: IDefinition) => {
+    this._http.get('assets/demo.json').subscribe((demoDefinition: IDefinition) => {
       this.demoDefinition = demoDefinition;
 
       // If there was no definition found in the local store, use our demo definition.
