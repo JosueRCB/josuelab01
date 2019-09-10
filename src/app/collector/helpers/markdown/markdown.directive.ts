@@ -30,6 +30,7 @@ export class MarkdownDirective implements OnInit, OnDestroy, OnChanges {
     this.element.nativeElement.appendChild(
       markdown.reduce<HTMLElement>((type: MarkdownTypes | undefined, content: string | HTMLElement[], value?: IVariable | string) => {
         let el: HTMLElement;
+        let inner: HTMLElement;
 
         switch (type) {
           case 'bold':
@@ -37,6 +38,12 @@ export class MarkdownDirective implements OnInit, OnDestroy, OnChanges {
             break;
           case 'italic':
             el = document.createElement('i');
+            break;
+          case 'bold+italic':
+            el = document.createElement('b');
+            inner = document.createElement('i');
+
+            el.appendChild(inner);
             break;
           case 'underline':
             el = document.createElement('u');
@@ -75,9 +82,9 @@ export class MarkdownDirective implements OnInit, OnDestroy, OnChanges {
         }
 
         if (typeof content === 'string') {
-          el.textContent = content;
+          (inner || el).textContent = content;
         } else {
-          content.forEach((node: HTMLElement) => el.appendChild(node));
+          content.forEach((node: HTMLElement) => (inner || el).appendChild(node));
         }
 
         return el;

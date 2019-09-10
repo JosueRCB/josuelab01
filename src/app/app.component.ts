@@ -1,5 +1,5 @@
 import { CollectorComponent } from './collector/collector.component';
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { EditorComponent } from './editor/editor.component';
 import { HttpClient } from '@angular/common/http';
 import { IDefinition } from 'tripetto';
@@ -13,14 +13,14 @@ const SNAPSHOT = 'tripetto-example-angular-bootstrap-snapshot';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  @ViewChild('collector') collector: CollectorComponent;
-  @ViewChild('editor') editor: EditorComponent;
+export class AppComponent implements AfterViewInit {
+  @ViewChild('collector', { static: false }) collector: CollectorComponent;
+  @ViewChild('editor', { static: false }) editor: EditorComponent;
   demoDefinition: IDefinition;
 
   constructor(private _http: HttpClient) {}
 
-  ngOnInit() {
+  ngAfterViewInit() {
     // For this demo we use the local store to save the definition and snapshot.
     // Here we try to retrieve that saved data.
     this.editor.definition = JSON.parse(localStorage.getItem(DEFINITION) || 'null') || undefined;
